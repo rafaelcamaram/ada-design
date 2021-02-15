@@ -6,4 +6,6 @@ export default {
   component: Button,
 };
 
-export const Default = (): React.ReactNode => <Button />;
+export const Default = (): React.ReactNode => (
+  <Button onClick={() => alert("teste")} text="Hey" />
+);
