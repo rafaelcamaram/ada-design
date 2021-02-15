@@ -1,2 +1,3 @@
-export { default as Button } from "./Button";
-export { default as HelloWorld } from "./HelloWorld";
+export { default as Button } from "./components/Button";
+export { default as Text } from "./components/Text";
+export { default as View } from "./components/View";
