@@ -1,0 +1,148 @@
+# ADA Design UI
+
+WIP library
+
+## Status: View CSS Properties
+
+- ✅ alignContent
+- ✅ alignItems
+- ✅ alignSelf
+- ✅ background
+- ✅ mixBlendMode
+- ✅ backgroundClip
+- ✅ backgroundColor
+- ✅ backgroundImage
+- ✅ backgroundOrigin
+- ✅ backgroundPosition
+- ✅ backgroundRepeat
+- ✅ backgroundSize
+- border
+- borderBottom
+- borderBottomColor
+- borderBottomLeftRadius
+- borderBottomRightRadius
+- borderBottomStyle
+- borderBottomWidth
+- borderColor
+- borderLeft
+- borderLeftColor
+- borderLeftStyle
+- borderLeftWidth
+- borderRadius
+- borderRight
+- borderRightColor
+- borderRightStyle
+- borderRightWidth
+- borderStyle
+- borderTop
+- borderTopColor
+- borderTopLeftRadius
+- borderTopRightRadius
+- borderTopStyle
+- borderTopWidth
+- borderWidth
+- bottom
+- boxShadow
+- boxSizing - Set to border-box by default.
+- clear
+- color
+- columnGap
+- cursor
+- ✅ display
+- flex
+- flexBasis
+- flexDirection
+- flexFlow
+- flexGrow
+- flexShrink
+- flexWrap
+- float
+- font
+- fontFamily
+- fontSize
+- fontStyle
+- fontVariant
+- fontWeight
+- gap
+- grid
+- gridArea
+- gridAutoColumns
+- gridAutoFlow
+- gridAutoRows
+- gridColumn
+- gridColumnEnd
+- gridColumnGap
+- gridColumnStart
+- gridGap
+- gridRow
+- gridRowEnd
+- gridRowGap
+- gridRowStart
+- gridTemplate
+- gridTemplateAreas
+- gridTemplateColumns
+- gridTemplateRows
+- height
+- justifyContent
+- justifyItems
+- justifySelf
+- left
+- letterSpacing
+- lineHeight
+- listStyle
+- listStyleImage
+- listStylePosition
+- listStyleType
+- margin
+- marginBottom
+- marginLeft
+- marginRight
+- marginTop
+- marginX - Sets marginLeft and marginRight to the same value.
+- marginY - Sets marginTop and marginBottom to the same value.
+- maxHeight
+- maxWidth
+- minHeight
+- minWidth
+- opacity
+- order
+- outline
+- overflow
+- overflowX
+- overflowY
+- padding
+- paddingBottom
+- paddingLeft
+- paddingRight
+- paddingTop
+- paddingX - Sets paddingLeft and paddingRight to the same value.
+- paddingY - Sets paddingTop and paddingBottom to the same value.
+- placeContent
+- placeItems
+- placeSelf
+- pointerEvents
+- position
+- resize
+- right
+- rowGap
+- textAlign
+- textDecoration
+- textOverflow
+- textShadow
+- textTransform
+- top
+- transform
+- transformOrigin
+- transition
+- transitionDelay
+- transitionDuration
+- transitionProperty
+- transitionTimingFunction
+- userSelect
+- verticalAlign
+- visibility
+- whiteSpace
+- width
+- wordBreak
+- wordWrap
+- zIndex
