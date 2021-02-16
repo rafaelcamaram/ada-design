@@ -7,8 +7,12 @@ type Props = {
   as?: any;
 } & ViewElementProps;
 
-const View: React.FC<Props> = ({ as = "div", children }) => {
-  return <ViewElement as={as}>{children}</ViewElement>;
+const View: React.FC<Props> = ({ as = "div", children, ...rest }) => {
+  return (
+    <ViewElement as={as} {...rest}>
+      {children}
+    </ViewElement>
+  );
 };
 
 // align-items doesnt contain auto
