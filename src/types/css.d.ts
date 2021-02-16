@@ -49,6 +49,24 @@ export type FlexDirectionValue =
 
 export type FlexWrapValue = "nowrap" | "wrap" | "wrap-reverse";
 
+export type FontStyleValue = "normal" | "italic" | "oblique";
+
+export type FontVariantValue = "normal" | "small-caps";
+
+export type FontWeightValue =
+  | 100
+  | 200
+  | 300
+  | 400
+  | 500
+  | 600
+  | 700
+  | 800
+  | 900
+  | "normal"
+  | "bold"
+  | "lighter";
+
 export type ViewElementProps = {
   display?: string;
 
@@ -107,4 +125,11 @@ export type ViewElementProps = {
   borderTopRightRadius?: UnitValue;
   borderTopStyle?: BorderStyleValue;
   borderTopWidth?: UnitValue;
+
+  font?: string;
+  fontFamily?: string;
+  fontSize?: UnitValue;
+  fontStyle?: FontStyleValue;
+  fontVariant?: FontVariantValue;
+  fontWeight?: FontWeightValue;
 };

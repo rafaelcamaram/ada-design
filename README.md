@@ -57,12 +57,12 @@ WIP library
 - ✅ flexShrink
 - ✅ flexWrap
 - float
-- font
-- fontFamily
-- fontSize
-- fontStyle
-- fontVariant
-- fontWeight
+- ✅ font
+- ✅ fontFamily
+- ✅ fontSize
+- ✅ fontStyle
+- ✅ fontVariant
+- ✅ fontWeight
 - gap
 - grid
 - gridArea

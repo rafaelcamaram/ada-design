@@ -83,6 +83,13 @@ const ViewElement = styled.div<ViewElementProps>`
   border-top-style: ${({ borderTopStyle }) => borderTopStyle};
   border-top-width: ${({ borderTopWidth }) =>
     borderTopWidth && cssValue(borderTopWidth)};
+
+  font: ${({ font }) => font};
+  font-family: ${({ fontFamily }) => fontFamily};
+  font-size: ${({ fontSize }) => fontSize && cssValue(fontSize)};
+  font-style: ${({ fontStyle }) => fontStyle};
+  font-variant: ${({ fontVariant }) => fontVariant};
+  font-weight: ${({ fontWeight }) => fontWeight};
 `;
 
 export default View;
