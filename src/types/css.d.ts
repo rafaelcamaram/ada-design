@@ -83,6 +83,24 @@ export type TextTransformValue =
   | "uppercase"
   | "lowercase";
 
+export type OverflowValue = "hidden" | "visible" | "scroll" | "auto";
+
+export type CursorValue =
+  | "default"
+  | "auto"
+  | "pointer"
+  | "move"
+  | "crosshair"
+  | "text"
+  | "wait"
+  | "help-resize"
+  | "ne-resize"
+  | "nw-resize"
+  | "n-resize"
+  | "se-resize"
+  | "s-resize"
+  | "w-resize";
+
 export type ViewElementProps = {
   width?: UnitValue;
   height?: UnitValue;
@@ -177,6 +195,9 @@ export type ViewElementProps = {
   textOverflow?: TextOverflowValue;
   textShadow?: string;
   textTransform?: TextTransformValue;
+  color?: string;
+
+  boxShadow?: string;
 
   position?: PositionValue;
   top?: UnitValue;
@@ -184,4 +205,12 @@ export type ViewElementProps = {
   left?: UnitValue;
   right?: UnitValue;
   zIndex?: ZIndexValue;
+
+  overflow?: OverflowValue;
+  overflowX?: OverflowValue;
+  overflowY?: OverflowValue;
+
+  outline?: string;
+  opacity?: number;
+  cursor?: CursorValue;
 };

@@ -128,6 +128,17 @@ const ViewElement = styled.div<ViewElementProps>`
   text-overflow: ${({ textOverflow }) => textOverflow};
   text-shadow: ${({ textShadow }) => textShadow};
   text-transform: ${({ textTransform }) => textTransform};
+  color: ${({ color }) => color};
+
+  box-shadow: ${({ boxShadow }) => boxShadow};
+
+  overflow: ${({ overflow }) => overflow};
+  overflow-x: ${({ overflowX }) => overflowX};
+  overflow-y: ${({ overflowY }) => overflowY};
+
+  outline: ${({ outline }) => outline};
+  opacity: ${({ opacity }) => opacity};
+  cursor: ${({ cursor }) => cursor};
 `;
 
 export default View;

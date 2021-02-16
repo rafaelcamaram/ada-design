@@ -42,12 +42,12 @@ WIP library
 - ✅ borderTopWidth
 - ✅ borderWidth
 - ✅ bottom
-- boxShadow
+- ✅ boxShadow
 - boxSizing - Set to border-box by default.
 - clear
-- color
+- ✅ color
 - columnGap
-- cursor
+- ✅ cursor
 - ✅ display
 - ✅ flex
 - ✅ flexBasis
@@ -104,12 +104,12 @@ WIP library
 - ✅ maxWidth
 - ✅ minHeight
 - ✅ minWidth
-- opacity
+- ✅ opacity
 - order
-- outline
-- overflow
-- overflowX
-- overflowY
+- ✅ outline
+- ✅ overflow
+- ✅ overflowX
+- ✅ overflowY
 - ✅ padding
 - ✅ paddingBottom
 - ✅ paddingLeft
