@@ -19,6 +19,18 @@ const View: React.FC<Props> = ({ as = "div", children, ...rest }) => {
 // align-items doesnt contain auto
 const ViewElement = styled.div<ViewElementProps>`
   display: ${({ display }) => display};
+  flex: ${({ flex }) => flex};
+  flex-flow: ${({ flexFlow }) => flexFlow};
+  flex-basis: ${({ flexBasis }) => flexBasis};
+  flex-direction: ${({ flexDirection }) => flexDirection};
+  flex-grow: ${({ flexGrow }) => flexGrow};
+  flex-shrink: ${({ flexShrink }) => flexShrink};
+  flex-wrap: ${({ flexWrap }) => flexWrap};
+
+  justify-content: ${({ justifyContent }) => justifyContent};
+  justify-items: ${({ justifyItems }) => justifyItems};
+  justify-self: ${({ justifySelf }) => justifySelf};
+
   align-content: ${({ alignContent }) => alignContent};
   align-items: ${({ alignItems }) => alignItems};
   align-self: ${({ alignSelf }) => alignSelf};

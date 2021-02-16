@@ -49,13 +49,13 @@ WIP library
 - columnGap
 - cursor
 - ✅ display
-- flex
-- flexBasis
-- flexDirection
-- flexFlow
-- flexGrow
-- flexShrink
-- flexWrap
+- ✅ flex
+- ✅ flexBasis
+- ✅ flexDirection
+- ✅ flexFlow
+- ✅ flexGrow
+- ✅ flexShrink
+- ✅ flexWrap
 - float
 - font
 - fontFamily
@@ -83,9 +83,9 @@ WIP library
 - gridTemplateColumns
 - gridTemplateRows
 - height
-- justifyContent
-- justifyItems
-- justifySelf
+- ✅ justifyContent
+- ✅ justifyItems
+- ✅ justifySelf
 - left
 - letterSpacing
 - lineHeight
