@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ViewElementProps } from "../../types/css";
+import { cssValue } from "../../utils/styles";
 
 type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -32,6 +33,18 @@ const ViewElement = styled.div<ViewElementProps>`
   background-position: ${({ backgroundPosition }) => backgroundPosition};
   background-repeat: ${({ backgroundRepeat }) => backgroundRepeat};
   background-size: ${({ backgroundSize }) => backgroundSize};
+
+  border: ${({ border }) => border};
+  border-bottom: ${({ borderBottom }) => borderBottom};
+  border-bottom-color: ${({ borderBottomColor }) => borderBottomColor};
+  border-bottom-left-radius: ${({ borderBottomLeftRadius }) =>
+    borderBottomLeftRadius && cssValue(borderBottomLeftRadius)};
+  border-bottom-right-radius: ${({ borderBottomRightRadius }) =>
+    borderBottomRightRadius && cssValue(borderBottomRightRadius)};
+  border-bottom-style: ${({ borderBottomStyle }) => borderBottomStyle};
+  border-bottom-width: ${({ borderBottomWidth }) =>
+    borderBottomWidth && cssValue(borderBottomWidth)};
+  border-color: ${({ borderColor }) => borderColor};
 `;
 
 export default View;

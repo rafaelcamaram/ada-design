@@ -16,14 +16,14 @@ WIP library
 - ✅ backgroundPosition
 - ✅ backgroundRepeat
 - ✅ backgroundSize
-- border
-- borderBottom
-- borderBottomColor
-- borderBottomLeftRadius
-- borderBottomRightRadius
-- borderBottomStyle
-- borderBottomWidth
-- borderColor
+- ✅ border
+- ✅ borderBottom
+- ✅ borderBottomColor
+- ✅ borderBottomLeftRadius
+- ✅ borderBottomRightRadius
+- ✅ borderBottomStyle
+- ✅ borderBottomWidth
+- ✅ borderColor
 - borderLeft
 - borderLeftColor
 - borderLeftStyle

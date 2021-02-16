@@ -1,4 +1,4 @@
-export type FlexDefaultValues =
+export type MainAxisFlexDefault =
   | "flex-start"
   | "flex-end"
   | "center"
@@ -6,7 +6,7 @@ export type FlexDefaultValues =
   | "space-between"
   | "space-around";
 
-export type FlexDefaultValuesTwo =
+export type CrossAxisFlexDefault =
   | "flex-start"
   | "flex-end"
   | "center"
@@ -14,7 +14,7 @@ export type FlexDefaultValuesTwo =
   | "baseline"
   | "stretch";
 
-type BlendMode =
+export type BlendMode =
   | "normal"
   | "multiply"
   | "screen"
@@ -31,11 +31,21 @@ type BlendMode =
   | "color"
   | "luminosity";
 
+export type BorderStyle =
+  | "none"
+  | "dotted"
+  | "dashed"
+  | "solid"
+  | "double"
+  | "groove";
+
+export type UnitValue = string | number;
+
 export type ViewElementProps = {
   display?: string;
-  alignContent?: FlexDefaultValues;
-  alignItems?: FlexDefaultValuesTwo;
-  alignSelf?: FlexDefaultValuesTwo;
+  alignContent?: MainAxisFlexDefault;
+  alignItems?: CrossAxisFlexDefault;
+  alignSelf?: CrossAxisFlexDefault;
   mixBlendMode?: BlendMode;
   background?: string;
   backgroundClip?: "border-box" | "padding-box" | "content-box";
@@ -45,4 +55,12 @@ export type ViewElementProps = {
   backgroundPosition?: string;
   backgroundRepeat?: "repeat" | "repeat-x" | "repeat-y" | "no-repeat";
   backgroundSize?: string;
+  border?: string;
+  borderBottom?: string;
+  borderBottomColor?: string;
+  borderBottomLeftRadius?: UnitValue;
+  borderBottomRightRadius?: UnitValue;
+  borderBottomStyle?: BorderStyle;
+  borderBottomWidth?: UnitValue;
+  borderColor?: string;
 };
