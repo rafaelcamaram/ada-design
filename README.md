@@ -41,7 +41,7 @@ WIP library
 - ✅ borderTopStyle
 - ✅ borderTopWidth
 - ✅ borderWidth
-- bottom
+- ✅ bottom
 - boxShadow
 - boxSizing - Set to border-box by default.
 - clear
@@ -82,55 +82,55 @@ WIP library
 - gridTemplateAreas
 - gridTemplateColumns
 - gridTemplateRows
-- height
+- ✅ height
 - ✅ justifyContent
 - ✅ justifyItems
 - ✅ justifySelf
-- left
+- ✅ left
 - letterSpacing
 - lineHeight
 - listStyle
 - listStyleImage
 - listStylePosition
 - listStyleType
-- margin
-- marginBottom
-- marginLeft
-- marginRight
-- marginTop
-- marginX - Sets marginLeft and marginRight to the same value.
-- marginY - Sets marginTop and marginBottom to the same value.
-- maxHeight
-- maxWidth
-- minHeight
-- minWidth
+- ✅ margin
+- ✅ marginBottom
+- ✅ marginLeft
+- ✅ marginRight
+- ✅ marginTop
+- ✅ marginX - Sets marginLeft and marginRight to the same value.
+- ✅ marginY - Sets marginTop and marginBottom to the same value.
+- ✅ maxHeight
+- ✅ maxWidth
+- ✅ minHeight
+- ✅ minWidth
 - opacity
 - order
 - outline
 - overflow
 - overflowX
 - overflowY
-- padding
-- paddingBottom
-- paddingLeft
-- paddingRight
-- paddingTop
-- paddingX - Sets paddingLeft and paddingRight to the same value.
-- paddingY - Sets paddingTop and paddingBottom to the same value.
+- ✅ padding
+- ✅ paddingBottom
+- ✅ paddingLeft
+- ✅ paddingRight
+- ✅ paddingTop
+- ✅ paddingX - Sets paddingLeft and paddingRight to the same value.
+- ✅ paddingY - Sets paddingTop and paddingBottom to the same value.
 - placeContent
 - placeItems
 - placeSelf
 - pointerEvents
-- position
+- ✅ position
 - resize
-- right
+- ✅ right
 - rowGap
-- textAlign
-- textDecoration
-- textOverflow
-- textShadow
-- textTransform
-- top
+- ✅ textAlign
+- ✅ textDecoration
+- ✅ textOverflow
+- ✅ textShadow
+- ✅ textTransform
+- ✅ top
 - transform
 - transformOrigin
 - transition
@@ -142,7 +142,7 @@ WIP library
 - verticalAlign
 - visibility
 - whiteSpace
-- width
+- ✅ width
 - wordBreak
 - wordWrap
-- zIndex
+- ✅ zIndex

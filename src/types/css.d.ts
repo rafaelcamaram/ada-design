@@ -67,7 +67,47 @@ export type FontWeightValue =
   | "bold"
   | "lighter";
 
+export type PositionValue = "static" | "relative" | "absolute" | "fixed";
+
+export type ZIndexValue = "auto" | number;
+
+export type TextAlignValue = "left" | "right" | "center" | "justify";
+
+export type TextDecorationValue = "none" | "underline";
+
+export type TextOverflowValue = "clip" | "ellipsis";
+
+export type TextTransformValue =
+  | "none"
+  | "capitalize"
+  | "uppercase"
+  | "lowercase";
+
 export type ViewElementProps = {
+  width?: UnitValue;
+  height?: UnitValue;
+
+  maxWidth?: UnitValue;
+  minWidth?: UnitValue;
+  maxHeight?: UnitValue;
+  minHeight?: UnitValue;
+
+  padding?: UnitValue;
+  paddingBottom?: UnitValue;
+  paddingLeft?: UnitValue;
+  paddingRight?: UnitValue;
+  paddingTop?: UnitValue;
+  paddingX?: UnitValue;
+  paddingY?: UnitValue;
+
+  margin?: UnitValue;
+  marginBottom?: UnitValue;
+  marginLeft?: UnitValue;
+  marginRight?: UnitValue;
+  marginTop?: UnitValue;
+  marginX?: UnitValue;
+  marginY?: UnitValue;
+
   display?: string;
 
   flex?: string;
@@ -132,4 +172,16 @@ export type ViewElementProps = {
   fontStyle?: FontStyleValue;
   fontVariant?: FontVariantValue;
   fontWeight?: FontWeightValue;
+  textAlign?: TextAlignValue;
+  textDecoration?: TextDecorationValue;
+  textOverflow?: TextOverflowValue;
+  textShadow?: string;
+  textTransform?: TextTransformValue;
+
+  position?: PositionValue;
+  top?: UnitValue;
+  bottom?: UnitValue;
+  left?: UnitValue;
+  right?: UnitValue;
+  zIndex?: ZIndexValue;
 };

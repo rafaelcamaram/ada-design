@@ -18,6 +18,32 @@ const View: React.FC<Props> = ({ as = "div", children, ...rest }) => {
 
 // align-items doesnt contain auto
 const ViewElement = styled.div<ViewElementProps>`
+  width: ${({ width }) => cssValue(width)};
+  height: ${({ height }) => cssValue(height)};
+
+  max-width: ${({ maxWidth }) => cssValue(maxWidth)};
+  min-width: ${({ minWidth }) => cssValue(minWidth)};
+  max-height: ${({ maxHeight }) => cssValue(maxHeight)};
+  min-height: ${({ minHeight }) => cssValue(minHeight)};
+
+  padding: ${({ padding }) => cssValue(padding)};
+  padding-bottom: ${({ paddingBottom, paddingY }) =>
+    cssValue(paddingY || paddingBottom)};
+  padding-left: ${({ paddingLeft, paddingX }) =>
+    cssValue(paddingX || paddingLeft)};
+  padding-right: ${({ paddingRight, paddingX }) =>
+    cssValue(paddingX || paddingRight)};
+  padding-top: ${({ paddingTop, paddingY }) =>
+    cssValue(paddingY || paddingTop)};
+
+  margin: ${({ margin }) => cssValue(margin)};
+  margin-bottom: ${({ marginBottom, marginY }) =>
+    cssValue(marginY || marginBottom)};
+  margin-left: ${({ marginLeft, marginX }) => cssValue(marginX || marginLeft)};
+  margin-right: ${({ marginRight, marginX }) =>
+    cssValue(marginX || marginRight)};
+  margin-top: ${({ marginTop, marginY }) => cssValue(marginY || marginTop)};
+
   display: ${({ display }) => display};
   flex: ${({ flex }) => flex};
   flex-flow: ${({ flexFlow }) => flexFlow};
@@ -35,6 +61,13 @@ const ViewElement = styled.div<ViewElementProps>`
   align-items: ${({ alignItems }) => alignItems};
   align-self: ${({ alignSelf }) => alignSelf};
 
+  position: ${({ position }) => position};
+  top: ${({ top }) => cssValue(top)};
+  bottom: ${({ bottom }) => cssValue(bottom)};
+  left: ${({ left }) => cssValue(left)};
+  right: ${({ right }) => cssValue(right)};
+  z-index: ${({ zIndex }) => zIndex};
+
   mix-blend-mode: ${({ mixBlendMode }) => mixBlendMode};
 
   background: ${({ background }) => background};
@@ -47,7 +80,7 @@ const ViewElement = styled.div<ViewElementProps>`
   background-size: ${({ backgroundSize }) => backgroundSize};
 
   border: ${({ border }) => border};
-  border-width: ${({ borderWidth }) => borderWidth};
+  border-width: ${({ borderWidth }) => cssValue(borderWidth)};
   border-color: ${({ borderColor }) => borderColor};
   border-radius: ${({ borderRadius }) => borderRadius};
   border-style: ${({ borderStyle }) => borderStyle};
@@ -90,6 +123,11 @@ const ViewElement = styled.div<ViewElementProps>`
   font-style: ${({ fontStyle }) => fontStyle};
   font-variant: ${({ fontVariant }) => fontVariant};
   font-weight: ${({ fontWeight }) => fontWeight};
+  text-align: ${({ textAlign }) => textAlign};
+  text-decoration: ${({ textDecoration }) => textDecoration};
+  text-overflow: ${({ textOverflow }) => textOverflow};
+  text-shadow: ${({ textShadow }) => textShadow};
+  text-transform: ${({ textTransform }) => textTransform};
 `;
 
 export default View;
