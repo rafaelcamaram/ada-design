@@ -24,23 +24,23 @@ WIP library
 - ✅ borderBottomStyle
 - ✅ borderBottomWidth
 - ✅ borderColor
-- borderLeft
-- borderLeftColor
-- borderLeftStyle
-- borderLeftWidth
-- borderRadius
-- borderRight
-- borderRightColor
-- borderRightStyle
-- borderRightWidth
-- borderStyle
-- borderTop
-- borderTopColor
-- borderTopLeftRadius
-- borderTopRightRadius
-- borderTopStyle
-- borderTopWidth
-- borderWidth
+- ✅ borderLeft
+- ✅ borderLeftColor
+- ✅ borderLeftStyle
+- ✅ borderLeftWidth
+- ✅ borderRadius
+- ✅ borderRight
+- ✅ borderRightColor
+- ✅ borderRightStyle
+- ✅ borderRightWidth
+- ✅ borderStyle
+- ✅ borderTop
+- ✅ borderTopColor
+- ✅ borderTopLeftRadius
+- ✅ borderTopRightRadius
+- ✅ borderTopStyle
+- ✅ borderTopWidth
+- ✅ borderWidth
 - bottom
 - boxShadow
 - boxSizing - Set to border-box by default.

@@ -35,6 +35,11 @@ const ViewElement = styled.div<ViewElementProps>`
   background-size: ${({ backgroundSize }) => backgroundSize};
 
   border: ${({ border }) => border};
+  border-width: ${({ borderWidth }) => borderWidth};
+  border-color: ${({ borderColor }) => borderColor};
+  border-radius: ${({ borderRadius }) => borderRadius};
+  border-style: ${({ borderStyle }) => borderStyle};
+
   border-bottom: ${({ borderBottom }) => borderBottom};
   border-bottom-color: ${({ borderBottomColor }) => borderBottomColor};
   border-bottom-left-radius: ${({ borderBottomLeftRadius }) =>
@@ -44,7 +49,28 @@ const ViewElement = styled.div<ViewElementProps>`
   border-bottom-style: ${({ borderBottomStyle }) => borderBottomStyle};
   border-bottom-width: ${({ borderBottomWidth }) =>
     borderBottomWidth && cssValue(borderBottomWidth)};
-  border-color: ${({ borderColor }) => borderColor};
+
+  border-left: ${({ borderLeft }) => borderLeft};
+  border-left-color: ${({ borderLeftColor }) => borderLeftColor};
+  border-left-style: ${({ borderLeftStyle }) => borderLeftStyle};
+  border-left-width: ${({ borderLeftWidth }) =>
+    borderLeftWidth && cssValue(borderLeftWidth)};
+
+  border-right: ${({ borderRight }) => borderRight};
+  border-right-color: ${({ borderRightColor }) => borderRightColor};
+  border-right-style: ${({ borderRightStyle }) => borderRightStyle};
+  border-right-width: ${({ borderRightWidth }) =>
+    borderRightWidth && cssValue(borderRightWidth)};
+
+  border-top: ${({ borderTop }) => borderTop};
+  border-top-color: ${({ borderTopColor }) => borderTopColor};
+  border-top-left-radius: ${({ borderTopLeftRadius }) =>
+    borderTopLeftRadius && cssValue(borderTopLeftRadius)};
+  border-top-right-radius: ${({ borderTopRightRadius }) =>
+    borderTopRightRadius && cssValue(borderTopRightRadius)};
+  border-top-style: ${({ borderTopStyle }) => borderTopStyle};
+  border-top-width: ${({ borderTopWidth }) =>
+    borderTopWidth && cssValue(borderTopWidth)};
 `;
 
 export default View;

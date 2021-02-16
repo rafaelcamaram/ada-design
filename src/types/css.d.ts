@@ -47,6 +47,7 @@ export type ViewElementProps = {
   alignItems?: CrossAxisFlexDefault;
   alignSelf?: CrossAxisFlexDefault;
   mixBlendMode?: BlendMode;
+
   background?: string;
   backgroundClip?: "border-box" | "padding-box" | "content-box";
   backgroundColor?: string;
@@ -55,12 +56,34 @@ export type ViewElementProps = {
   backgroundPosition?: string;
   backgroundRepeat?: "repeat" | "repeat-x" | "repeat-y" | "no-repeat";
   backgroundSize?: string;
+
   border?: string;
+  borderWidth?: UnitValue;
+  borderColor?: string;
+  borderRadius?: UnitValue;
+  borderStyle?: BorderStyle;
+
   borderBottom?: string;
   borderBottomColor?: string;
   borderBottomLeftRadius?: UnitValue;
   borderBottomRightRadius?: UnitValue;
   borderBottomStyle?: BorderStyle;
   borderBottomWidth?: UnitValue;
-  borderColor?: string;
+
+  borderLeft?: string;
+  borderLeftColor?: string;
+  borderLeftStyle?: BorderStyle;
+  borderLeftWidth?: UnitValue;
+
+  borderRight?: string;
+  borderRightColor?: string;
+  borderRightStyle?: BorderStyle;
+  borderRightWidth?: UnitValue;
+
+  borderTop?: string;
+  borderTopColor?: string;
+  borderTopLeftRadius?: UnitValue;
+  borderTopRightRadius?: UnitValue;
+  borderTopStyle?: BorderStyle;
+  borderTopWidth?: UnitValue;
 };
