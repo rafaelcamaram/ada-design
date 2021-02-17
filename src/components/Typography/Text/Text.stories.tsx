@@ -1,5 +1,5 @@
 import React from "react";
-import Text from "./Text";
+import Text from "./";
 
 export default {
   title: "Text",
@@ -8,6 +8,7 @@ export default {
 
 export const Default = (): React.ReactNode => (
   <>
+    <Text>Paragraph</Text>
     <Text as="p">Paragraph</Text>
     <Text as="span">Span</Text>
     <Text as="h1">Heading 1</Text>
