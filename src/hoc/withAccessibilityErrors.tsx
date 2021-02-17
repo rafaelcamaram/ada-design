@@ -19,8 +19,6 @@ const validateTextInput = (props) => {
 
   return {
     hasError: true,
-    border: DEFAULT_ERROR_BORDER,
-    position: DEFAULT_ERROR_POSITION,
     error:
       "Property 'labelledBy' or 'label' are missing in the TextInput component",
   };
@@ -34,7 +32,7 @@ const withAccessibilityErrors = <T,>(Component, componentType: string) => {
       return <Component {...props} />;
     }
 
-    const { error, border, position, hasError } = useMemo(() => {
+    const { error, hasError } = useMemo(() => {
       switch (componentType) {
         case "TextInput":
           return validateTextInput(props);
@@ -48,7 +46,11 @@ const withAccessibilityErrors = <T,>(Component, componentType: string) => {
     }
 
     return (
-      <View border={border} position={position as PositionValue}>
+      <View
+        width="fit-content"
+        border={DEFAULT_ERROR_BORDER}
+        position={DEFAULT_ERROR_POSITION}
+      >
         <AccessibilityPopoverError>
           <View
             backgroundColor="red"
