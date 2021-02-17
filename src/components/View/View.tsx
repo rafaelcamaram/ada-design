@@ -86,7 +86,7 @@ const ViewElement = styled.div<ViewElementProps>`
   border: ${({ border }) => border};
   border-width: ${({ borderWidth }) => cssValue(borderWidth)};
   border-color: ${({ borderColor }) => borderColor};
-  border-radius: ${({ borderRadius }) => borderRadius};
+  border-radius: ${({ borderRadius }) => cssValue(borderRadius)};
   border-style: ${({ borderStyle }) => borderStyle};
 
   border-bottom: ${({ borderBottom }) => borderBottom};

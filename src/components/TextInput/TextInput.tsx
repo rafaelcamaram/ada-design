@@ -2,33 +2,40 @@ import React from "react";
 
 import Text from "../Typography/Text";
 import Label from "../Typography/Label";
+import withAccessibilityErrors from "../../hoc/withAccessibilityErrors";
 
 export type Props = {
   id: string;
-  label: string;
+  label?: string;
   placeholder?: string;
-  shouldHideLabel?: boolean;
-  shouldVisuallyHideLabel?: boolean;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  shouldHideLabel?: boolean;
+  shouldVisuallyHideLabel?: boolean;
+  labelledBy?: string;
 };
 
 const TextInput: React.FC<Props> = ({
   id,
-  label,
-  shouldHideLabel = false,
-  shouldVisuallyHideLabel = false,
   placeholder,
   value,
   onChange,
+  label,
+  shouldHideLabel = false,
+  shouldVisuallyHideLabel = false,
+  labelledBy,
 }: Props) => {
+  const hiddingLabel = (labelledBy || label) && shouldHideLabel;
+  const shouldUseAriaLabel = hiddingLabel && !labelledBy;
+  const shouldUseAriaLabelledBy = hiddingLabel && labelledBy;
+
   return (
     <>
       <Label
         as="label"
         htmlFor={id}
         shouldVisuallyHideLabel={label && shouldVisuallyHideLabel}
-        shouldHideLabel={label && shouldHideLabel}
+        shouldHideLabel={hiddingLabel}
       >
         {label}
       </Label>
@@ -38,9 +45,11 @@ const TextInput: React.FC<Props> = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        aria-labelledby={shouldUseAriaLabelledBy ? labelledBy : undefined}
+        aria-label={shouldUseAriaLabel ? label : undefined}
       />
     </>
   );
 };
 
-export default TextInput;
+export default withAccessibilityErrors<Props>(TextInput, "TextInput");
