@@ -51,6 +51,26 @@ export const WithControlledValue = (): React.ReactNode => {
   );
 };
 
+export const WithoutVisualLabel = (): React.ReactNode => {
+  const [value, setValue] = useState("");
+
+  return (
+    <View display="flex" flexDirection="column" alignItems="flex-start">
+      <TextInput
+        id="WithControlledValue"
+        shouldVisuallyHideLabel
+        label="First Name"
+        placeholder="Enter your first name"
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      />
+      <Text marginTop={15}>The current value is: {value}</Text>
+    </View>
+  );
+};
+
 export const WithoutLabel = (): React.ReactNode => {
   const [value, setValue] = useState("");
 

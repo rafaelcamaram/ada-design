@@ -8,6 +8,7 @@ export type Props = {
   label: string;
   placeholder?: string;
   shouldHideLabel?: boolean;
+  shouldVisuallyHideLabel?: boolean;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -16,6 +17,7 @@ const TextInput: React.FC<Props> = ({
   id,
   label,
   shouldHideLabel = false,
+  shouldVisuallyHideLabel = false,
   placeholder,
   value,
   onChange,
@@ -25,7 +27,8 @@ const TextInput: React.FC<Props> = ({
       <Label
         as="label"
         htmlFor={id}
-        shouldHideLabel={!label || shouldHideLabel}
+        shouldVisuallyHideLabel={label && shouldVisuallyHideLabel}
+        shouldHideLabel={label && shouldHideLabel}
       >
         {label}
       </Label>

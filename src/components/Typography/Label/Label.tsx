@@ -4,13 +4,14 @@ import { ViewElementProps } from "../../../types/css";
 import View from "../../View";
 
 export type Props = {
+  shouldVisuallyHideLabel?: boolean;
   shouldHideLabel?: boolean;
   htmlFor?: string;
 } & ViewElementProps;
 
 const Label = styled(View)<Props>`
-  ${({ shouldHideLabel }) =>
-    shouldHideLabel &&
+  ${({ shouldVisuallyHideLabel }) =>
+    shouldVisuallyHideLabel &&
     css`
       clip: rect(1px, 1px, 1px, 1px);
       clip-path: inset(50%);
@@ -20,6 +21,12 @@ const Label = styled(View)<Props>`
       overflow: hidden;
       padding: 0;
       position: absolute;
+    `}
+
+  ${({ shouldHideLabel }) =>
+    shouldHideLabel &&
+    css`
+      display: none;
     `}
 `;
 
