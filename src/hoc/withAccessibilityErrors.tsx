@@ -3,6 +3,7 @@ import styled from "styled-components";
 import View from "../components/View";
 import Text from "../components/Typography/Text";
 import { PositionValue } from "../types/css";
+import isDev from "../utils/isDev";
 
 const DEFAULT_ERROR_BORDER = "1px dashed red";
 const DEFAULT_ERROR_POSITION = "relative";
@@ -29,10 +30,7 @@ const validateTextInput = (props) => {
 const withAccessibilityErrors = <T,>(Component, componentType: string) => {
   // eslint-disable-next-line
   return (props: T) => {
-    const isDev =
-      !process.env.NODE_ENV || process.env.NODE_ENV === "development";
-
-    if (!isDev) {
+    if (!isDev()) {
       return <Component {...props} />;
     }
 
