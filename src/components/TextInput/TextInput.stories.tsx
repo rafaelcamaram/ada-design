@@ -10,7 +10,9 @@ export default {
 
 export const Default = (): React.ReactNode => (
   <TextInput
-    placeholder="Default Text Input"
+    id="DefaultInput"
+    label="First Name"
+    placeholder="Enter your first name"
     value=""
     onChange={() => {
       console.log("Updated");
@@ -20,8 +22,10 @@ export const Default = (): React.ReactNode => (
 
 export const WithFixedValue = (): React.ReactNode => (
   <TextInput
-    placeholder="Default Text Input"
-    value="Fixed Value"
+    id="DefaultTextInput"
+    label="First Name"
+    placeholder="First Name Fixed Value"
+    value="First Name Fixed Value"
     onChange={() => {
       console.log("Updated");
     }}
@@ -34,7 +38,29 @@ export const WithControlledValue = (): React.ReactNode => {
   return (
     <View display="flex" flexDirection="column" alignItems="flex-start">
       <TextInput
-        placeholder="With Controlled Value"
+        id="WithControlledValue"
+        label="First Name"
+        placeholder="Enter your first name"
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      />
+      <Text marginTop={15}>The current value is: {value}</Text>
+    </View>
+  );
+};
+
+export const WithoutLabel = (): React.ReactNode => {
+  const [value, setValue] = useState("");
+
+  return (
+    <View display="flex" flexDirection="column" alignItems="flex-start">
+      <TextInput
+        id="WithControlledValue"
+        shouldHideLabel
+        label="First Name"
+        placeholder="Enter your first name"
         value={value}
         onChange={(e) => {
           setValue(e.target.value);

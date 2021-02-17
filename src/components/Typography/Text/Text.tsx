@@ -3,6 +3,7 @@ import { ViewElementProps } from "../../../types/css";
 import View from "../../View";
 
 type Props = {
+  id?: string;
   as?: string;
   children?: ReactNode;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
