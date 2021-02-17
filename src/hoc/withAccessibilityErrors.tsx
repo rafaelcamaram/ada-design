@@ -29,6 +29,13 @@ const validateTextInput = (props) => {
 const withAccessibilityErrors = <T,>(Component, componentType: string) => {
   // eslint-disable-next-line
   return (props: T) => {
+    const isDev =
+      !process.env.NODE_ENV || process.env.NODE_ENV === "development";
+
+    if (!isDev) {
+      return <Component {...props} />;
+    }
+
     const { error, border, position, hasError } = useMemo(() => {
       switch (componentType) {
         case "TextInput":
