@@ -43,8 +43,8 @@ WIP library
 - ✅ borderWidth
 - ✅ bottom
 - ✅ boxShadow
-- boxSizing - Set to border-box by default.
-- clear
+- ✅ boxSizing - Set to border-box by default.
+- ✅ clear
 - ✅ color
 - columnGap
 - ✅ cursor
@@ -56,7 +56,7 @@ WIP library
 - ✅ flexGrow
 - ✅ flexShrink
 - ✅ flexWrap
-- float
+- ✅ float
 - ✅ font
 - ✅ fontFamily
 - ✅ fontSize
@@ -87,8 +87,8 @@ WIP library
 - ✅ justifyItems
 - ✅ justifySelf
 - ✅ left
-- letterSpacing
-- lineHeight
+- ✅ letterSpacing
+- ✅ lineHeight
 - listStyle
 - listStyleImage
 - listStylePosition
@@ -105,7 +105,7 @@ WIP library
 - ✅ minHeight
 - ✅ minWidth
 - ✅ opacity
-- order
+- ✅ order
 - ✅ outline
 - ✅ overflow
 - ✅ overflowX
@@ -131,18 +131,18 @@ WIP library
 - ✅ textShadow
 - ✅ textTransform
 - ✅ top
-- transform
-- transformOrigin
-- transition
-- transitionDelay
-- transitionDuration
-- transitionProperty
-- transitionTimingFunction
+- ✅ transform
+- ✅ transformOrigin
+- ✅ transition
+- ✅ transitionDelay
+- ✅ transitionDuration
+- ✅ transitionProperty
+- ✅ transitionTimingFunction
 - userSelect
 - verticalAlign
-- visibility
-- whiteSpace
+- ✅ visibility
+- ✅ whiteSpace
 - ✅ width
 - wordBreak
-- wordWrap
+- ✅ wordWrap
 - ✅ zIndex

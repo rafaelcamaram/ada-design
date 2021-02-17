@@ -101,6 +101,38 @@ export type CursorValue =
   | "s-resize"
   | "w-resize";
 
+export type BoxSizingValue = "content-box" | "border-box";
+
+export type ClearValue = "none" | "left" | "right" | "both";
+
+export type FloatValue = "none" | "left" | "right";
+
+export type TransitionTimingFunctionValue =
+  | "ease"
+  | "ease-in"
+  | "ease-out"
+  | "ease-in-out"
+  | "linear"
+  | "step-start"
+  | "step-end"
+  | string;
+
+export type VisibilityValue =
+  | "visible"
+  | "hidden"
+  | "collapse"
+  | "initial"
+  | "inherit";
+
+export type WordWrapValue = "normal" | "break-word" | "initial" | "inherit";
+
+export type WhiiteSpaceValue =
+  | "normal"
+  | "nowrap"
+  | "pre"
+  | "pre-wrap"
+  | "pre-line";
+
 export type ViewElementProps = {
   width?: UnitValue;
   height?: UnitValue;
@@ -126,7 +158,10 @@ export type ViewElementProps = {
   marginX?: UnitValue;
   marginY?: UnitValue;
 
+  boxSizing?: BoxSizingValue;
   display?: string;
+  clear?: ClearValue;
+  float?: FloatValue;
 
   flex?: string;
   flexFlow?: string;
@@ -196,6 +231,10 @@ export type ViewElementProps = {
   textShadow?: string;
   textTransform?: TextTransformValue;
   color?: string;
+  letterSpacing?: "normal" | string;
+  lineHeight?: "normal" | string;
+  wordWrap?: WordWrapValue;
+  whiteSpace?: WhiiteSpaceValue;
 
   boxShadow?: string;
 
@@ -206,11 +245,22 @@ export type ViewElementProps = {
   right?: UnitValue;
   zIndex?: ZIndexValue;
 
+  transform?: "none" | string;
+  transformOrigin?: string;
+
+  transition?: string;
+  transitionDelay?: string;
+  transitionDuration?: string;
+  transitionProperty?: string;
+  transitionTimingFunction?: TransitionTimingFunctionValue;
+
   overflow?: OverflowValue;
   overflowX?: OverflowValue;
   overflowY?: OverflowValue;
 
+  visibility?: VisibilityValue;
   outline?: string;
   opacity?: number;
   cursor?: CursorValue;
+  order?: number;
 };

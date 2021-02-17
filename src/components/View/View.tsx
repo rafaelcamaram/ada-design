@@ -16,7 +16,7 @@ const View: React.FC<Props> = ({ as = "div", children, ...rest }) => {
   );
 };
 
-// align-items doesnt contain auto
+// TODO: align-items doesnt contain auto
 const ViewElement = styled.div<ViewElementProps>`
   width: ${({ width }) => cssValue(width)};
   height: ${({ height }) => cssValue(height)};
@@ -43,6 +43,10 @@ const ViewElement = styled.div<ViewElementProps>`
   margin-right: ${({ marginRight, marginX }) =>
     cssValue(marginX || marginRight)};
   margin-top: ${({ marginTop, marginY }) => cssValue(marginY || marginTop)};
+
+  box-sizing: ${({ boxSizing }) => boxSizing};
+  clear: ${({ clear }) => clear};
+  float: ${({ float }) => float};
 
   display: ${({ display }) => display};
   flex: ${({ flex }) => flex};
@@ -129,13 +133,26 @@ const ViewElement = styled.div<ViewElementProps>`
   text-shadow: ${({ textShadow }) => textShadow};
   text-transform: ${({ textTransform }) => textTransform};
   color: ${({ color }) => color};
+  letter-spacing: ${({ letterSpacing }) => cssValue(letterSpacing)};
+  line-height: ${({ lineHeight }) => cssValue(lineHeight)};
 
   box-shadow: ${({ boxShadow }) => boxShadow};
 
+  transform: ${({ transform }) => transform};
+  transform-origin: ${({ transformOrigin }) => transformOrigin};
+
+  transition: ${({ transition }) => transition};
+  transition-delay: ${({ transitionDelay }) => transitionDelay};
+  transition-duration: ${({ transitionDuration }) => transitionDuration};
+  transition-property: ${({ transitionProperty }) => transitionProperty};
+  transition-timing-function: ${({ transitionTimingFunction }) =>
+    transitionTimingFunction};
   overflow: ${({ overflow }) => overflow};
   overflow-x: ${({ overflowX }) => overflowX};
   overflow-y: ${({ overflowY }) => overflowY};
 
+  visibility: ${({ visibility }) => visibility};
+  order: ${({ order }) => order};
   outline: ${({ outline }) => outline};
   opacity: ${({ opacity }) => opacity};
   cursor: ${({ cursor }) => cursor};
