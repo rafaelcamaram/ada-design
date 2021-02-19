@@ -5,7 +5,6 @@ import View from "../../View";
 
 export type Props = {
   shouldVisuallyHideLabel?: boolean;
-  shouldHideLabel?: boolean;
   htmlFor?: string;
 } & ViewElementProps;
 
@@ -21,12 +20,6 @@ const Label = styled(View)<Props>`
       overflow: hidden;
       padding: 0;
       position: absolute;
-    `}
-
-  ${({ shouldHideLabel }) =>
-    shouldHideLabel &&
-    css`
-      display: none;
     `}
 `;
 

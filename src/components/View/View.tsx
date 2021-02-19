@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import { ViewElementProps } from "../../types/css";
 import { cssValue } from "../../utils/styles";
@@ -158,4 +158,4 @@ const ViewElement = styled.div<ViewElementProps>`
   cursor: ${({ cursor }) => cursor};
 `;
 
-export default View;
+export default memo(View);

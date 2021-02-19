@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type MainAxisFlexDefaultValue =
   | "flex-start"
   | "flex-end"
@@ -133,7 +135,13 @@ export type WhiiteSpaceValue =
   | "pre-wrap"
   | "pre-line";
 
+export type LineHeightValue = "normal" | string;
+
+export type LetterSpacingValue = "normal" | string;
+
 export type ViewElementProps = {
+  children?: ReactNode;
+
   width?: UnitValue;
   height?: UnitValue;
 
@@ -231,8 +239,8 @@ export type ViewElementProps = {
   textShadow?: string;
   textTransform?: TextTransformValue;
   color?: string;
-  letterSpacing?: "normal" | string;
-  lineHeight?: "normal" | string;
+  letterSpacing?: LetterSpacingValue;
+  lineHeight?: LineHeightValue;
   wordWrap?: WordWrapValue;
   whiteSpace?: WhiiteSpaceValue;
 

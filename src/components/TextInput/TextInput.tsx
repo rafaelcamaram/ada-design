@@ -31,14 +31,15 @@ const TextInput: React.FC<Props> = ({
 
   return (
     <>
-      <Label
-        as="label"
-        htmlFor={id}
-        shouldVisuallyHideLabel={label && shouldVisuallyHideLabel}
-        shouldHideLabel={hiddingLabel}
-      >
-        {label}
-      </Label>
+      {!hiddingLabel && (
+        <Label
+          as="label"
+          htmlFor={id}
+          shouldVisuallyHideLabel={label && shouldVisuallyHideLabel}
+        >
+          {label}
+        </Label>
+      )}
       <Text
         id={id}
         as="input"

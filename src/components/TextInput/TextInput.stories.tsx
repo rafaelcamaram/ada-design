@@ -8,31 +8,7 @@ export default {
   component: TextInput,
 };
 
-export const Default = (): React.ReactNode => (
-  <TextInput
-    id="DefaultInput"
-    label="First Name"
-    placeholder="Enter your first name"
-    value=""
-    onChange={() => {
-      console.log("Updated");
-    }}
-  />
-);
-
-export const WithFixedValue = (): React.ReactNode => (
-  <TextInput
-    id="DefaultTextInput"
-    label="First Name"
-    placeholder="First Name Fixed Value"
-    value="First Name Fixed Value"
-    onChange={() => {
-      console.log("Updated");
-    }}
-  />
-);
-
-export const WithControlledValue = (): React.ReactNode => {
+export const Default = (): React.ReactNode => {
   const [value, setValue] = useState("");
 
   return (
