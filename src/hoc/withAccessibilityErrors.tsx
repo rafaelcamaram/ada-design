@@ -2,7 +2,6 @@ import React, { useMemo } from "react";
 import styled from "styled-components";
 import View from "../components/View";
 import Text from "../components/Typography/Text";
-import { PositionValue } from "../types/css";
 import isDev from "../utils/isDev";
 
 const DEFAULT_ERROR_BORDER = "1px dashed red";
