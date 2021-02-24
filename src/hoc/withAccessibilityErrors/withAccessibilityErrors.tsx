@@ -1,28 +1,19 @@
 import React, { useMemo } from "react";
 import styled from "styled-components";
-import View from "../components/View";
-import Text from "../components/Typography/Text";
-import isDev from "../utils/isDev";
+import View from "../../components/View";
+import Text from "../../components/Typography/Text";
+import { Props as TextInputProps } from "../../components/TextInput/TextInput";
+
+import isDev from "../../utils/isDev";
+import validateTextInput from "./validateTextInput";
 
 const DEFAULT_ERROR_BORDER = "1px dashed red";
 const DEFAULT_ERROR_POSITION = "relative";
 
-const validateTextInput = (props) => {
-  const shouldDisplayError = !props.labelledBy && !props.label;
-
-  if (!shouldDisplayError) {
-    return {
-      hasError: false,
-    };
-  }
-
-  return {
-    hasError: true,
-    error:
-      "Property 'labelledBy' or 'label' are missing in the TextInput component",
-  };
+const VALIDATIONS = {
+  TextInput: (validationProps) =>
+    validateTextInput(validationProps as TextInputProps),
 };
-
 // eslint-disable-next-line
 const withAccessibilityErrors = <T,>(Component, componentType: string) => {
   // eslint-disable-next-line
@@ -32,12 +23,10 @@ const withAccessibilityErrors = <T,>(Component, componentType: string) => {
     }
 
     const { error, hasError } = useMemo(() => {
-      switch (componentType) {
-        case "TextInput":
-          return validateTextInput(props);
-        default:
-          break;
-      }
+      const validationProps = props as unknown;
+      const validation = VALIDATIONS[componentType];
+
+      return validation ? validation(validationProps) : {};
     }, [componentType, props]);
 
     if (!hasError) {

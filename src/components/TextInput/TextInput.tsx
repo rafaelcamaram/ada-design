@@ -6,6 +6,7 @@ import withAccessibilityErrors from "../../hoc/withAccessibilityErrors";
 
 export type Props = {
   id: string;
+  isRequired?: boolean;
   label?: string;
   placeholder?: string;
   value: string;
@@ -17,6 +18,7 @@ export type Props = {
 
 const TextInput: React.FC<Props> = ({
   id,
+  isRequired,
   placeholder,
   value,
   onChange,
@@ -37,7 +39,7 @@ const TextInput: React.FC<Props> = ({
           htmlFor={id}
           shouldVisuallyHideLabel={label && shouldVisuallyHideLabel}
         >
-          {label}
+          {label} {isRequired && "*"}
         </Label>
       )}
       <Text
@@ -46,6 +48,7 @@ const TextInput: React.FC<Props> = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        aria-required={isRequired && true}
         aria-labelledby={shouldUseAriaLabelledBy ? labelledBy : undefined}
         aria-label={shouldUseAriaLabel ? label : undefined}
       />

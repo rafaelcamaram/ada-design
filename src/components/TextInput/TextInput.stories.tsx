@@ -27,6 +27,26 @@ export const Default = (): React.ReactNode => {
   );
 };
 
+export const Required = (): React.ReactNode => {
+  const [value, setValue] = useState("");
+
+  return (
+    <View display="flex" flexDirection="column" alignItems="flex-start">
+      <TextInput
+        id="WithControlledValue"
+        isRequired
+        label="First Name"
+        placeholder="Enter your first name"
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      />
+      <Text marginTop={15}>The current value is: {value}</Text>
+    </View>
+  );
+};
+
 export const WithNoVisualLabel = (): React.ReactNode => {
   const [value, setValue] = useState("");
 
