@@ -9,13 +9,16 @@ type Field = {
   placeholder?: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  shouldHideLabel?: boolean;
+  shouldVisuallyHideLabel?: boolean;
+  labelledBy?: string;
 };
 
 type Props = {
   schema: FormSchema;
 };
 
-type FormSchema = Field[];
+export type FormSchema = Field[];
 
 const Form: React.FC<Props> = ({ schema }) => {
   if (!schema || schema.length === 0) return;
@@ -23,16 +26,7 @@ const Form: React.FC<Props> = ({ schema }) => {
   return (
     <>
       {schema.map((field: Field, index) => {
-        return (
-          <TextInput
-            key={index}
-            id={field.id}
-            value="23"
-            onChange={() => {
-              console.log("");
-            }}
-          />
-        );
+        return <TextInput key={index} {...field} />;
       })}
     </>
   );

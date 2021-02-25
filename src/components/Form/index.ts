@@ -1,3 +1,5 @@
-import Form from "./Form";
+import Form, { FormSchema } from "./Form";
+
+export type { FormSchema };
 
 export default Form;

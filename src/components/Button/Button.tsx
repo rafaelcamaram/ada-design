@@ -1,4 +1,5 @@
 import React, { MouseEventHandler } from "react";
+import View from "../View";
 
 type Props = {
   onClick: MouseEventHandler;
@@ -6,7 +7,11 @@ type Props = {
 };
 
 const Button: React.FC<Props> = ({ text, onClick }: Props) => {
-  return <button onClick={onClick}>{text}</button>;
+  return (
+    <View as="button" onClick={onClick}>
+      {text}
+    </View>
+  );
 };
 
 export default Button;

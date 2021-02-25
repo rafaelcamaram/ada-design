@@ -2,7 +2,7 @@ import React from "react";
 import View from "./View";
 
 export default {
-  title: "View",
+  title: "Core/View",
   component: View,
 };
 

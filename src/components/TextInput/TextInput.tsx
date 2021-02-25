@@ -3,6 +3,7 @@ import React from "react";
 import Text from "../Typography/Text";
 import Label from "../Typography/Label";
 import withAccessibilityErrors from "../../hoc/withAccessibilityErrors";
+import View from "../View";
 
 export type Props = {
   id: string;
@@ -32,10 +33,10 @@ const TextInput: React.FC<Props> = ({
   const shouldUseAriaLabelledBy = hiddingLabel && labelledBy;
 
   return (
-    <>
+    <View display="flex" flexDirection="column" alignItems="flex-start">
       {!hiddingLabel && (
         <Label
-          as="label"
+          forwardedAs="label"
           htmlFor={id}
           shouldVisuallyHideLabel={label && shouldVisuallyHideLabel}
         >
@@ -52,7 +53,7 @@ const TextInput: React.FC<Props> = ({
         aria-labelledby={shouldUseAriaLabelledBy ? labelledBy : undefined}
         aria-label={shouldUseAriaLabel ? label : undefined}
       />
-    </>
+    </View>
   );
 };
 

@@ -1,14 +1,14 @@
 import styled, { css } from "styled-components";
 import { ViewElementProps } from "../../../types/css";
 
-import View from "../../View";
+import Text from "../../Typography/Text";
 
 export type Props = {
   shouldVisuallyHideLabel?: boolean;
   htmlFor?: string;
 } & ViewElementProps;
 
-const Label = styled(View)<Props>`
+const Label = styled(Text)<Props>`
   ${({ shouldVisuallyHideLabel }) =>
     shouldVisuallyHideLabel &&
     css`

@@ -4,7 +4,7 @@ import Text from "../Typography/Text";
 import View from "../View";
 
 export default {
-  title: "TextInput",
+  title: "Forms/TextInput",
   component: TextInput,
 };
 

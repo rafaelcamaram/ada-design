@@ -6,6 +6,8 @@ import { cssValue } from "../../utils/styles";
 type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   as?: any;
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  onClick?: Function;
 } & ViewElementProps;
 
 const View: React.FC<Props> = ({ as = "div", children, ...rest }) => {
