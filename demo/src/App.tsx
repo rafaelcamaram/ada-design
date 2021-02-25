@@ -1,43 +1,38 @@
 import React from "react";
-import { Form, Button } from "ada-design";
+import { Form, FormSchema } from "ada-design";
 function App() {
-  const schema = [
+  const schema: FormSchema = [
     {
       id: "firstName",
       label: "First Name",
-      isRequired: false,
-      placeholder: "Enter your name",
-      value: "",
-      onChange: () => {
-        console.log("Hello there");
-      },
+      type: "string",
+      isRequired: true,
+      placeholder: "Example: John",
     },
     {
       id: "lastName",
       label: "Last Name",
       isRequired: false,
-      placeholder: "Enter your last name",
-      value: "",
-      onChange: () => {
-        console.log("Hello there");
-      },
-    },
-    {
-      id: "lastName",
-      label: "Last Name",
-      isRequired: false,
-      placeholder: "Enter your last name",
-      value: "",
-      onChange: () => {
-        console.log("Hello there");
-      },
+      placeholder: "Example: Doe",
     },
   ];
 
   return (
     <div className="App">
-      <Button onClick={() => {}} text="Hero"></Button>
-      <Form schema={schema} />
+      <Form
+        schema={schema}
+        onSubmit={(values: any) => {
+          alert("Done");
+          console.log({ values });
+        }}
+      />
+      {/* <form>
+        <label>First Name</label>
+        <input placeholder="Example: John" />
+        <label>Last Name</label>
+        <input placeholder="Example: Doe" />
+        <button>Submit</button>
+      </form> */}
     </div>
   );
 }
