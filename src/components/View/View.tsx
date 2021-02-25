@@ -8,6 +8,7 @@ type Props = {
   as?: any;
   // eslint-disable-next-line @typescript-eslint/ban-types
   onClick?: Function;
+  type?: string;
 } & ViewElementProps;
 
 const View: React.FC<Props> = ({ as = "div", children, ...rest }) => {
