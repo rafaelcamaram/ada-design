@@ -25,24 +25,16 @@ const schema: FormSchema = [
 
 export const Default = (): React.ReactNode => {
   return (
-    <>
-      <Form
-        schema={schema}
-        validationSchema={Yup.object().shape({
-          firstName: Yup.string(),
-          lastName: Yup.string().required(),
-        })}
-        onSubmit={(values) => {
-          alert("Hello there");
-          console.log({ values });
-        }}
-      />
-      <form>
-        <label>First Name</label>
-        <input placeholder="Example: John" />
-        <label>Last Name</label>
-        <input placeholder="Example: Doe" />
-      </form>
-    </>
+    <Form
+      schema={schema}
+      validationSchema={Yup.object().shape({
+        firstName: Yup.string(),
+        lastName: Yup.string().required(),
+      })}
+      onSubmit={(values) => {
+        alert("Hello there");
+        console.log({ values });
+      }}
+    />
   );
 };

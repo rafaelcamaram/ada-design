@@ -1,5 +1,4 @@
 import React from "react";
-
 import Text from "../Typography/Text";
 import Label from "../Typography/Label";
 import withAccessibilityErrors from "../../hoc/withAccessibilityErrors";
@@ -28,10 +27,12 @@ const TextInput: React.FC<Props> = ({
   shouldVisuallyHideLabel = false,
   labelledBy,
 }: Props) => {
-  const hiddingLabel = (labelledBy || label) && shouldHideLabel;
+  const hiddingLabel = !label || shouldHideLabel;
   const shouldUseAriaLabel = hiddingLabel && !labelledBy;
   const shouldUseAriaLabelledBy = hiddingLabel && labelledBy;
 
+  console.log({ hiddingLabel });
+  console.log({ labelledBy });
   return (
     <View display="flex" flexDirection="column" alignItems="flex-start">
       {!hiddingLabel && (
@@ -40,7 +41,7 @@ const TextInput: React.FC<Props> = ({
           htmlFor={id}
           shouldVisuallyHideLabel={label && shouldVisuallyHideLabel}
         >
-          {label} {isRequired && "*"}
+          {label} {isRequired && label ? "*" : null}
         </Label>
       )}
       <Text
