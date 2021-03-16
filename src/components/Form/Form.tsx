@@ -64,20 +64,32 @@ const Form: React.FC<Props> = ({ schema, onSubmit, validationSchema }) => {
   if (!schema || schema.length === 0) return;
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      {schema.map((field: Field, index) => {
-        return (
-          <TextInput
-            key={index}
-            {...field}
-            value={formik.values[field.id]}
-            onChange={formik.handleChange}
-          />
-        );
-      })}
-      <Button type="submit">Submit</Button>
-    </form>
+    <>
+      <form onSubmit={formik.handleSubmit}>
+        {schema.map((field: Field, index) => {
+          return (
+            <TextInput
+              key={index}
+              {...field}
+              value={formik.values[field.id]}
+              onChange={formik.handleChange}
+            />
+          );
+        })}
+        <Button type="submit" backgroundColor="red" color="white">
+          Submit
+        </Button>
+      </form>
+      {/* <form id="myfORM">
+        <label>dsds</label>
+        <input value="123" />
+        <input value="456" />
+      </form>
+      <button style={{ backgroundColor: "white", color: "black" }}>
+        Herloooo
+      </button> */}
+    </>
   );
 };
 
-export default withAccessibilityErrors<Props>(Form, "Form");
+export default Form;

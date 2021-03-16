@@ -31,8 +31,6 @@ const TextInput: React.FC<Props> = ({
   const shouldUseAriaLabel = hiddingLabel && !labelledBy;
   const shouldUseAriaLabelledBy = hiddingLabel && labelledBy;
 
-  console.log({ hiddingLabel });
-  console.log({ labelledBy });
   return (
     <View display="flex" flexDirection="column" alignItems="flex-start">
       {!hiddingLabel && (
@@ -58,4 +56,4 @@ const TextInput: React.FC<Props> = ({
   );
 };
 
-export default withAccessibilityErrors<Props>(TextInput, "TextInput");
+export default withAccessibilityErrors<Props>(TextInput);

@@ -10,12 +10,12 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "ada-design": "file:../build/",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
     "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1",
-    "ada-design": "file:../build/"
+    "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "PORT=3006 react-scripts start"
@@ -37,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1"
   }
 }

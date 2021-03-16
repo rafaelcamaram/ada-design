@@ -1,40 +1,63 @@
-import React, { useMemo } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
 import styled from "styled-components";
+import { v4 as getId } from "uuid";
 import View from "../../components/View";
 import Text from "../../components/Typography/Text";
-import { Props as TextInputProps } from "../../components/TextInput/TextInput";
-
 import isDev from "../../utils/isDev";
-import validateTextInput from "./validateTextInput";
 
 const DEFAULT_ERROR_BORDER = "1px dashed red";
 const DEFAULT_ERROR_POSITION = "relative";
 
-const VALIDATIONS = {
-  TextInput: (validationProps) =>
-    validateTextInput(validationProps as TextInputProps),
+const initialValue = {
+  queue: undefined,
+  addTask: (componentId, successCallback) => successCallback(componentId),
+  popNextTaskAndRun: () => {},
 };
+
+export const A11yContext = createContext(initialValue);
+
 // eslint-disable-next-line
-const withAccessibilityErrors = <T,>(Component, componentType: string) => {
+const withAccessibilityErrors = <T,>(Component) => {
   // eslint-disable-next-line
   return (props: T) => {
-    if (!isDev()) {
-      return <Component {...props} />;
+    const a11yContext = useContext(A11yContext);
+    const [withAccessibilityResult, setWithAccessibilityResult] = useState({
+      violations: [],
+    });
+
+    const componentId = getId();
+
+    useEffect(() => {
+      /* Add a new task to the queue with the correct callback in order to set the UI error */
+      a11yContext.addTask(componentId, (result) => {
+        setWithAccessibilityResult(result);
+      });
+    }, []);
+
+    if (
+      !isDev() ||
+      !withAccessibilityResult ||
+      withAccessibilityResult?.violations?.length === 0
+    ) {
+      // TODO: Verify if we need it and why it's not working without it
+      return (
+        <View id={componentId}>
+          <Component {...props} />
+        </View>
+      );
     }
-
-    const { error, hasError } = useMemo(() => {
-      const validationProps = props as unknown;
-      const validation = VALIDATIONS[componentType];
-
-      return validation ? validation(validationProps) : {};
-    }, [componentType, props]);
-
-    if (!hasError) {
-      return <Component {...props} />;
-    }
+    const errors = withAccessibilityResult?.violations;
+    console.log({ errors });
 
     return (
       <View
+        id={componentId}
         width="fit-content"
         border={DEFAULT_ERROR_BORDER}
         position={DEFAULT_ERROR_POSITION}
@@ -53,7 +76,13 @@ const withAccessibilityErrors = <T,>(Component, componentType: string) => {
             <Text height={13}>*</Text>
           </View>
           <ErrorContent>
-            <Text>{error}</Text>
+            <Text fontWeight="bold">
+              ID: {componentId}
+              {withAccessibilityResult?.violations?.map((item, index) => {
+                return <p key={index}>{item.help}</p>;
+              })}
+            </Text>
+            <Text>{withAccessibilityResult?.violations?.[0].description}</Text>
           </ErrorContent>
         </AccessibilityPopoverError>
         <Component {...props} />
@@ -64,6 +93,8 @@ const withAccessibilityErrors = <T,>(Component, componentType: string) => {
 
 const ErrorContent = styled(View)`
   width: 200px;
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: calc(100% + 5px);
   left: 0;

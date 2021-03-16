@@ -5,7 +5,7 @@ function App() {
     {
       id: "firstName",
       type: "string",
-      labelledBy: "submitddd",
+      label: "First Name",
       isRequired: true,
       placeholder: "Example: John",
     },
@@ -23,12 +23,10 @@ function App() {
       <a href="#main-content">Skip to main content</a>
 
       <main id="main-content">
-        <button id="submitddd">hero</button>
         <Form
           schema={schema}
           onSubmit={(values: any) => {
             alert("Done");
-            console.log({ values });
           }}
         />
         {/* <form>

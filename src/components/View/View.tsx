@@ -4,6 +4,7 @@ import { ViewElementProps } from "../../types/css";
 import { cssValue } from "../../utils/styles";
 
 type Props = {
+  id?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   as?: any;
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -11,9 +12,15 @@ type Props = {
   type?: string;
 } & ViewElementProps;
 
-const View: React.FC<Props> = ({ as = "div", children, ...rest }) => {
+const View: React.FC<Props> = ({
+  id,
+  as = "div",
+  children,
+  onClick,
+  ...rest
+}) => {
   return (
-    <ViewElement as={as} {...rest}>
+    <ViewElement id={id} as={as} onClick={onClick} {...rest}>
       {children}
     </ViewElement>
   );
