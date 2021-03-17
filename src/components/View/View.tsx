@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import styled from "styled-components/macro";
-import { ViewElementProps } from "../../types/css";
-import { cssValue } from "../../utils/styles";
+import { ViewElementProps } from "types/css";
+import { cssValue } from "utils/styles";
 
 type Props = {
   id?: string;

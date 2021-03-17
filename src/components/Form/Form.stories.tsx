@@ -1,7 +1,8 @@
 import React from "react";
 import * as Yup from "yup";
 import Form, { FormSchema } from "./";
-import A11yContextProvider from "../A11yContextProvider";
+import A11yContextProvider from "components/A11yContextProvider";
+
 export default {
   title: "Forms/Form",
   component: Form,

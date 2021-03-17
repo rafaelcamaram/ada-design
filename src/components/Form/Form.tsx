@@ -1,9 +1,8 @@
 import React, { useMemo } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import withAccessibilityErrors from "../../hoc/withAccessibilityErrors";
-import Button from "../Button";
-import TextInput from "../TextInput";
+import Button from "components/Button";
+import TextInput from "components/TextInput";
 
 type Field = {
   id: string;

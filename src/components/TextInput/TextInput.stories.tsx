@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import TextInput from "./TextInput";
-import Text from "../Typography/Text";
-import View from "../View";
-import A11yContextProvider from "../A11yContextProvider";
+import Text from "components/Typography/Text";
+import View from "components/View";
+import A11yContextProvider from "components/A11yContextProvider";
 
 export default {
   title: "Forms/TextInput",

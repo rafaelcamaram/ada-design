@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 import { Queue } from "async-fifo-queue";
 import axe, { AxeResults } from "axe-core";
 
-import { A11yContext } from "../../hoc/withAccessibilityErrors/withAccessibilityErrors";
-import View from "../View";
+import { A11yContext } from "hoc/withAccessibilityErrors/withAccessibilityErrors";
+import View from "components/View";
 
 const A11yContextProvider: React.FC = ({ children }) => {
   const currentQueue = useRef(new Queue());

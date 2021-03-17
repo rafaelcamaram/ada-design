@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
-import { ViewElementProps } from "../../../types/css";
+import { ViewElementProps } from "types/css";
 
-import Text from "../../Typography/Text";
-import { getFontFamilyStyle } from "../../../theme";
+import Text from "components/Typography/Text";
+import { getFontFamilyStyle } from "theme";
 
 export type Props = {
   shouldVisuallyHideLabel?: boolean;

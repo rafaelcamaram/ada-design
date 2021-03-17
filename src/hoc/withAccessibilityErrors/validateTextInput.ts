@@ -1,4 +1,4 @@
-import { Props } from "../../components/TextInput/TextInput";
+import { Props } from "components/TextInput/TextInput";
 
 const validateTextInput = (props: Props): any => {
   const shouldDisplayError = !props.labelledBy && !props.label;

@@ -1,6 +1,6 @@
-import colors from "../colors";
+import colors from "theme/colors";
 import fontFamilies from "./fontFamilies";
-import { ViewElementProps } from "../../types/css";
+import { ViewElementProps } from "types/css";
 
 export type HeadingObject = Partial<ViewElementProps>;
 

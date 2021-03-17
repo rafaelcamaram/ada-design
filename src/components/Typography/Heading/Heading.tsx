@@ -1,7 +1,7 @@
 import React, { memo } from "react";
-import { getHeadingStyle } from "../../../theme";
-import { ViewElementProps } from "../../../types/css";
-import View from "../../View";
+import { getHeadingStyle } from "theme";
+import { ViewElementProps } from "types/css";
+import View from "components/View";
 
 type Props = {
   size: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;

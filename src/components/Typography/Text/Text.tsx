@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import { ViewElementProps } from "../../../types/css";
-import View from "../../View";
+import { ViewElementProps } from "types/css";
+import View from "components/View";
 
 type Props = {
   id?: string;

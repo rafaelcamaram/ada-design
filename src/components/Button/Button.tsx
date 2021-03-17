@@ -1,9 +1,9 @@
 import React, { MouseEventHandler } from "react";
 import styled from "styled-components";
-import withAccessibilityErrors from "../../hoc/withAccessibilityErrors";
-import colors from "../../theme/colors";
-import { ViewElementProps } from "../../types/css";
-import View from "../View";
+import withAccessibilityErrors from "hoc/withAccessibilityErrors";
+import colors from "theme/colors";
+import { ViewElementProps } from "types/css";
+import View from "components/View";
 
 type ButtonVariantType = "primary" | "secondary" | "default";
 

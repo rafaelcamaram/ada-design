@@ -3,9 +3,9 @@ import { AxeResults } from "axe-core";
 
 import styled from "styled-components";
 import { v4 as getId } from "uuid";
-import View from "../../components/View";
-import Text from "../../components/Typography/Text";
-import isDev from "../../utils/isDev";
+import View from "components/View";
+import Text from "components/Typography/Text";
+import isDev from "utils/isDev";
 
 const DEFAULT_ERROR_BORDER = "1px dashed red";
 const DEFAULT_ERROR_POSITION = "relative";

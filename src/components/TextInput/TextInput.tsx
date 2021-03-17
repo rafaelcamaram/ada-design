@@ -1,9 +1,9 @@
 import React from "react";
-import Text from "../Typography/Text";
-import Label from "../Typography/Label";
-import withAccessibilityErrors from "../../hoc/withAccessibilityErrors";
-import View from "../View";
-import { getFontFamilyStyle } from "../../theme";
+import Text from "components/Typography/Text";
+import Label from "components/Typography/Label";
+import withAccessibilityErrors from "hoc/withAccessibilityErrors";
+import View from "components/View";
+import { getFontFamilyStyle } from "theme";
 
 export type Props = {
   id: string;
