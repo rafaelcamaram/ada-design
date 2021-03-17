@@ -7,5 +7,12 @@ export default {
 };
 
 export const Default = (): React.ReactNode => (
-  <Button onClick={() => alert("teste")}>Hello there</Button>
+  <>
+    <Button variant="default" onClick={() => alert("Default Button Handler")}>
+      Default Button
+    </Button>
+    <Button variant="primary" onClick={() => alert("Primary Button Handler")}>
+      Primary Button
+    </Button>
+  </>
 );

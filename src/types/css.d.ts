@@ -139,6 +139,15 @@ export type LineHeightValue = "normal" | string;
 
 export type LetterSpacingValue = "normal" | string;
 
+export type OutlineStyleValue =
+  | "none"
+  | "dotted"
+  | "dashed"
+  | "solid"
+  | "double"
+  | "groove"
+  | "unset";
+
 export type ViewElementProps = {
   children?: ReactNode;
 
@@ -267,7 +276,12 @@ export type ViewElementProps = {
   overflowY?: OverflowValue;
 
   visibility?: VisibilityValue;
+
   outline?: string;
+  outlineColor?: string;
+  outlineStyle?: OutlineStyleValue;
+  outlineWidth?: UnitValue;
+
   opacity?: number;
   cursor?: CursorValue;
   order?: number;

@@ -2,13 +2,22 @@ import styled, { css } from "styled-components";
 import { ViewElementProps } from "../../../types/css";
 
 import Text from "../../Typography/Text";
+import { getFontFamilyStyle } from "../../../theme";
 
 export type Props = {
   shouldVisuallyHideLabel?: boolean;
   htmlFor?: string;
 } & ViewElementProps;
 
-const Label = styled(Text)<Props>`
+const fontFamilyName = getFontFamilyStyle("ui");
+
+// TODO: Add a pattern for colors
+// TODO: Add a pattern for fontSize
+const Label = styled(Text).attrs({
+  color: "#596877",
+  fontSize: 14,
+  fontFamily: fontFamilyName,
+})<Props>`
   ${({ shouldVisuallyHideLabel }) =>
     shouldVisuallyHideLabel &&
     css`

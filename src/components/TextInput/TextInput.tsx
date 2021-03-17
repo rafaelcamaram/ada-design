@@ -3,6 +3,7 @@ import Text from "../Typography/Text";
 import Label from "../Typography/Label";
 import withAccessibilityErrors from "../../hoc/withAccessibilityErrors";
 import View from "../View";
+import { getFontFamilyStyle } from "../../theme";
 
 export type Props = {
   id: string;
@@ -16,6 +17,11 @@ export type Props = {
   labelledBy?: string;
 };
 
+const fontFamilyName = getFontFamilyStyle("ui");
+
+// TODO: Add a way to customize styling from props
+// TODO: Add a pattern for spacing
+// TODO: Add a pattern for colors
 const TextInput: React.FC<Props> = ({
   id,
   isRequired,
@@ -32,7 +38,12 @@ const TextInput: React.FC<Props> = ({
   const shouldUseAriaLabelledBy = hiddingLabel && labelledBy;
 
   return (
-    <View display="flex" flexDirection="column" alignItems="flex-start">
+    <View
+      display="flex"
+      flexDirection="column"
+      alignItems="flex-start"
+      marginY="8px"
+    >
       {!hiddingLabel && (
         <Label
           forwardedAs="label"
@@ -51,6 +62,18 @@ const TextInput: React.FC<Props> = ({
         aria-required={isRequired && true}
         aria-labelledby={shouldUseAriaLabelledBy ? labelledBy : undefined}
         aria-label={shouldUseAriaLabel ? label : undefined}
+        fontFamily={fontFamilyName}
+        fontSize="14px"
+        color="#060F19"
+        minWidth="200px"
+        backgroundColor="white"
+        borderColor="#F1F3F5"
+        borderWidth="1px"
+        borderRadius="15px"
+        borderStyle="solid"
+        paddingX="19px"
+        paddingY="22px"
+        marginTop="8px"
       />
     </View>
   );

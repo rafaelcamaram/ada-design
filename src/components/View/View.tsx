@@ -163,7 +163,12 @@ const ViewElement = styled.div<ViewElementProps>`
 
   visibility: ${({ visibility }) => visibility};
   order: ${({ order }) => order};
+
   outline: ${({ outline }) => outline};
+  outline-color: ${({ outlineColor }) => outlineColor};
+  outline-style: ${({ outlineStyle }) => outlineStyle};
+  outline-width: ${({ outlineWidth }) => outlineWidth};
+
   opacity: ${({ opacity }) => opacity};
   cursor: ${({ cursor }) => cursor};
 `;

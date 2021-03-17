@@ -76,7 +76,7 @@ const Form: React.FC<Props> = ({ schema, onSubmit, validationSchema }) => {
             />
           );
         })}
-        <Button type="submit" backgroundColor="red" color="white">
+        <Button type="submit" variant="primary">
           Submit
         </Button>
       </form>

@@ -29,14 +29,16 @@ const withAccessibilityErrors = <T,>(Component) => {
   // eslint-disable-next-line
   return (props: T) => {
     const a11yContext = useContext(A11yContext);
+    console.log({ a11yContext });
     const [withAccessibilityResult, setWithAccessibilityResult] = useState<
       Pick<AxeResults, "violations">
     >();
+    const shouldEnableAccessibility = isDev() && a11yContext.queue;
     const componentId = getId();
 
     console.log({ withAccessibilityResult });
     useEffect(() => {
-      if (isDev()) {
+      if (shouldEnableAccessibility) {
         /* Add a new task to the queue with the correct callback in order to set the UI error */
         a11yContext.addTask(componentId, (result: AxeResults) => {
           console.log("bla");
@@ -48,7 +50,7 @@ const withAccessibilityErrors = <T,>(Component) => {
       }
     }, []);
 
-    if (!isDev()) {
+    if (!shouldEnableAccessibility) {
       return <Component {...props} />;
     }
 
