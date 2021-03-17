@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from "react";
+import styled from "styled-components";
 import withAccessibilityErrors from "../../hoc/withAccessibilityErrors";
 import colors from "../../theme/colors";
-import fontFamilies from "../../theme/typography/fontFamilies";
 import { ViewElementProps } from "../../types/css";
 import View from "../View";
 
@@ -11,9 +11,10 @@ type Props = {
   onClick?: MouseEventHandler;
   type?: string;
   variant?: ButtonVariantType;
+  customStyle?: string | object;
 } & ViewElementProps;
 
-const defaultButtonProps: Partial<ViewElementProps> = {
+const defaultButtonProps = {
   paddingY: 16,
   width: "100%",
   cursor: "pointer",
@@ -26,11 +27,11 @@ const VariantStyles = {
   },
   primary: {
     ...defaultButtonProps,
-    backgroundColor: "#0D65C2",
+    backgroundColor: colors.primary,
     color: "white",
     borderRadius: 15,
-    border: "1px solid #0D65C2",
-    boxShadow: "0px 0px 8px 4px rgba(1,105,251,0.25)",
+    border: `1px solid ${colors.primary}`,
+    boxShadow: `0px 0px 8px 4px ${colors.primary}40`,
   },
 };
 
@@ -50,10 +51,24 @@ const Button: React.FC<Props> = ({
   const variantStyle = getVariantStyle(variant);
 
   return (
-    <View as="button" type={type} onClick={onClick} {...variantStyle} {...rest}>
+    <StyledButtonView
+      forwardedAs="button"
+      type={type}
+      onClick={() => console.log("Button click")}
+      {...variantStyle}
+      {...rest}
+    >
       {children}
-    </View>
+    </StyledButtonView>
   );
 };
+
+const StyledButtonView = styled(View)`
+  transition: all 0.2s linear;
+
+  :hover {
+    filter: brightness(0.9);
+  }
+`;
 
 export default withAccessibilityErrors<Props>(Button);

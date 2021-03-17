@@ -1,11 +1,5 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useState,
-} from "react";
-import axe, { AxeResults } from "axe-core";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { AxeResults } from "axe-core";
 
 import styled from "styled-components";
 import { v4 as getId } from "uuid";
@@ -29,7 +23,6 @@ const withAccessibilityErrors = <T,>(Component) => {
   // eslint-disable-next-line
   return (props: T) => {
     const a11yContext = useContext(A11yContext);
-    console.log({ a11yContext });
     const [withAccessibilityResult, setWithAccessibilityResult] = useState<
       Pick<AxeResults, "violations">
     >();

@@ -14,5 +14,17 @@ export const Default = (): React.ReactNode => (
     <Button variant="primary" onClick={() => alert("Primary Button Handler")}>
       Primary Button
     </Button>
+    <Button
+      variant="primary"
+      onClick={() => alert("Primary Button with custom hover Handle")}
+      customStyle={{
+        "&:hover": {
+          backgroundColor: "black",
+          color: "white",
+        },
+      }}
+    >
+      Primary Button with custom hover
+    </Button>
   </>
 );

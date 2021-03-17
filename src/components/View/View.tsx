@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { ViewElementProps } from "../../types/css";
 import { cssValue } from "../../utils/styles";
 
@@ -8,8 +8,9 @@ type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   as?: any;
   // eslint-disable-next-line @typescript-eslint/ban-types
-  onClick?: Function;
+  onClick?: any;
   type?: string;
+  customStyle?: string | object;
 } & ViewElementProps;
 
 const View: React.FC<Props> = ({
@@ -17,10 +18,11 @@ const View: React.FC<Props> = ({
   as = "div",
   children,
   onClick,
+  customStyle,
   ...rest
 }) => {
   return (
-    <ViewElement id={id} as={as} onClick={onClick} {...rest}>
+    <ViewElement id={id} as={as} onClick={onClick} {...rest} css={customStyle}>
       {children}
     </ViewElement>
   );
