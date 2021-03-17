@@ -5,6 +5,8 @@ import React, {
   useLayoutEffect,
   useState,
 } from "react";
+import axe, { AxeResults } from "axe-core";
+
 import styled from "styled-components";
 import { v4 as getId } from "uuid";
 import View from "../../components/View";
@@ -27,21 +29,30 @@ const withAccessibilityErrors = <T,>(Component) => {
   // eslint-disable-next-line
   return (props: T) => {
     const a11yContext = useContext(A11yContext);
-    const [withAccessibilityResult, setWithAccessibilityResult] = useState({
-      violations: [],
-    });
-
+    const [withAccessibilityResult, setWithAccessibilityResult] = useState<
+      Pick<AxeResults, "violations">
+    >();
     const componentId = getId();
 
+    console.log({ withAccessibilityResult });
     useEffect(() => {
-      /* Add a new task to the queue with the correct callback in order to set the UI error */
-      a11yContext.addTask(componentId, (result) => {
-        setWithAccessibilityResult(result);
-      });
+      if (isDev()) {
+        /* Add a new task to the queue with the correct callback in order to set the UI error */
+        a11yContext.addTask(componentId, (result: AxeResults) => {
+          console.log("bla");
+          console.log({ result });
+          setWithAccessibilityResult({
+            violations: result.violations,
+          });
+        });
+      }
     }, []);
 
+    if (!isDev()) {
+      return <Component {...props} />;
+    }
+
     if (
-      !isDev() ||
       !withAccessibilityResult ||
       withAccessibilityResult?.violations?.length === 0
     ) {
@@ -98,6 +109,7 @@ const ErrorContent = styled(View)`
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
+  z-index: 9999;
   background-color: rgba(255, 0, 0, 0.3);
   border: 1px dashed red;
   padding: 15px;
@@ -107,6 +119,7 @@ const AccessibilityPopoverError = styled(View)`
   position: absolute;
   top: -7px;
   right: -7px;
+  z-index: 9999;
   cursor: pointer;
 
   ${ErrorContent} {
