@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   stories: ["../src/**/*.stories.tsx"],
   addons: [
@@ -14,5 +16,13 @@ module.exports = {
       propFilter: (prop) =>
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
+  },
+  webpackFinal: async (config) => {
+    config.resolve.modules = [
+      ...(config.resolve.modules || []),
+      path.resolve(__dirname, "../src"),
+    ];
+
+    return config;
   },
 };
