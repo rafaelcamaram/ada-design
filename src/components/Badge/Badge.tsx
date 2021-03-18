@@ -1,7 +1,7 @@
 import React from "react";
 
 import Text from "components/Typography/Text";
-import { ViewElementProps } from "types/css";
+import { ViewElementProps, FontWeightValue } from "types/css";
 import Flex from "components/Flex";
 
 type BadgeVariants = "default" | "circle";
@@ -9,8 +9,10 @@ type BadgeVariants = "default" | "circle";
 type Props = {
   variant?: BadgeVariants;
   text?: string;
+  border?: string;
   color?: string;
   textColor?: string;
+  textWeight?: FontWeightValue;
   onClick?: () => void;
 } & ViewElementProps;
 
@@ -24,8 +26,10 @@ const onHoverStyle = {
 const Badge: React.FC<Props> = ({
   variant = "default",
   text = "",
+  border = "transparent",
   color = "#E1E5EA",
   textColor = "#fff",
+  textWeight = "bold",
   onClick,
   ...rest
 }) => {
@@ -41,13 +45,14 @@ const Badge: React.FC<Props> = ({
       cursor={onClick ? "pointer" : "default"}
       justifyContent="center"
       alignItems="center"
+      border={border}
       customStyle={onClick && onHoverStyle}
       {...rest}
     >
       <Text
         fontSize={11}
         textTransform="uppercase"
-        fontWeight="bold"
+        fontWeight={textWeight}
         color={textColor}
       >
         {text}
