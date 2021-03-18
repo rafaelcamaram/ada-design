@@ -5,7 +5,7 @@ module.exports = {
   addons: [
     "@storybook/addon-actions",
     "@storybook/addon-links",
-    "@storybook/addon-a11y",
+    // "@storybook/addon-a11y", // This is unnecessary since our library is already running axe-core and it might have some conflicts with it
   ],
   typescript: {
     check: false,

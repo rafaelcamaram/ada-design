@@ -1,17 +1,7 @@
 import React, { memo } from "react";
 import styled from "styled-components/macro";
-import { ViewElementProps } from "types/css";
 import { cssValue } from "utils/styles";
-
-type Props = {
-  id?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  as?: any;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  onClick?: any;
-  type?: string;
-  customStyle?: string | object;
-} & ViewElementProps;
+import { Props } from "types/View";
 
 const View: React.FC<Props> = ({
   id,
@@ -59,6 +49,9 @@ const ViewElement = styled.div<ViewElementProps>`
   box-sizing: ${({ boxSizing }) => boxSizing};
   clear: ${({ clear }) => clear};
   float: ${({ float }) => float};
+
+  filter: ${({ filter }) => filter};
+  backdrop-filter: ${({ backdropFilter }) => backdropFilter};
 
   display: ${({ display }) => display};
   flex: ${({ flex }) => flex};

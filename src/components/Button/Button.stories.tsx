@@ -26,5 +26,12 @@ export const Default = (): React.ReactNode => (
     >
       Primary Button with custom hover
     </Button>
+    <Button
+      isFullWidth
+      variant="primary"
+      onClick={() => alert("Primary Button Handler")}
+    >
+      Full Width Primary Button
+    </Button>
   </>
 );

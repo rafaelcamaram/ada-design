@@ -1,45 +1,17 @@
 import React, { MouseEventHandler } from "react";
 import styled from "styled-components";
 import withAccessibilityErrors from "hoc/withAccessibilityErrors";
-import colors from "theme/colors";
 import { ViewElementProps } from "types/css";
 import View from "components/View";
-
-type ButtonVariantType = "primary" | "secondary" | "default";
+import { ButtonVariantType, getVariantStyle } from "./buttonVariants";
 
 type Props = {
+  isFullWidth?: boolean;
   onClick?: MouseEventHandler;
   type?: string;
   variant?: ButtonVariantType;
   customStyle?: string | object;
 } & ViewElementProps;
-
-const defaultButtonProps = {
-  paddingY: 16,
-  width: "100%",
-  cursor: "pointer",
-};
-
-// TODO: Apply hover styles pattern
-const VariantStyles = {
-  default: {
-    ...defaultButtonProps,
-  },
-  primary: {
-    ...defaultButtonProps,
-    backgroundColor: colors.primary,
-    color: "white",
-    borderRadius: 15,
-    border: `1px solid ${colors.primary}`,
-    boxShadow: `0px 0px 8px 4px ${colors.primary}40`,
-  },
-};
-
-export const getVariantStyle = (variant: ButtonVariantType) => {
-  if (!variant) return null;
-
-  return VariantStyles[variant] || VariantStyles.default;
-};
 
 const Button: React.FC<Props> = ({
   type,
@@ -54,7 +26,7 @@ const Button: React.FC<Props> = ({
     <StyledButtonView
       forwardedAs="button"
       type={type}
-      onClick={() => console.log("Button click")}
+      onClick={onClick}
       {...variantStyle}
       {...rest}
     >
@@ -63,8 +35,9 @@ const Button: React.FC<Props> = ({
   );
 };
 
-const StyledButtonView = styled(View)`
+const StyledButtonView = styled(View)<{ isFullWidth: boolean }>`
   transition: all 0.2s linear;
+  width: ${({ isFullWidth }) => isFullWidth && "100%"};
 
   :hover {
     filter: brightness(0.9);

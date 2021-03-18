@@ -2,8 +2,8 @@ import React from "react";
 import Text from "components/Typography/Text";
 import Label from "components/Typography/Label";
 import withAccessibilityErrors from "hoc/withAccessibilityErrors";
-import View from "components/View";
 import { getFontFamilyStyle } from "theme";
+import Flex from "components/Flex";
 
 export type Props = {
   id: string;
@@ -38,12 +38,7 @@ const TextInput: React.FC<Props> = ({
   const shouldUseAriaLabelledBy = hiddingLabel && labelledBy;
 
   return (
-    <View
-      display="flex"
-      flexDirection="column"
-      alignItems="flex-start"
-      marginY="8px"
-    >
+    <Flex flexDirection="column" alignItems="flex-start" marginY="8px">
       {!hiddingLabel && (
         <Label
           forwardedAs="label"
@@ -75,7 +70,7 @@ const TextInput: React.FC<Props> = ({
         paddingY="22px"
         marginTop="8px"
       />
-    </View>
+    </Flex>
   );
 };
 

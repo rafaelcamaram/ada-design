@@ -180,6 +180,9 @@ export type ViewElementProps = {
   clear?: ClearValue;
   float?: FloatValue;
 
+  filter?: string;
+  backdropFilter?: string;
+
   flex?: string;
   flexFlow?: string;
   flexBasis?: string;
