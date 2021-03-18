@@ -8,7 +8,7 @@ import Text from "components/Typography/Text";
 import Modal from "components/Modal";
 import isDev from "utils/isDev";
 import Flex from "components/Flex";
-import Button from "components/Button";
+import Badge from "components/Badge/Badge";
 
 const DEFAULT_ERROR_BORDER = "1px dashed #E30000";
 const DEFAULT_ERROR_POSITION = "relative";
@@ -68,24 +68,12 @@ const withAccessibilityErrors = <T,>(Component) => {
     return (
       <>
         <Modal
-          isOpen={true}
+          isOpen={isDetailedModalVisible}
           closeModal={() => setIsDetailedModalVisible(false)}
           variant="trail"
         >
           <View position="relative">
-            <Text
-              width="fit-content"
-              paddingY={5}
-              paddingX={10}
-              backgroundColor="rgba(255, 68, 0, 0.5)"
-              borderRadius={15}
-              color="white"
-              fontWeight="bold"
-              fontSize={11}
-              textTransform="uppercase"
-            >
-              {firstIssue.impact}
-            </Text>
+            <Badge text={firstIssue.impact} color="rgba(255, 68, 0, 0.5)" />
             <Text width={250} fontWeight="bold" color="#060F19" fontSize={14}>
               {firstIssue.description}
             </Text>
@@ -189,22 +177,7 @@ const withAccessibilityErrors = <T,>(Component) => {
               <Text height={13}>*</Text>
             </Flex>
             <ErrorContent>
-              <Text
-                width="fit-content"
-                paddingY={5}
-                paddingX={10}
-                backgroundColor="rgba(255, 68, 0, 0.5)"
-                borderRadius={15}
-                color="white"
-                fontWeight="bold"
-                fontSize={11}
-                textTransform="uppercase"
-                position="absolute"
-                top={15}
-                right={15}
-              >
-                {firstIssue.impact}
-              </Text>
+              <Badge text={firstIssue.impact} color="rgba(255, 68, 0, 0.5)" />
               <Text width={250} fontWeight="bold" color="#060F19" fontSize={14}>
                 {firstIssue.description}
               </Text>
