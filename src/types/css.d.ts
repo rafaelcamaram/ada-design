@@ -148,6 +148,16 @@ export type OutlineStyleValue =
   | "groove"
   | "unset";
 
+export type VerticalAlignValue =
+  | "baseline"
+  | "sub"
+  | "super"
+  | "text-top"
+  | "text-bottom"
+  | "middle"
+  | "top"
+  | "bottom";
+
 export type ViewElementProps = {
   children?: ReactNode;
 
@@ -279,6 +289,7 @@ export type ViewElementProps = {
   overflowY?: OverflowValue;
 
   visibility?: VisibilityValue;
+  verticalAlign?: VerticalAlignValue;
 
   outline?: string;
   outlineColor?: string;

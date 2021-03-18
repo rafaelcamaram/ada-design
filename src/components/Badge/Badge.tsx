@@ -2,8 +2,12 @@ import React from "react";
 
 import Text from "components/Typography/Text";
 import { ViewElementProps } from "types/css";
+import Flex from "components/Flex";
+
+type BadgeVariants = "default" | "circle";
 
 type Props = {
+  variant?: BadgeVariants;
   text?: string;
   color?: string;
   textColor?: string;
@@ -18,6 +22,7 @@ const onHoverStyle = {
 } as const;
 
 const Badge: React.FC<Props> = ({
+  variant = "default",
   text = "",
   color = "#E1E5EA",
   textColor = "#fff",
@@ -25,10 +30,11 @@ const Badge: React.FC<Props> = ({
   ...rest
 }) => {
   return (
-    <Text
+    <Flex
       width="fit-content"
-      paddingY={5}
-      paddingX={10}
+      height={14}
+      paddingY={variant === "default" && 5}
+      paddingX={variant === "default" ? 10 : 5}
       backgroundColor={color}
       borderRadius={15}
       color={textColor}
@@ -37,11 +43,13 @@ const Badge: React.FC<Props> = ({
       textTransform="uppercase"
       onClick={onClick}
       cursor={onClick ? "pointer" : "default"}
+      justifyContent="center"
+      alignItems="center"
       customStyle={onClick && onHoverStyle}
       {...rest}
     >
-      {text}
-    </Text>
+      <Text>{text}</Text>
+    </Flex>
   );
 };
 

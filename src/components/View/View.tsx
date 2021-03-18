@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import styled from "styled-components/macro";
 import { cssValue } from "utils/styles";
 import { Props } from "types/View";
+import { ViewElementProps } from "types/css";
 
 const View: React.FC<Props> = ({
   id,
@@ -157,6 +158,8 @@ const ViewElement = styled.div<ViewElementProps>`
   overflow-y: ${({ overflowY }) => overflowY};
 
   visibility: ${({ visibility }) => visibility};
+  vertical-align: ${({ verticalAlign }) => verticalAlign};
+
   order: ${({ order }) => order};
 
   outline: ${({ outline }) => outline};

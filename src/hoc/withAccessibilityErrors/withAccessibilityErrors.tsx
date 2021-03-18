@@ -8,7 +8,7 @@ import Text from "components/Typography/Text";
 import Modal from "components/Modal";
 import isDev from "utils/isDev";
 import Flex from "components/Flex";
-import Badge from "components/Badge/Badge";
+import Badge from "components/Badge";
 
 const DEFAULT_ERROR_BORDER = "1px dashed #E30000";
 const DEFAULT_ERROR_POSITION = "relative";
@@ -164,18 +164,7 @@ const withAccessibilityErrors = <T,>(Component) => {
           borderRadius="6px"
         >
           <AccessibilityPopoverError>
-            <Flex
-              backgroundColor="red"
-              color="white"
-              width={15}
-              height={15}
-              borderRadius={15}
-              justifyContent="center"
-              alignItems="center"
-              cursor="pointer"
-            >
-              <Text height={13}>*</Text>
-            </Flex>
+            <Badge variant="circle" text="*" color="red" />
             <ErrorContent>
               <Badge text={firstIssue.impact} color="rgba(255, 68, 0, 0.5)" />
               <Text width={250} fontWeight="bold" color="#060F19" fontSize={14}>
