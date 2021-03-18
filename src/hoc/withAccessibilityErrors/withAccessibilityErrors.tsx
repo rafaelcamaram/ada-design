@@ -114,19 +114,11 @@ const withAccessibilityErrors = <T,>(Component) => {
                 >
                   Open details
                 </Text>
-                <Flex
-                  width="fit-content"
-                  minWidth={18}
-                  height={18}
-                  borderRadius={18}
-                  backgroundColor="#E1E5EA"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <Text fontSize={11} color="#738598" textAlign="center">
-                    {firstIssue.nodes[0].any.length}
-                  </Text>
-                </Flex>
+                <Badge
+                  variant="circle"
+                  text={`${firstIssue.nodes[0].any.length}`}
+                  textColor="#738598"
+                />
               </Flex>
             </Flex>
             <Flex
@@ -164,7 +156,12 @@ const withAccessibilityErrors = <T,>(Component) => {
           borderRadius="6px"
         >
           <AccessibilityPopoverError>
-            <Badge variant="circle" text="*" color="red" />
+            <Badge
+              variant="circle"
+              text="*"
+              color="red"
+              onClick={() => setIsDetailedModalVisible(true)}
+            />
             <ErrorContent>
               <Badge text={firstIssue.impact} color="rgba(255, 68, 0, 0.5)" />
               <Text width={250} fontWeight="bold" color="#060F19" fontSize={14}>
@@ -212,19 +209,11 @@ const withAccessibilityErrors = <T,>(Component) => {
                   >
                     Open details
                   </Text>
-                  <Flex
-                    width="fit-content"
-                    minWidth={18}
-                    height={18}
-                    borderRadius={18}
-                    backgroundColor="#E1E5EA"
-                    justifyContent="center"
-                    alignItems="center"
-                  >
-                    <Text fontSize={11} color="#738598" textAlign="center">
-                      {firstIssue.nodes[0].any.length}
-                    </Text>
-                  </Flex>
+                  <Badge
+                    variant="circle"
+                    text={`${firstIssue.nodes[0].any.length}`}
+                    textColor="#738598"
+                  />
                 </Flex>
               </Flex>
               <Flex

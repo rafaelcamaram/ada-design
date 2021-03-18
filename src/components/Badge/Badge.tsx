@@ -32,15 +32,11 @@ const Badge: React.FC<Props> = ({
   return (
     <Flex
       width="fit-content"
-      height={14}
+      height={15}
       paddingY={variant === "default" && 5}
       paddingX={variant === "default" ? 10 : 5}
       backgroundColor={color}
       borderRadius={15}
-      color={textColor}
-      fontWeight="bold"
-      fontSize={11}
-      textTransform="uppercase"
       onClick={onClick}
       cursor={onClick ? "pointer" : "default"}
       justifyContent="center"
@@ -48,7 +44,14 @@ const Badge: React.FC<Props> = ({
       customStyle={onClick && onHoverStyle}
       {...rest}
     >
-      <Text>{text}</Text>
+      <Text
+        fontSize={11}
+        textTransform="uppercase"
+        fontWeight="bold"
+        color={textColor}
+      >
+        {text}
+      </Text>
     </Flex>
   );
 };

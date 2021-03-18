@@ -38,7 +38,11 @@ const Modal: React.FC<Props> = ({
   return (
     <ModalPortal>
       <View {...containerStyle} {...customContainerStyle} onClick={closeModal}>
-        <View {...contentStyle} {...customContentStyle}>
+        <View
+          {...contentStyle}
+          {...customContentStyle}
+          onClick={(e) => e.stopPropagation()}
+        >
           {children}
         </View>
       </View>
