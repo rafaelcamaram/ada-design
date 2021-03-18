@@ -8,16 +8,6 @@ import View from "components/View";
 const A11yContextProvider: React.FC = ({ children }) => {
   const currentQueue = useRef(new Queue());
 
-  console.log("Constructor A11yContextProvider");
-  useEffect(() => {
-    console.log("Init A11yContextProvider");
-  }, []);
-
-  useEffect(() => {
-    console.log("The queue has changed!");
-    console.log(`Size: ${currentQueue.current.currSize}`);
-  }, [currentQueue.current.currSize]);
-
   /* Responsible to run a task and resolve with the ADA result of it */
   const runTask = async (componentId: string): Promise<AxeResults> => {
     return await new Promise(async (resolve) => {
@@ -34,13 +24,10 @@ const A11yContextProvider: React.FC = ({ children }) => {
         axe.configure(config);
       }
 
-      console.log(`Before axe.run: ${componentId}`);
-
       const adaResponse: AxeResults = await axe.run(
         document.getElementById(componentId),
         options,
       );
-      console.log(`After axe.run: ${componentId}`);
 
       resolve(adaResponse);
     });
@@ -50,13 +37,9 @@ const A11yContextProvider: React.FC = ({ children }) => {
     const isEmpty = currentQueue.current.isEmpty();
 
     if (!isEmpty) {
-      console.log("There's a item, let's get it");
-
       const nextTask = await currentQueue.current.get();
 
       nextTask();
-    } else {
-      console.log("Sorry, the queue is empty");
     }
   };
 
@@ -65,17 +48,11 @@ const A11yContextProvider: React.FC = ({ children }) => {
     componentId: string,
     successCallback: (result: AxeResults) => void,
   ) => {
-    console.log(`Adding a new task ${componentId}`);
     const isEmptyPreviously = currentQueue.current.isEmpty();
-    console.log({ isEmptyPreviously });
 
     await currentQueue.current.put(async () => {
-      console.log("The current size is: " + currentQueue.current.currSize);
-      console.log(`Running task ${componentId}`);
       const result: AxeResults = await runTask(componentId);
-      console.log(`Result for task ${componentId}`);
 
-      console.log({ result });
       if (successCallback) {
         successCallback(result);
       }

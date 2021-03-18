@@ -12,6 +12,7 @@ import A11yTooltipError, {
 } from "components/_internal/A11yTooltipError";
 
 const DEFAULT_ERROR_BORDER = "1px dashed #E30000";
+const DEFAULT_SUCCESS_BORDER = "1px dashed #65BF3B";
 const DEFAULT_ERROR_POSITION = "relative";
 
 const initialValue = {
@@ -27,7 +28,7 @@ const withAccessibilityErrors = <T,>(Component) => {
     const a11yContext = useContext(A11yContext);
     const [isDetailedModalVisible, setIsDetailedModalVisible] = useState(false);
     const [withAccessibilityResult, setWithAccessibilityResult] = useState<
-      Pick<AxeResults, "violations">
+      Pick<AxeResults, "violations" | "passes" | "incomplete">
     >();
     const shouldEnableAccessibility = isDev() && a11yContext.queue;
     const componentId = getId();
@@ -37,6 +38,8 @@ const withAccessibilityErrors = <T,>(Component) => {
         a11yContext.addTask(componentId, (result: AxeResults) => {
           setWithAccessibilityResult({
             violations: result.violations,
+            passes: result.passes,
+            incomplete: result.incomplete,
           });
         });
       }
@@ -46,10 +49,9 @@ const withAccessibilityErrors = <T,>(Component) => {
       return <Component {...props} />;
     }
 
-    if (
-      !withAccessibilityResult ||
-      withAccessibilityResult?.violations?.length === 0
-    ) {
+    console.log({ withAccessibilityResult });
+
+    if (!withAccessibilityResult) {
       return (
         <View id={componentId}>
           <Component {...props} />
@@ -57,12 +59,13 @@ const withAccessibilityErrors = <T,>(Component) => {
       );
     }
 
-    const firstIssue = withAccessibilityResult?.violations[0];
-
+    const isSuccess = withAccessibilityResult?.violations?.length === 0;
     return (
       <>
         <A11yErrorModal
-          issue={firstIssue}
+          passes={withAccessibilityResult.passes}
+          incomplete={withAccessibilityResult.incomplete}
+          violations={withAccessibilityResult.violations}
           isOpen={isDetailedModalVisible}
           setIsOpen={setIsDetailedModalVisible}
         />
@@ -70,7 +73,7 @@ const withAccessibilityErrors = <T,>(Component) => {
         <View
           id={componentId}
           width="fit-content"
-          border={DEFAULT_ERROR_BORDER}
+          border={isSuccess ? DEFAULT_SUCCESS_BORDER : DEFAULT_ERROR_BORDER}
           position={DEFAULT_ERROR_POSITION}
           borderRadius="6px"
         >
@@ -78,11 +81,11 @@ const withAccessibilityErrors = <T,>(Component) => {
             <Badge
               variant="circle"
               text="*"
-              color="red"
+              color={isSuccess ? "#65BF3B" : "#E30000"}
               onClick={() => setIsDetailedModalVisible(true)}
             />
             <A11yTooltipError
-              issue={firstIssue}
+              issue={withAccessibilityResult.violations?.[0]}
               setIsModalOpen={setIsDetailedModalVisible}
             />
           </AccessibilityPopoverError>

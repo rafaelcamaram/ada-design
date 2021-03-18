@@ -19,8 +19,14 @@ const A11yTooltipError: React.FC<Props> = ({ issue, setIsModalOpen }) => {
 
   return (
     <ErrorContent>
-      <Badge text={issue.impact} color="rgba(255, 68, 0, 0.5)" />
-      <Heading size={400} width={250}>
+      <Badge
+        text={issue.impact}
+        color="rgba(255, 68, 0, 0.5)"
+        position="absolute"
+        top={15}
+        right={15}
+      />
+      <Heading size={400} width={250} marginTop={0}>
         {issue.description}
       </Heading>
       <Text color="#060F19" marginTop={5} marginBottom={10}>
@@ -45,7 +51,7 @@ const A11yTooltipError: React.FC<Props> = ({ issue, setIsModalOpen }) => {
           />
         </Flex>
       </Flex>
-      <Divisor />
+      <Divisor marginTop={10} />
       <Flex flexWrap="wrap" paddingTop={15}>
         {issue.tags.map((tag) => {
           return (

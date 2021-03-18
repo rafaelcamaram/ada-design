@@ -11,13 +11,13 @@ export type ModalStyle = {
 const defaultModalContainerProps: Partial<ViewElementProps> = {
   width: "100vw",
   height: "100vh",
-  position: "absolute",
+  position: "fixed",
   top: 0,
   left: 0,
   backgroundColor: colors.blackWithoutOpacity30,
   backdropFilter: "blur(2px)",
   zIndex: 2000,
-};
+} as const;
 
 const defaultModalContentProps: Partial<ViewElementProps> = {
   backgroundColor: colors.white,
@@ -51,6 +51,7 @@ const VariantStyles: {
       padding: 32,
       borderTopLeftRadius: 16,
       borderTopRightRadius: 16,
+      overflow: "hidden",
     },
   },
 };
