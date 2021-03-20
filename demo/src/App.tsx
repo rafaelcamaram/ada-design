@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, FormSchema } from "ada-design";
+
 function App() {
   const schema: FormSchema = [
     {

@@ -19,7 +19,7 @@ type Props = {
 
 const Modal: React.FC<Props> = ({
   isOpen = false,
-  closeModal = () => {},
+  closeModal,
   customModalStyle = {} as Partial<ModalStyle>,
   variant = "default" as ModalVariantType,
   children,

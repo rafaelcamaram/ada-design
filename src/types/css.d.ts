@@ -159,8 +159,6 @@ export type VerticalAlignValue =
   | "bottom";
 
 export type ViewElementProps = {
-  children?: ReactNode;
-
   width?: UnitValue;
   height?: UnitValue;
 

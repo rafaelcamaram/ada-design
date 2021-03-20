@@ -1,10 +1,9 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import View from "components/View";
 import { getFontFamilyStyle } from "theme";
 import { Props as ViewProps } from "types/View";
 
 type Props = {
-  children?: ReactNode;
   onClick?: () => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;

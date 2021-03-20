@@ -13,8 +13,15 @@ const View: React.FC<Props> = ({
   ...rest
 }) => {
   return (
-    <ViewElement id={id} as={as} onClick={onClick} {...rest} css={customStyle}>
-      {children}
+    <ViewElement
+      id={id}
+      as={as as never}
+      onClick={onClick}
+      {...rest}
+      // @ts-ignore
+      css={customStyle}
+    >
+      {children as never}
     </ViewElement>
   );
 };

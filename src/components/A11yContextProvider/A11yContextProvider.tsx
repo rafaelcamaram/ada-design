@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { Queue } from "async-fifo-queue";
-// @ts-ignore
-import axe, { AxeResults } from "axe-core";
+import { reset, configure, run, AxeResults } from "axe-core";
 
 import { A11yContext } from "hoc/withAccessibilityErrors/withAccessibilityErrors";
 import View from "components/View";
@@ -20,12 +19,12 @@ const A11yContextProvider: React.FC = ({ children }) => {
       };
       const { config, options = {} } = baseConfig;
 
-      axe.reset();
+      reset();
       if (config) {
-        axe.configure(config);
+        configure(config);
       }
 
-      const adaResponse: AxeResults = await axe.run(
+      const adaResponse: AxeResults = await run(
         document.getElementById(componentId),
         options,
       );

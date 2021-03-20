@@ -1,11 +1,11 @@
 import View from "components/View";
 import React from "react";
-import { ViewElementProps } from "types/css";
+import { Props as ViewProps } from "types/View";
 
 type Props = {
   color?: string;
   height?: number;
-} & ViewElementProps;
+} & ViewProps;
 
 const Divisor: React.FC<Props> = ({
   color = "rgba(115, 133, 152, 0.20)",

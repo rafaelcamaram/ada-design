@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from "react";
 import styled from "styled-components";
 import withAccessibilityErrors from "hoc/withAccessibilityErrors";
-import { ViewElementProps } from "types/css";
+import { Props as ViewProps } from "types/View";
 import View from "components/View";
 import { ButtonVariantType, getVariantStyle } from "./buttonVariants";
 
@@ -11,7 +11,7 @@ type Props = {
   type?: string;
   variant?: ButtonVariantType;
   customStyle?: string | Record<string, unknown>;
-} & ViewElementProps;
+} & ViewProps;
 
 const Button: React.FC<Props> = ({
   type,
