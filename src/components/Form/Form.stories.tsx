@@ -27,7 +27,7 @@ const schema: FormSchema = [
 
 export const Default = (): React.ReactNode => {
   return (
-    <A11yContextProvider>
+    <A11yContextProvider isEnabled={true}>
       <Form
         schema={schema}
         validationSchema={Yup.object().shape({
@@ -72,7 +72,7 @@ export const WithMoreFields = (): React.ReactNode => {
   ];
 
   return (
-    <A11yContextProvider>
+    <A11yContextProvider isEnabled={true}>
       <Form
         schema={schemass}
         validationSchema={Yup.object().shape({
@@ -318,7 +318,7 @@ export const WithHugeNumberOfFields = (): React.ReactNode => {
   ];
 
   return (
-    <A11yContextProvider>
+    <A11yContextProvider isEnabled={true}>
       <Form
         schema={schemass}
         validationSchema={Yup.object().shape({

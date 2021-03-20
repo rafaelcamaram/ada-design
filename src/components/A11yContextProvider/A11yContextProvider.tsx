@@ -5,7 +5,11 @@ import { reset, configure, run, AxeResults } from "axe-core";
 import { A11yContext } from "hoc/withAccessibilityErrors/withAccessibilityErrors";
 import View from "components/View";
 
-const A11yContextProvider: React.FC = ({ children }) => {
+type Props = {
+  isEnabled: boolean;
+};
+
+const A11yContextProvider: React.FC<Props> = ({ children, isEnabled }) => {
   const currentQueue = useRef(new Queue());
 
   /* Responsible to run a task and resolve with the ADA result of it */
@@ -72,6 +76,7 @@ const A11yContextProvider: React.FC = ({ children }) => {
         queue: currentQueue.current,
         addTask: addTask,
         popNextTaskAndRun: popNextTaskAndRun,
+        isEnabled: isEnabled,
       }}
     >
       <View>{children}</View>

@@ -1,14 +1,13 @@
 import React from "react";
-import { Form, FormSchema } from "ada-design";
+import { Form, FormSchema, A11yContextProvider } from "ada-design";
 
 function App() {
   const schema: FormSchema = [
     {
-      id: "firstName",
       type: "string",
       label: "First Name",
-      isRequired: true,
       placeholder: "Example: John",
+      isRequired: true,
     },
     {
       id: "lastName",
@@ -19,26 +18,21 @@ function App() {
   ];
 
   return (
-    <div className="App" role="main">
-      <h1>This is my awesome page</h1>
-      <a href="#main-content">Skip to main content</a>
+    <A11yContextProvider isEnabled={true}>
+      <div className="App" role="main">
+        <h1>This is my awesome page</h1>
+        <a href="#main-content">Skip to main content</a>
 
-      <main id="main-content">
-        <Form
-          schema={schema}
-          onSubmit={(values: any) => {
-            alert("Done");
-          }}
-        />
-        {/* <form>
-          <label>First Name</label>
-          <input placeholder="Example: John" />
-          <label>Last Name</label>
-          <input placeholder="Example: Doe" />
-          <button>Submit</button>
-        </form> */}
-      </main>
-    </div>
+        <main id="main-content">
+          <Form
+            schema={schema}
+            onSubmit={(values: any) => {
+              alert("Done");
+            }}
+          />
+        </main>
+      </div>
+    </A11yContextProvider>
   );
 }
 

@@ -4,7 +4,6 @@ import { AxeResults } from "axe-core";
 import styled from "styled-components";
 import { v4 as getId } from "uuid";
 import View from "components/View";
-import isDev from "utils/isDev";
 import Badge from "components/Badge";
 import A11yErrorModal from "components/_internal/A11yErrorModal";
 import A11yTooltipError, {
@@ -20,6 +19,7 @@ const initialValue = {
   queue: undefined,
   addTask: (componentId, successCallback) => successCallback(componentId),
   popNextTaskAndRun: () => {},
+  isEnabled: false,
 };
 
 const A11yContext = createContext(initialValue);
@@ -35,7 +35,8 @@ const withAccessibilityErrors = <T,>(Component) => {
     const [withAccessibilityResult, setWithAccessibilityResult] = useState<
       Pick<AxeResults, "violations" | "passes" | "incomplete">
     >();
-    const shouldEnableAccessibility = isDev() && a11yContext.queue;
+    const shouldEnableAccessibility =
+      a11yContext.isEnabled && a11yContext.queue;
     const componentId = getId();
 
     useEffect(() => {

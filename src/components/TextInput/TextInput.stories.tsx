@@ -13,7 +13,7 @@ export const Default = (): React.ReactNode => {
   const [value, setValue] = useState("");
 
   return (
-    <A11yContextProvider>
+    <A11yContextProvider isEnabled={true}>
       <Flex flexDirection="column" alignItems="flex-start">
         <TextInput
           id="WithControlledValue"
@@ -34,7 +34,7 @@ export const Required = (): React.ReactNode => {
   const [value, setValue] = useState("");
 
   return (
-    <A11yContextProvider>
+    <A11yContextProvider isEnabled={true}>
       <Flex flexDirection="column" alignItems="flex-start">
         <TextInput
           id="WithControlledValue"
@@ -56,7 +56,7 @@ export const WithNoVisualLabel = (): React.ReactNode => {
   const [value, setValue] = useState("");
 
   return (
-    <A11yContextProvider>
+    <A11yContextProvider isEnabled={true}>
       <Flex flexDirection="column" alignItems="flex-start">
         <TextInput
           id="WithControlledValue"
@@ -78,7 +78,7 @@ export const WithAriaLabel = (): React.ReactNode => {
   const [value, setValue] = useState("");
 
   return (
-    <A11yContextProvider>
+    <A11yContextProvider isEnabled={true}>
       <Flex flexDirection="column" alignItems="flex-start">
         <TextInput
           id="WithControlledValue"
@@ -100,7 +100,7 @@ export const WithLabelledBy = (): React.ReactNode => {
   const [value, setValue] = useState("");
 
   return (
-    <A11yContextProvider>
+    <A11yContextProvider isEnabled={true}>
       <Flex flexDirection="column" alignItems="flex-start">
         <TextInput
           id="WithControlledValue"
@@ -124,7 +124,7 @@ export const MissingADAFields = (): React.ReactNode => {
   const [value, setValue] = useState("");
 
   return (
-    <A11yContextProvider>
+    <A11yContextProvider isEnabled={true}>
       <Flex flexDirection="column" alignItems="flex-start">
         <TextInput
           id="WithControlledValue"
