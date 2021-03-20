@@ -22,10 +22,14 @@ const initialValue = {
   popNextTaskAndRun: () => {},
 };
 
-export const A11yContext = createContext(initialValue);
+const A11yContext = createContext(initialValue);
+
+A11yContext.displayName = "A11yContext";
+
+export { A11yContext };
 
 const withAccessibilityErrors = <T,>(Component) => {
-  return (props: T) => {
+  return function ComponentWithA11y(props: T) {
     const a11yContext = useContext(A11yContext);
     const [isDetailedModalVisible, setIsDetailedModalVisible] = useState(false);
     const [withAccessibilityResult, setWithAccessibilityResult] = useState<

@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { Queue } from "async-fifo-queue";
+// @ts-ignore
 import axe, { AxeResults } from "axe-core";
 
 import { A11yContext } from "hoc/withAccessibilityErrors/withAccessibilityErrors";

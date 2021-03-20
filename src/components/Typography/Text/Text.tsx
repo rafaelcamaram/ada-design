@@ -5,7 +5,7 @@ import { Props as ViewProps } from "types/View";
 
 type Props = {
   children?: ReactNode;
-  onClick?: Function;
+  onClick?: () => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   value?: string;

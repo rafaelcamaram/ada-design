@@ -10,7 +10,7 @@ type Props = {
   onClick?: MouseEventHandler;
   type?: string;
   variant?: ButtonVariantType;
-  customStyle?: string | object;
+  customStyle?: string | Record<string, unknown>;
 } & ViewElementProps;
 
 const Button: React.FC<Props> = ({

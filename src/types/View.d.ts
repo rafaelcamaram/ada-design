@@ -7,7 +7,7 @@ export type ViewProps = {
   href?: string;
   target?: string;
   onClick?: any;
-  customStyle?: string | object;
+  customStyle?: string | Record<string, unknown>;
 };
 
-export type Props = {} & ViewProps & ViewElementProps;
+export type Props = ViewProps & ViewElementProps;
