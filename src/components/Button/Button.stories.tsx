@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import Button from "./Button";
 
 export default {
@@ -14,18 +15,13 @@ export const Default = (): React.ReactNode => (
     <Button variant="primary" onClick={() => alert("Primary Button Handler")}>
       Primary Button
     </Button>
-    <Button
+    <StyledButton
       variant="primary"
       onClick={() => alert("Primary Button with custom hover Handle")}
-      customStyle={{
-        "&:hover": {
-          backgroundColor: "black",
-          color: "white",
-        },
-      }}
+      backgroundHover="green"
     >
       Primary Button with custom hover
-    </Button>
+    </StyledButton>
     <Button
       isFullWidth
       variant="primary"
@@ -35,3 +31,9 @@ export const Default = (): React.ReactNode => (
     </Button>
   </>
 );
+
+const StyledButton = styled(Button)<{ backgroundHover: string }>`
+  &:hover {
+    background-color: ${({ backgroundHover }) => backgroundHover};
+  }
+`;

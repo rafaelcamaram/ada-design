@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 import Text from "components/Typography/Text";
 import { ViewElementProps, FontWeightValue } from "types/css";
@@ -16,13 +17,6 @@ type Props = {
   onClick?: () => void;
 } & ViewElementProps;
 
-const onHoverStyle = {
-  transition: "filter 0.2s linear",
-  "&:hover": {
-    filter: "brightness(1.2)",
-  },
-} as const;
-
 const Badge: React.FC<Props> = ({
   variant = "default",
   text = "",
@@ -34,7 +28,7 @@ const Badge: React.FC<Props> = ({
   ...rest
 }) => {
   return (
-    <Flex
+    <StyledBadgeContainer
       width="fit-content"
       height={15}
       paddingY={variant === "default" && 5}
@@ -46,7 +40,6 @@ const Badge: React.FC<Props> = ({
       justifyContent="center"
       alignItems="center"
       border={border}
-      customStyle={onClick && onHoverStyle}
       {...rest}
     >
       <Text
@@ -57,8 +50,16 @@ const Badge: React.FC<Props> = ({
       >
         {text}
       </Text>
-    </Flex>
+    </StyledBadgeContainer>
   );
 };
+
+const StyledBadgeContainer = styled(Flex)`
+  transition: filter 0.2s linear;
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+`;
 
 export default Badge;

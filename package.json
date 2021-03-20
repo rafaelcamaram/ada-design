@@ -1,6 +1,6 @@
 {
   "name": "ada-design",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "private": false,
   "main": "./build/index.js",
   "module": "./build/index.es.js",
@@ -13,11 +13,17 @@
     "url": "git+https://github.com/rafaelcamaram/ada-design.git"
   },
   "license": "MIT",
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build": "rm -rf build/ && rollup -c",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+    "test": "jest"
+  },
   "dependencies": {
     "async-fifo-queue": "^1.1.0",
     "axe-core": "^4.1.2",
     "formik": "^2.2.6",
-    "glamor": "^2.20.40",
     "styled-components": "^5.2.1",
     "uuid": "^8.3.2",
     "yup": "^0.32.9"
@@ -58,18 +64,10 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "rollup": "^2.28.2",
-    "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.3",
     "rollup-plugin-typescript2": "^0.27.3",
     "ts-jest": "^26.4.0",
     "ts-loader": "^8.0.4",
     "typescript": "^4.0.3"
-  },
-  "scripts": {
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "build": "rm -rf build/ && rollup -c",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
-    "test": "jest"
   }
 }

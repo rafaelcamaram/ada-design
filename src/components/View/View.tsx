@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { cssValue } from "utils/styles";
 import { Props } from "types/View";
 import { ViewElementProps } from "types/css";
@@ -9,18 +9,10 @@ const View: React.FC<Props> = ({
   as = "div",
   children,
   onClick,
-  customStyle,
   ...rest
 }) => {
   return (
-    <ViewElement
-      id={id}
-      as={as as never}
-      onClick={onClick}
-      {...rest}
-      // @ts-ignore
-      css={customStyle}
-    >
+    <ViewElement id={id} as={as as never} onClick={onClick} {...rest}>
       {children as never}
     </ViewElement>
   );

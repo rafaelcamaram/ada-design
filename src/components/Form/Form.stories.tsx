@@ -83,12 +83,7 @@ export const WithMoreFields = (): React.ReactNode => {
           alert("Hello there");
         }}
       />
-      <Button
-        variant="default"
-        customStyle={{ backgroundColor: "white", color: "#ececec", border: 0 }}
-      >
-        Button
-      </Button>
+      <Button variant="default">Button</Button>
     </A11yContextProvider>
   );
 };

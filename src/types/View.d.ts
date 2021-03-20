@@ -3,11 +3,10 @@ import { ViewElementProps } from "types/css";
 export type ViewProps = {
   id?: string;
   type?: string;
-  as?: string;
+  as?: any;
   href?: string;
   target?: string;
   onClick?: (param: any) => any;
-  customStyle?: string | Record<string, unknown>;
   children?: React.ReactNode;
 };
 

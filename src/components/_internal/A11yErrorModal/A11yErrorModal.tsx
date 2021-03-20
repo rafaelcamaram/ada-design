@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
+import styled from "styled-components";
 
 import Divisor from "components/Divisor";
 import Flex from "components/Flex";
@@ -71,18 +72,8 @@ const A11yErrorModal: React.FC<Props> = ({
             {TAB_CATEGORIES.map((category, index) => {
               const isSelected = selectedIndex === index;
 
-              const customStyle = {
-                transition: "border-bottom 0.2s linear",
-                "&:hover": {
-                  backgroundColor: "#F2F2F2",
-                  borderBottom: isSelected
-                    ? "2px solid #0D65C2"
-                    : "2px solid #DFDFDF",
-                },
-              };
-
               return (
-                <Text
+                <StyledTabItem
                   key={index}
                   fontWeight="bold"
                   color={category.color}
@@ -94,11 +85,11 @@ const A11yErrorModal: React.FC<Props> = ({
                   }`}
                   paddingY={16}
                   cursor="pointer"
-                  customStyle={customStyle}
                   onClick={() => setSelectedIndex(index)}
+                  isSelected={isSelected}
                 >
                   {getLengthByIndex(index)} {category.label}
-                </Text>
+                </StyledTabItem>
               );
             })}
           </Flex>
@@ -136,5 +127,15 @@ const A11yErrorModal: React.FC<Props> = ({
     </Modal>
   );
 };
+
+const StyledTabItem = styled(Text)<{ isSelected: boolean }>`
+  transition: border-bottom 0.2s linear;
+
+  &:hover {
+    background-color: "#F2F2F2";
+    border-bottom: ${({ isSelected }) =>
+      isSelected ? "2px solid #0D65C2" : "2px solid #DFDFDF"};
+  }
+`;
 
 export default A11yErrorModal;
