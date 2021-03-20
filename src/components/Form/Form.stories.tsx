@@ -334,12 +334,6 @@ export const WithHugeNumberOfFields = (): React.ReactNode => {
           alert("Hello there");
         }}
       />
-      <Button
-        variant="default"
-        customStyle={{ backgroundColor: "white", color: "#ececec", border: 0 }}
-      >
-        Button
-      </Button>
     </A11yContextProvider>
   );
 };

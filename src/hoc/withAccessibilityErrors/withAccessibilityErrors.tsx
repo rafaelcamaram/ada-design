@@ -10,6 +10,7 @@ import A11yErrorModal from "components/_internal/A11yErrorModal";
 import A11yTooltipError, {
   ErrorContent,
 } from "components/_internal/A11yTooltipError";
+import { getColorByImpact } from "utils/styles";
 
 const DEFAULT_ERROR_BORDER = "1px dashed #E30000";
 const DEFAULT_SUCCESS_BORDER = "1px dashed #65BF3B";
@@ -49,8 +50,6 @@ const withAccessibilityErrors = <T,>(Component) => {
       return <Component {...props} />;
     }
 
-    console.log({ withAccessibilityResult });
-
     if (!withAccessibilityResult) {
       return (
         <View id={componentId}>
@@ -59,7 +58,7 @@ const withAccessibilityErrors = <T,>(Component) => {
       );
     }
 
-    const isSuccess = withAccessibilityResult?.violations?.length === 0;
+    const firstValidIssue = withAccessibilityResult?.violations?.[0];
     return (
       <>
         <A11yErrorModal
@@ -73,7 +72,9 @@ const withAccessibilityErrors = <T,>(Component) => {
         <View
           id={componentId}
           width="fit-content"
-          border={isSuccess ? DEFAULT_SUCCESS_BORDER : DEFAULT_ERROR_BORDER}
+          border={
+            !firstValidIssue ? DEFAULT_SUCCESS_BORDER : DEFAULT_ERROR_BORDER
+          }
           position={DEFAULT_ERROR_POSITION}
           borderRadius="6px"
         >
@@ -81,7 +82,7 @@ const withAccessibilityErrors = <T,>(Component) => {
             <Badge
               variant="circle"
               text="*"
-              color={isSuccess ? "#65BF3B" : "#E30000"}
+              color={getColorByImpact(firstValidIssue?.impact)}
               onClick={() => setIsDetailedModalVisible(true)}
             />
             <A11yTooltipError

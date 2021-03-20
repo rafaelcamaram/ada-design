@@ -5,3 +5,5 @@ export type Json =
   | string
   | Json[]
   | { [prop: string]: Json };
+
+export type Impact = "minor" | "moderate" | "serious" | "critical" | null;

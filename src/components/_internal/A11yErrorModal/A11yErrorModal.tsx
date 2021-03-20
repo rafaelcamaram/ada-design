@@ -1,13 +1,12 @@
 import React, { useCallback, useMemo, useState } from "react";
 
-import Badge from "components/Badge";
 import Divisor from "components/Divisor";
 import Flex from "components/Flex";
 import Heading from "components/Typography/Heading";
-import Link from "components/Typography/Link";
 import Text from "components/Typography/Text";
 import View from "components/View";
 import Modal from "components/Modal";
+import StatusPill from "../StatusPill";
 
 type Props = {
   passes: any;
@@ -66,96 +65,74 @@ const A11yErrorModal: React.FC<Props> = ({
       variant="trail"
       customModalStyle={customModalStyle}
     >
-      <Flex backgroundColor="#F7F9FC" alignItems="center" paddingX={32}>
-        {TAB_CATEGORIES.map((category, index) => {
-          const isSelected = selectedIndex === index;
+      {isOpen && (
+        <>
+          <Flex backgroundColor="#F7F9FC" alignItems="center" paddingX={32}>
+            {TAB_CATEGORIES.map((category, index) => {
+              const isSelected = selectedIndex === index;
 
-          const customStyle = {
-            transition: "border-bottom 0.2s linear",
-            "&:hover": {
-              backgroundColor: "#F2F2F2",
-              borderBottom: isSelected
-                ? "2px solid #0D65C2"
-                : "2px solid #DFDFDF",
-            },
-          };
+              const customStyle = {
+                transition: "border-bottom 0.2s linear",
+                "&:hover": {
+                  backgroundColor: "#F2F2F2",
+                  borderBottom: isSelected
+                    ? "2px solid #0D65C2"
+                    : "2px solid #DFDFDF",
+                },
+              };
 
-          return (
-            <Text
-              key={index}
-              fontWeight="bold"
-              color={category.color}
-              paddingRight={16}
-              paddingLeft={16}
-              marginLeft={index === 0 ? -16 : 0}
-              borderBottom={`2px solid ${
-                isSelected ? "#0D65C2" : "transparent"
-              }`}
-              paddingY={16}
-              cursor="pointer"
-              customStyle={customStyle}
-              onClick={() => setSelectedIndex(index)}
-            >
-              {getLengthByIndex(index)} {category.label}
-            </Text>
-          );
-        })}
-      </Flex>
-
-      <Flex padding={32}>
-        {data.length === 0 ? null : (
-          <View>
-            <Badge text={data[0].impact} color="rgba(255, 68, 0, 0.5)" />
-            <Heading size={400} width={250}>
-              {data[0].description}
-            </Heading>
-            <Text color="#060F19" marginTop={5} marginBottom={10}>
-              {data[0].help}
-            </Text>
-            <Flex flexDirection="row" marginY={10}>
-              <Link
-                as="a"
-                target="_blank"
-                href={data[0].helpUrl}
-                marginRight={10}
-              >
-                More info
-              </Link>
-              <Flex flexDirection="row">
-                <Link
-                  onClick={() => {
-                    setIsOpen(true);
-                  }}
+              return (
+                <Text
+                  key={index}
+                  fontWeight="bold"
+                  color={category.color}
+                  paddingRight={16}
+                  paddingLeft={16}
+                  marginLeft={index === 0 ? -16 : 0}
+                  borderBottom={`2px solid ${
+                    isSelected ? "#0D65C2" : "transparent"
+                  }`}
+                  paddingY={16}
+                  cursor="pointer"
+                  customStyle={customStyle}
+                  onClick={() => setSelectedIndex(index)}
                 >
-                  Open details
-                </Link>
-                <Badge
-                  variant="circle"
-                  text={`${data[0].nodes[0].any.length}`}
-                  textColor="#738598"
-                />
+                  {getLengthByIndex(index)} {category.label}
+                </Text>
+              );
+            })}
+          </Flex>
+
+          <Flex maxHeight={400} padding={32} paddingTop={16} overflowY="scroll">
+            {data.length === 0 ? (
+              <Text>No records available</Text>
+            ) : (
+              <Flex width="100%" flexDirection="column">
+                {data.map((record, index) => {
+                  return (
+                    <View key={index} width="100%">
+                      <Flex alignItems="center">
+                        <StatusPill impact={record.impact} />
+                        <Flex flexDirection="column" marginLeft={12}>
+                          <Heading size={400} marginTop={0}>
+                            {record.description}
+                          </Heading>
+
+                          <Text color="#060F19" marginBottom={6}>
+                            {record.help}
+                          </Text>
+                        </Flex>
+                      </Flex>
+
+                      <Divisor marginY={6} />
+                    </View>
+                  );
+                })}
               </Flex>
-            </Flex>
-            <Divisor marginTop={15} />
-            <Flex flexWrap="wrap" paddingTop={15}>
-              {data[0].tags.map((tag) => {
-                return (
-                  <Badge
-                    key={tag}
-                    text={tag}
-                    textColor="#738598"
-                    textWeight="normal"
-                    border="1px solid rgba(115, 133, 152, 0.20)"
-                    color="transparent"
-                    marginRight={5}
-                    marginBottom={5}
-                  />
-                );
-              })}
-            </Flex>
-          </View>
-        )}
-      </Flex>
+            )}
+          </Flex>
+        </>
+      )}
     </Modal>
   );
 };
