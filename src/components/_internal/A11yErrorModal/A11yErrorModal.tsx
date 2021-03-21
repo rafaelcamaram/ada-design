@@ -1,17 +1,13 @@
 import React, { useMemo, useState } from "react";
 
-import Divisor from "components/Divisor";
 import Flex from "components/Flex";
 import Text from "components/Typography/Text";
 import Modal from "components/Modal";
-import StatusPill from "../StatusPill";
 import ToggleSection from "components/ToggleSection";
+
 import A11yErrorModalItemHeader from "./A11yErrorModalItemHeader";
 import A11yErrorModalTabs from "./A11yErrorModalTabs";
-import Link from "components/Typography/Link";
-import Badge from "components/Badge";
-import BadgeList from "components/BadgeList";
-import { getColorByImpact } from "utils/styles";
+import A11yErrorModalItemContent from "./A11yErrorModalItemContent";
 
 type Props = {
   passes: any;
@@ -82,62 +78,11 @@ const A11yErrorModal: React.FC<Props> = ({
                       {({ isCollapsed, setIsCollapsed }) => {
                         if (isCollapsed) return null;
 
-                        console.log({ record });
-                        const { impact, any: anyList } = record.nodes[0];
                         return (
-                          <Flex
-                            flexDirection="row"
-                            backgroundColor="#F7F9FC"
-                            marginX={-32}
-                            marginTop={-6}
-                            marginBottom={6}
-                            paddingX={32}
-                            paddingY={12}
-                            boxSizing="border-box"
-                            flexWrap="wrap"
-                          >
-                            <Flex flexDirection="column" marginY={10}>
-                              <Flex alignItems="center" marginBottom={12}>
-                                <Badge
-                                  text={impact || "Success"}
-                                  color={getColorByImpact(impact)}
-                                />
-                                <Link
-                                  as="a"
-                                  target="_blank"
-                                  href={record.helpUrl}
-                                  marginRight={10}
-                                  marginLeft={16}
-                                >
-                                  External Resources
-                                </Link>
-                                <Link
-                                  onClick={() => {
-                                    setIsCollapsed(true);
-                                  }}
-                                >
-                                  Close Details
-                                </Link>
-                              </Flex>
-                              {impact && (
-                                <Text marginBottom={6}>
-                                  Fix one of the following in order to solve it:
-                                </Text>
-                              )}
-                              {impact &&
-                                anyList.map((item, index) => {
-                                  return (
-                                    <Flex key={index} alignItems="center">
-                                      <StatusPill impact={item.impact} />
-
-                                      <Text marginLeft={6}>{item.message}</Text>
-                                    </Flex>
-                                  );
-                                })}
-                            </Flex>
-                            <Divisor />
-                            <BadgeList data={record.tags} />
-                          </Flex>
+                          <A11yErrorModalItemContent
+                            record={record}
+                            setIsCollapsed={setIsCollapsed}
+                          />
                         );
                       }}
                     </ToggleSection>
