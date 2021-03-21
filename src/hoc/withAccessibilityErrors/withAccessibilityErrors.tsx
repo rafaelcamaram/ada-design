@@ -28,15 +28,22 @@ A11yContext.displayName = "A11yContext";
 
 export { A11yContext };
 
+type AccessibilityProps = {
+  shouldDisableA11y?: boolean;
+};
+
 const withAccessibilityErrors = <T,>(Component) => {
-  return function ComponentWithA11y(props: T) {
+  return function ComponentWithA11y({
+    shouldDisableA11y,
+    ...props
+  }: T & AccessibilityProps): React.ReactNode {
     const a11yContext = useContext(A11yContext);
     const [isDetailedModalVisible, setIsDetailedModalVisible] = useState(false);
     const [withAccessibilityResult, setWithAccessibilityResult] = useState<
       Pick<AxeResults, "violations" | "passes" | "incomplete">
     >();
     const shouldEnableAccessibility =
-      a11yContext.isEnabled && a11yContext.queue;
+      !shouldDisableA11y && a11yContext.isEnabled && a11yContext.queue;
     const componentId = getId();
 
     useEffect(() => {
