@@ -71,6 +71,7 @@ const A11yErrorModal: React.FC<Props> = ({
                     <ToggleSection
                       key={`${selectedIndex}-${index}`}
                       width="100%"
+                      isToggleDisabled={!record.impact}
                       headerComponent={() => (
                         <A11yErrorModalItemHeader record={record} />
                       )}
