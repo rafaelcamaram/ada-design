@@ -8,6 +8,8 @@ import Link from "components/Typography/Link";
 import Text from "components/Typography/Text";
 import View from "components/View";
 import styled from "styled-components";
+import BadgeList from "components/BadgeList";
+import { getColorByImpact } from "utils/styles";
 
 type Props = {
   issue: any;
@@ -21,7 +23,7 @@ const A11yTooltipError: React.FC<Props> = ({ issue, setIsModalOpen }) => {
     <ErrorContent>
       <Badge
         text={issue.impact}
-        color="rgba(255, 68, 0, 0.5)"
+        color={getColorByImpact(issue.impact)}
         position="absolute"
         top={15}
         right={15}
@@ -52,22 +54,7 @@ const A11yTooltipError: React.FC<Props> = ({ issue, setIsModalOpen }) => {
         </Flex>
       </Flex>
       <Divisor marginTop={10} />
-      <Flex flexWrap="wrap" paddingTop={15}>
-        {issue.tags.map((tag) => {
-          return (
-            <Badge
-              key={tag}
-              text={tag}
-              textColor="#738598"
-              textWeight="normal"
-              border="1px solid rgba(115, 133, 152, 0.20)"
-              color="transparent"
-              marginRight={5}
-              marginBottom={5}
-            />
-          );
-        })}
-      </Flex>
+      <BadgeList data={issue.tags} />
     </ErrorContent>
   );
 };

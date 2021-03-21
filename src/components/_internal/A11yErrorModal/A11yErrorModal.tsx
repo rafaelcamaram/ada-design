@@ -1,13 +1,17 @@
-import React, { useCallback, useMemo, useState } from "react";
-import styled from "styled-components";
+import React, { useMemo, useState } from "react";
 
 import Divisor from "components/Divisor";
 import Flex from "components/Flex";
-import Heading from "components/Typography/Heading";
 import Text from "components/Typography/Text";
-import View from "components/View";
 import Modal from "components/Modal";
 import StatusPill from "../StatusPill";
+import ToggleSection from "components/ToggleSection";
+import A11yErrorModalItemHeader from "./A11yErrorModalItemHeader";
+import A11yErrorModalTabs from "./A11yErrorModalTabs";
+import Link from "components/Typography/Link";
+import Badge from "components/Badge";
+import BadgeList from "components/BadgeList";
+import { getColorByImpact } from "utils/styles";
 
 type Props = {
   passes: any;
@@ -25,12 +29,6 @@ const customModalStyle = {
   },
 } as const;
 
-const TAB_CATEGORIES = [
-  { label: "Violations", color: "#FF4400" },
-  { label: "Passes", color: "#65BF3B" },
-  { label: "Incomplete", color: "#E69D01" },
-] as const;
-
 const A11yErrorModal: React.FC<Props> = ({
   passes,
   incomplete,
@@ -39,15 +37,6 @@ const A11yErrorModal: React.FC<Props> = ({
   setIsOpen,
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const getLengthByIndex = useCallback((index) => {
-    const lengthByIndex = {
-      0: violations.length,
-      1: passes.length,
-      2: incomplete.length,
-    };
-    return lengthByIndex[index] || 0;
-  }, []);
 
   const data = useMemo(() => {
     const dataByIndex = {
@@ -68,31 +57,13 @@ const A11yErrorModal: React.FC<Props> = ({
     >
       {isOpen && (
         <>
-          <Flex backgroundColor="#F7F9FC" alignItems="center" paddingX={32}>
-            {TAB_CATEGORIES.map((category, index) => {
-              const isSelected = selectedIndex === index;
-
-              return (
-                <StyledTabItem
-                  key={index}
-                  fontWeight="bold"
-                  color={category.color}
-                  paddingRight={16}
-                  paddingLeft={16}
-                  marginLeft={index === 0 ? -16 : 0}
-                  borderBottom={`2px solid ${
-                    isSelected ? "#0D65C2" : "transparent"
-                  }`}
-                  paddingY={16}
-                  cursor="pointer"
-                  onClick={() => setSelectedIndex(index)}
-                  isSelected={isSelected}
-                >
-                  {getLengthByIndex(index)} {category.label}
-                </StyledTabItem>
-              );
-            })}
-          </Flex>
+          <A11yErrorModalTabs
+            passes={passes}
+            incomplete={incomplete}
+            violations={violations}
+            selectedIndex={selectedIndex}
+            setSelectedIndex={setSelectedIndex}
+          />
 
           <Flex maxHeight={400} padding={32} paddingTop={16} overflowY="scroll">
             {data.length === 0 ? (
@@ -101,22 +72,75 @@ const A11yErrorModal: React.FC<Props> = ({
               <Flex width="100%" flexDirection="column">
                 {data.map((record, index) => {
                   return (
-                    <View key={index} width="100%">
-                      <Flex alignItems="center">
-                        <StatusPill impact={record.impact} />
-                        <Flex flexDirection="column" marginLeft={12}>
-                          <Heading size={400} marginTop={0}>
-                            {record.description}
-                          </Heading>
+                    <ToggleSection
+                      key={`${selectedIndex}-${index}`}
+                      width="100%"
+                      headerComponent={() => (
+                        <A11yErrorModalItemHeader record={record} />
+                      )}
+                    >
+                      {({ isCollapsed, setIsCollapsed }) => {
+                        if (isCollapsed) return null;
 
-                          <Text color="#060F19" marginBottom={6}>
-                            {record.help}
-                          </Text>
-                        </Flex>
-                      </Flex>
+                        console.log({ record });
+                        const { impact, any: anyList } = record.nodes[0];
+                        return (
+                          <Flex
+                            flexDirection="row"
+                            backgroundColor="#F7F9FC"
+                            marginX={-32}
+                            marginTop={-6}
+                            marginBottom={6}
+                            paddingX={32}
+                            paddingY={12}
+                            boxSizing="border-box"
+                            flexWrap="wrap"
+                          >
+                            <Flex flexDirection="column" marginY={10}>
+                              <Flex alignItems="center" marginBottom={12}>
+                                <Badge
+                                  text={impact || "Success"}
+                                  color={getColorByImpact(impact)}
+                                />
+                                <Link
+                                  as="a"
+                                  target="_blank"
+                                  href={record.helpUrl}
+                                  marginRight={10}
+                                  marginLeft={16}
+                                >
+                                  External Resources
+                                </Link>
+                                <Link
+                                  onClick={() => {
+                                    setIsCollapsed(true);
+                                  }}
+                                >
+                                  Close Details
+                                </Link>
+                              </Flex>
+                              {impact && (
+                                <Text marginBottom={6}>
+                                  Fix one of the following in order to solve it:
+                                </Text>
+                              )}
+                              {impact &&
+                                anyList.map((item, index) => {
+                                  return (
+                                    <Flex key={index} alignItems="center">
+                                      <StatusPill impact={item.impact} />
 
-                      <Divisor marginY={6} />
-                    </View>
+                                      <Text marginLeft={6}>{item.message}</Text>
+                                    </Flex>
+                                  );
+                                })}
+                            </Flex>
+                            <Divisor />
+                            <BadgeList data={record.tags} />
+                          </Flex>
+                        );
+                      }}
+                    </ToggleSection>
                   );
                 })}
               </Flex>
@@ -127,15 +151,5 @@ const A11yErrorModal: React.FC<Props> = ({
     </Modal>
   );
 };
-
-const StyledTabItem = styled(Text)<{ isSelected: boolean }>`
-  transition: border-bottom 0.2s linear;
-
-  &:hover {
-    background-color: "#F2F2F2";
-    border-bottom: ${({ isSelected }) =>
-      isSelected ? "2px solid #0D65C2" : "2px solid #DFDFDF"};
-  }
-`;
 
 export default A11yErrorModal;
