@@ -1,12 +1,26 @@
 import View from "components/View";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
 import { getVariantStyle, ModalStyle, ModalVariantType } from "./modalVariants";
 
-const modalRoot = document.getElementById("root");
-
 const ModalPortal = ({ children }) => {
+  const [modalRoot, setModalRoot] = useState(null);
+
+  useEffect(() => {
+    if (typeof document !== `undefined`) {
+      const rootContainer = document.getElementById("root");
+
+      if (rootContainer) {
+        setModalRoot(rootContainer);
+      } else {
+        setModalRoot(document.getElementsByTagName("body")[0]);
+      }
+    }
+  }, []);
+
+  if (!modalRoot) return null;
+
   return ReactDOM.createPortal(children, modalRoot);
 };
 
