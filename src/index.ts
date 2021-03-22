@@ -6,6 +6,7 @@ export { default as Divisor } from "components/Divisor";
 export { default as Flex } from "components/Flex";
 export { default as Form } from "components/Form";
 export { default as Modal } from "components/Modal";
+export { default as ToggleSection } from "components/ToggleSection";
 export { default as TextInput } from "components/TextInput";
 export { default as Heading } from "components/Typography/Heading";
 export { default as Label } from "components/Typography/Label";
