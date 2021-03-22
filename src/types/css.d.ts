@@ -212,7 +212,7 @@ export type ViewElementProps = {
   backgroundClip?: "border-box" | "padding-box" | "content-box";
   backgroundColor?: string;
   backgroundImage?: string;
-  backgroundOrigin?: "border-box" | "padding-box" | "content-box";
+  backgroundOrigin?: string;
   backgroundPosition?: string;
   backgroundRepeat?: "repeat" | "repeat-x" | "repeat-y" | "no-repeat";
   backgroundSize?: string;

@@ -1,5 +1,6 @@
 export { default as A11yContextProvider } from "components/A11yContextProvider";
 export { default as Badge } from "components/Badge";
+export { default as BadgeList } from "components/BadgeList";
 export { default as Button } from "components/Button";
 export { default as Divisor } from "components/Divisor";
 export { default as Flex } from "components/Flex";

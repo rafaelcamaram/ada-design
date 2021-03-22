@@ -33,10 +33,11 @@ type AccessibilityProps = {
 };
 
 const withAccessibilityErrors = <T,>(Component) => {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   return function ComponentWithA11y({
     shouldDisableA11y,
     ...props
-  }: T & AccessibilityProps): React.ReactNode {
+  }: T & AccessibilityProps) {
     const a11yContext = useContext(A11yContext);
     const [isDetailedModalVisible, setIsDetailedModalVisible] = useState(false);
     const [withAccessibilityResult, setWithAccessibilityResult] = useState<

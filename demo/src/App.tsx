@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, FormSchema, A11yContextProvider } from "ada-design";
+import { Button, A11yContextProvider } from "ada-design";
 
 function App() {
   const schema: FormSchema = [
@@ -24,12 +24,7 @@ function App() {
         <a href="#main-content">Skip to main content</a>
 
         <main id="main-content">
-          <Form
-            schema={schema}
-            onSubmit={(values: any) => {
-              alert("Done");
-            }}
-          />
+          <Button>Test</Button>
         </main>
       </div>
     </A11yContextProvider>
