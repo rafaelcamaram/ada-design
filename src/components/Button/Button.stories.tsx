@@ -74,26 +74,27 @@ export const Default = (): React.ReactNode => (
       </Heading>
       <Flex marginBottom={18}>
         <View marginRight={10}>
-          <StyledButton
+          <Button
+            className="my-awesome-button"
             size={32}
             variant="primary"
             intention="default"
-            onClick={() => alert("Default Button Handler")}
-            textTransform="capitalize"
+            onClick={() => {}}
+            margin={10}
+            width="100%"
+            background="red"
           >
-            Custom Button
-          </StyledButton>
+            Button with props
+          </Button>
         </View>
         <View marginRight={10}>
           <StyledButton
             size={32}
             variant="primary"
             intention="default"
-            onClick={() => alert("Default Button Handler")}
-            textTransform="capitalize"
-            background="yellow"
+            onClick={() => {}}
           >
-            Custom Button with Class Name
+            Button with styled-components
           </StyledButton>
         </View>
       </Flex>
@@ -101,4 +102,12 @@ export const Default = (): React.ReactNode => (
   </>
 );
 
-const StyledButton = styled(Button)<{ backgroundHover?: string }>``;
+const StyledButton = styled(Button)`
+  width: 100%;
+  margin: 10px;
+  background: #6d1818;
+
+  &:hover {
+    background: #289e9e;
+  }
+`;
