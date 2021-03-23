@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import Text from "components/Typography/Text";
-import { ViewElementProps, FontWeightValue } from "types/css";
+import { FontWeightValue } from "types/css";
 import Flex from "components/Flex";
+import { Props as ViewProps } from "types/View";
 
 type BadgeVariants = "default" | "circle";
 
@@ -15,7 +16,7 @@ type Props = {
   textColor?: string;
   textWeight?: FontWeightValue;
   onClick?: () => void;
-} & ViewElementProps;
+} & ViewProps;
 
 const Badge: React.FC<Props> = ({
   variant = "default",

@@ -9,10 +9,17 @@ const View: React.FC<Props> = ({
   as = "div",
   children,
   onClick,
+  className,
   ...rest
 }) => {
   return (
-    <ViewElement id={id} as={as as never} onClick={onClick} {...rest}>
+    <ViewElement
+      id={id}
+      as={as as never}
+      className={className}
+      onClick={onClick}
+      {...rest}
+    >
       {children as never}
     </ViewElement>
   );

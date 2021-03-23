@@ -8,6 +8,7 @@ export type ViewProps = {
   target?: string;
   onClick?: (param: any) => any;
   children?: React.ReactNode;
+  className?: string;
 };
 
 export type Props = ViewProps & ViewElementProps;
