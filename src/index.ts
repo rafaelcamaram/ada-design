@@ -13,4 +13,5 @@ export { default as Label } from "components/Typography/Label";
 export { default as Link } from "components/Typography/Link";
 export { default as Text } from "components/Typography/Text";
 export { default as View } from "components/View";
+export { default as withAccessibilityErrors } from "hoc/withAccessibilityErrors";
 export { FormSchema as FormSchema } from "components/Form";
