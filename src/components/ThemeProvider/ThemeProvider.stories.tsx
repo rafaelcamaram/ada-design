@@ -48,41 +48,39 @@ const renderContent = () => {
   });
 };
 export const DefaultWithCustomTheme = (): React.ReactNode => (
-  <>
-    <A11yContextProvider isEnabled={false}>
-      <Heading size={800} textTransform="capitalize" marginBottom={8}>
-        With the default theme properties
-      </Heading>
-      {renderContent()}
+  <A11yContextProvider isEnabled={true}>
+    <Heading size={800} textTransform="capitalize" marginBottom={8}>
+      With the default theme properties
+    </Heading>
+    {renderContent()}
 
-      <Heading
-        size={800}
-        textTransform="capitalize"
-        marginBottom={8}
-        marginTop={32}
-      >
-        With the custom theme properties set by user
-      </Heading>
-      <ThemeProvider
-        value={{
-          buttons: {
-            intentions: {
-              backgroundDefault: "cyan",
-              textDefault: "gray",
-              textSuccess: "pink",
-              textWarning: "yellow",
-              textDanger: "purple",
-            },
+    <Heading
+      size={800}
+      textTransform="capitalize"
+      marginBottom={8}
+      marginTop={32}
+    >
+      With the custom theme properties set by user
+    </Heading>
+    <ThemeProvider
+      value={{
+        buttons: {
+          intentions: {
+            backgroundDefault: "cyan",
+            textDefault: "gray",
+            textSuccess: "pink",
+            textWarning: "yellow",
+            textDanger: "purple",
           },
-          colors: {
-            palette: {
-              white: "#fff",
-            },
+        },
+        colors: {
+          palette: {
+            white: "#fff",
           },
-        }}
-      >
-        {renderContent()}
-      </ThemeProvider>
-    </A11yContextProvider>
-  </>
+        },
+      }}
+    >
+      {renderContent()}
+    </ThemeProvider>
+  </A11yContextProvider>
 );

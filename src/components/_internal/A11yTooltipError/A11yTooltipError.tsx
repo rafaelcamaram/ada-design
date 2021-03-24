@@ -67,7 +67,7 @@ export const ErrorContent = styled(View)`
   top: calc(100% + 5px);
   left: 0;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 1);
   border: 1px dashed #ff0000;
   border-radius: 8px;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.4);

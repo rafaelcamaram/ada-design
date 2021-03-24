@@ -28,7 +28,7 @@ export const Default = (): React.ReactNode => (
         return (
           <>
             <Heading size={500} textTransform="capitalize" marginBottom={8}>
-              {variant} variant style
+              {`${variant} variant style`}
             </Heading>
             <Flex key={variantIndex} marginBottom={18}>
               {renderForAllIntents((props, index) => {
@@ -40,7 +40,7 @@ export const Default = (): React.ReactNode => (
                       textTransform="capitalize"
                       {...props}
                     >
-                      {props.intention} Button
+                      {`${props.intention} Button`}
                     </Button>
                   </View>
                 );

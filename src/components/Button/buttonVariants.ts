@@ -17,7 +17,9 @@ const defaultButtonProps = {
 };
 
 const getLinearGradient = (color, factor) => {
-  return `linear-gradient(${color}, ${Color(color).darken(factor)})`;
+  // TODO: Figure out a way to use gradients without messing with ADA analysis
+  return color;
+  // return `linear-gradient(${color}, ${Color(color).darken(factor)})`;
 };
 
 const VariantStyles = () => {
@@ -78,6 +80,7 @@ const VariantStyles = () => {
         success: {
           color: intentions.backgroundSuccess,
         },
+        // TODO: Simple Warning variation with A11y contrast issue with white background (Default)
         warning: {
           color: intentions.backgroundWarning,
         },
@@ -136,6 +139,7 @@ const useTextStyleAndSpacing = (size: ButtonSizeType) => {
     ...paddingStyle,
   };
 };
+
 export const useVariantStyle = (
   variant: ButtonVariantType,
   intention: ButtonIntentionType,

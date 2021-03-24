@@ -24,13 +24,13 @@ export const defaultTheme: ThemeType = {
   buttons: {
     intentions: {
       textDefault: "rgb(66, 90, 112)",
-      backgroundDefault: "rgb(7, 136, 222)",
+      backgroundDefault: "#0679C6",
       textSuccess: "rgb(0, 120, 63)",
-      backgroundSuccess: "rgb(35, 194, 119)",
+      backgroundSuccess: "#168350",
       textWarning: "rgb(149, 89, 31)",
       backgroundWarning: "rgb(238, 153, 19)",
       textDanger: "rgb(191, 14, 9)",
-      backgroundDanger: "rgb(236, 76, 71)",
+      backgroundDanger: "#E71F18",
     },
   },
   colors: {

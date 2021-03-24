@@ -16,6 +16,7 @@ const COLOR_BY_IMPACT = {
   serious: "rgba(255, 68, 0, 0.6)",
   critical: "rgba(255, 68, 0, 0.8)",
   success: "rgba(101, 191, 59, 0.5)",
+  incomplete: "rgb(238, 153, 19)",
 } as const;
 
 export const getColorByImpact = (impact) => {

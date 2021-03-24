@@ -13,6 +13,7 @@ import { getColorByImpact } from "utils/styles";
 
 const DEFAULT_ERROR_BORDER = "1px dashed #E30000";
 const DEFAULT_SUCCESS_BORDER = "1px dashed #65BF3B";
+const DEFAULT_INCOMPLETE_BORDER = "1px dashed rgb(238, 153, 19)";
 const DEFAULT_ERROR_POSITION = "relative";
 
 const initialValue = {
@@ -71,7 +72,11 @@ const withAccessibilityErrors = <T,>(Component) => {
       );
     }
 
-    const firstValidIssue = withAccessibilityResult?.violations?.[0];
+    const { violations, incomplete } = withAccessibilityResult || {};
+
+    const firstValidIssue = violations?.[0];
+    const firstIncompleteIssue = incomplete?.[0];
+
     return (
       <>
         <A11yErrorModal
@@ -86,7 +91,11 @@ const withAccessibilityErrors = <T,>(Component) => {
           id={componentId}
           width="fit-content"
           border={
-            !firstValidIssue ? DEFAULT_SUCCESS_BORDER : DEFAULT_ERROR_BORDER
+            !firstValidIssue && !firstIncompleteIssue
+              ? DEFAULT_SUCCESS_BORDER
+              : !firstIncompleteIssue
+              ? DEFAULT_ERROR_BORDER
+              : DEFAULT_INCOMPLETE_BORDER
           }
           position={DEFAULT_ERROR_POSITION}
           borderRadius="6px"
@@ -95,7 +104,9 @@ const withAccessibilityErrors = <T,>(Component) => {
             <Badge
               variant="circle"
               text="*"
-              color={getColorByImpact(firstValidIssue?.impact)}
+              color={getColorByImpact(
+                firstValidIssue?.impact || firstIncompleteIssue?.impact,
+              )}
               onClick={() => setIsDetailedModalVisible(true)}
             />
             <A11yTooltipError
