@@ -35,7 +35,7 @@ const A11yTooltipError: React.FC<Props> = ({ issue, setIsModalOpen }) => {
         {issue.help}
       </Text>
       <Flex flexDirection="row" marginY={10}>
-        <Link as="a" target="_blank" href={issue.helpUrl} marginRight={10}>
+        <Link target="_blank" href={issue.helpUrl} marginRight={10}>
           More info
         </Link>
         <Flex flexDirection="row">

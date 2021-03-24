@@ -12,7 +12,7 @@ type Props = {
 const Link: React.FC<Props> = ({ onClick, href, children, ...rest }) => {
   return (
     <StyledLink
-      forwardedAs="as"
+      forwardedAs="a"
       color="#738598"
       marginRight={5}
       fontSize={12}

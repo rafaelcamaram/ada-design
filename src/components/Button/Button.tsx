@@ -19,6 +19,7 @@ type Props = {
   intention?: ButtonIntentionType;
 } & ViewProps;
 
+// TODO: Add support for icons
 const Button: React.FC<Props> = ({
   type,
   variant,

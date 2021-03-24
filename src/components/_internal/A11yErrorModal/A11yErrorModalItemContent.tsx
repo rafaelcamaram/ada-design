@@ -38,21 +38,14 @@ const A11yErrorModalItemContent: React.FC<Props> = ({
       <Flex flexDirection="column" marginY={10}>
         <Flex alignItems="center" marginBottom={12}>
           <Badge text={impact || "Success"} color={getColorByImpact(impact)} />
-          <Link
-            as="a"
-            target="_blank"
-            href={helpUrl}
-            marginRight={10}
-            marginLeft={16}
-          >
+          <Link target="_blank" href={helpUrl} marginRight={21} marginLeft={16}>
             External Resources
           </Link>
           <Link
-            onClick={() => {
-              setIsCollapsed(true);
-            }}
+            target="_blank"
+            href="https://adadesign.io/docs/components/a11y-context-provider"
           >
-            Close Details
+            Component Reference
           </Link>
         </Flex>
         {impact && (
