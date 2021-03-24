@@ -33,6 +33,7 @@ type AccessibilityProps = {
   shouldDisableA11y?: boolean;
 };
 
+// TODO: Add a way to ignore incomplete warnings?
 const withAccessibilityErrors = <T,>(Component) => {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   return function ComponentWithA11y({
