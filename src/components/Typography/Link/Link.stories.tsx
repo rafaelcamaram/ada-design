@@ -7,7 +7,5 @@ export default {
 };
 
 export const Default = (): React.ReactNode => (
-  <Link as="a" href="https://google.com/">
-    Link Example
-  </Link>
+  <Link href="https://google.com/">Link Example</Link>
 );

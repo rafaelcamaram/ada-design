@@ -9,10 +9,10 @@ type Props = {
   href?: string;
 } & ViewProps;
 
-const Link: React.FC<Props> = ({ as, onClick, href, children, ...rest }) => {
+const Link: React.FC<Props> = ({ onClick, href, children, ...rest }) => {
   return (
     <StyledLink
-      forwardedAs={as}
+      forwardedAs="as"
       color="#738598"
       marginRight={5}
       fontSize={12}
