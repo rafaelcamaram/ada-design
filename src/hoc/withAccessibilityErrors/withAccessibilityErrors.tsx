@@ -21,6 +21,8 @@ const initialValue = {
   addTask: (componentId, successCallback) => successCallback(componentId),
   popNextTaskAndRun: () => {},
   isEnabled: false,
+  shouldShowIncomplete: true,
+  shouldShowSuccess: true,
 };
 
 const A11yContext = createContext(initialValue);
@@ -31,22 +33,36 @@ export { A11yContext };
 
 type AccessibilityProps = {
   shouldDisableA11y?: boolean;
+  shouldShowSuccess?: boolean;
+  shouldShowIncomplete?: boolean;
 };
 
 // TODO: Add a way to ignore incomplete warnings?
 const withAccessibilityErrors = <T,>(Component) => {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   return function ComponentWithA11y({
-    shouldDisableA11y,
+    shouldDisableA11y: shouldDisableA11yComponent = false,
+    shouldShowSuccess: shouldShowSuccessComponent,
+    shouldShowIncomplete: shouldShowIncompleteComponent,
     ...props
   }: T & AccessibilityProps) {
-    const a11yContext = useContext(A11yContext);
     const [isDetailedModalVisible, setIsDetailedModalVisible] = useState(false);
     const [withAccessibilityResult, setWithAccessibilityResult] = useState<
       Pick<AxeResults, "violations" | "passes" | "incomplete">
     >();
+    const a11yContext = useContext(A11yContext);
+    const {
+      shouldShowIncomplete: shouldShowIncompleteContext,
+      shouldShowSuccess: shouldShowSuccessContext,
+    } = a11yContext;
+
+    const shouldShowSuccess =
+      shouldShowSuccessComponent ?? shouldShowSuccessContext;
+    const shouldShowIncomplete =
+      shouldShowIncompleteComponent ?? shouldShowIncompleteContext;
+
     const shouldEnableAccessibility =
-      !shouldDisableA11y && a11yContext.isEnabled && a11yContext.queue;
+      !shouldDisableA11yComponent && a11yContext.isEnabled && a11yContext.queue;
     const componentId = getId();
 
     useEffect(() => {
@@ -73,17 +89,30 @@ const withAccessibilityErrors = <T,>(Component) => {
       );
     }
 
-    const { violations, incomplete } = withAccessibilityResult || {};
+    const { violations, incomplete, passes } = withAccessibilityResult || {};
 
-    const firstValidIssue = violations?.[0];
+    const firstViolation = violations?.[0];
     const firstIncompleteIssue = incomplete?.[0];
+    const hasNoViolationsOrIncomplete =
+      !firstViolation && !firstIncompleteIssue;
+
+    if (
+      (hasNoViolationsOrIncomplete && !shouldShowSuccess) ||
+      (!firstViolation && firstIncompleteIssue && !shouldShowIncomplete)
+    ) {
+      return (
+        <View id={componentId}>
+          <Component {...props} />
+        </View>
+      );
+    }
 
     return (
       <>
         <A11yErrorModal
-          passes={withAccessibilityResult.passes}
-          incomplete={withAccessibilityResult.incomplete}
-          violations={withAccessibilityResult.violations}
+          passes={passes}
+          incomplete={incomplete}
+          violations={violations}
           isOpen={isDetailedModalVisible}
           setIsOpen={setIsDetailedModalVisible}
         />
@@ -92,7 +121,7 @@ const withAccessibilityErrors = <T,>(Component) => {
           id={componentId}
           width="fit-content"
           border={
-            !firstValidIssue && !firstIncompleteIssue
+            hasNoViolationsOrIncomplete
               ? DEFAULT_SUCCESS_BORDER
               : !firstIncompleteIssue
               ? DEFAULT_ERROR_BORDER
@@ -106,12 +135,12 @@ const withAccessibilityErrors = <T,>(Component) => {
               variant="circle"
               text="*"
               color={getColorByImpact(
-                firstValidIssue?.impact || firstIncompleteIssue?.impact,
+                firstViolation?.impact || firstIncompleteIssue?.impact,
               )}
               onClick={() => setIsDetailedModalVisible(true)}
             />
             <A11yTooltipError
-              issue={withAccessibilityResult.violations?.[0]}
+              issue={violations?.[0]}
               setIsModalOpen={setIsDetailedModalVisible}
             />
           </AccessibilityPopoverError>

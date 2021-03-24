@@ -47,9 +47,7 @@ export const Trail = (): React.ReactNode => {
           Trail Modal
         </Heading>
         <Text>Some random content</Text>
-        <Button isFullWidth onClick={() => setIsVisible(false)}>
-          Close
-        </Button>
+        <Button onClick={() => setIsVisible(false)}>Close</Button>
       </Modal>
     </>
   );

@@ -14,18 +14,16 @@ export const Default = (): React.ReactNode => {
 
   return (
     <A11yContextProvider isEnabled={true}>
-      <Flex flexDirection="column" alignItems="flex-start">
-        <TextInput
-          id="WithControlledValue"
-          label="First Name"
-          placeholder="Enter your first name"
-          value={value}
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
-        />
-        <Text marginTop={15}>The current value is: {value}</Text>
-      </Flex>
+      <TextInput
+        id="WithControlledValue"
+        label="First Name"
+        placeholder="Enter your first name"
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      />
+      <Text marginTop={15}>The current value is: {value}</Text>
     </A11yContextProvider>
   );
 };

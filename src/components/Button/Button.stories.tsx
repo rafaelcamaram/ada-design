@@ -59,6 +59,7 @@ export const Default = (): React.ReactNode => (
             <View key={sizeIndex} marginRight={10}>
               <Button
                 size={size}
+                variant="primary"
                 onClick={() => alert("Default Button Handler")}
                 textTransform="capitalize"
               >

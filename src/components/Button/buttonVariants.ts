@@ -31,6 +31,7 @@ const VariantStyles = () => {
       ...defaultButtonProps,
       backgroundColor: palette.white,
       backgroundImage: getLinearGradient(palette.white, 0.05),
+      border: `1px solid ${palette.black}30`,
       intentionStyle: {
         default: {
           color: intentions.textDefault,

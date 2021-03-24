@@ -7,9 +7,16 @@ import View from "components/View";
 
 type Props = {
   isEnabled: boolean;
+  shouldShowSuccess?: boolean;
+  shouldShowIncomplete?: boolean;
 };
 
-const A11yContextProvider: React.FC<Props> = ({ children, isEnabled }) => {
+const A11yContextProvider: React.FC<Props> = ({
+  children,
+  isEnabled,
+  shouldShowIncomplete = true,
+  shouldShowSuccess = true,
+}) => {
   const currentQueue = useRef(new Queue());
 
   /* Responsible to run a task and resolve with the ADA result of it */
@@ -77,6 +84,8 @@ const A11yContextProvider: React.FC<Props> = ({ children, isEnabled }) => {
         addTask: addTask,
         popNextTaskAndRun: popNextTaskAndRun,
         isEnabled: isEnabled,
+        shouldShowSuccess: shouldShowSuccess,
+        shouldShowIncomplete: shouldShowIncomplete,
       }}
     >
       <View>{children}</View>

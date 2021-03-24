@@ -4,6 +4,7 @@ import Label from "components/Typography/Label";
 import withAccessibilityErrors from "hoc/withAccessibilityErrors";
 import { getFontFamilyStyle } from "theme";
 import Flex from "components/Flex";
+import { Props as ViewProps } from "types/View";
 
 export type Props = {
   id: string;
@@ -15,7 +16,7 @@ export type Props = {
   shouldHideLabel?: boolean;
   shouldVisuallyHideLabel?: boolean;
   labelledBy?: string;
-};
+} & ViewProps;
 
 const fontFamilyName = getFontFamilyStyle("ui");
 
@@ -32,13 +33,21 @@ const TextInput: React.FC<Props> = ({
   shouldHideLabel = false,
   shouldVisuallyHideLabel = false,
   labelledBy,
+  ...rest
 }: Props) => {
   const hiddingLabel = !label || shouldHideLabel;
   const shouldUseAriaLabel = hiddingLabel && !labelledBy;
   const shouldUseAriaLabelledBy = hiddingLabel && labelledBy;
 
   return (
-    <Flex flexDirection="column" alignItems="flex-start" marginY="8px">
+    <Flex
+      width="fit-content"
+      flexDirection="column"
+      alignItems="flex-start"
+      marginY="8px"
+      backgroundColor="red"
+      {...rest}
+    >
       {!hiddingLabel && (
         <Label
           forwardedAs="label"
@@ -60,7 +69,9 @@ const TextInput: React.FC<Props> = ({
         fontFamily={fontFamilyName}
         fontSize="14px"
         color="#060F19"
+        width="100%"
         minWidth="200px"
+        boxSizing="border-box"
         backgroundColor="white"
         borderColor="#F1F3F5"
         borderWidth="1px"
