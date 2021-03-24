@@ -2,7 +2,7 @@ import View from "components/View";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
-import { getVariantStyle, ModalStyle, ModalVariantType } from "./modalVariants";
+import { useVariantStyle, ModalStyle, ModalVariantType } from "./modalVariants";
 
 const ModalPortal = ({ children }) => {
   const [modalRoot, setModalRoot] = useState(null);
@@ -40,7 +40,7 @@ const Modal: React.FC<Props> = ({
 }) => {
   if (!isOpen) return null;
 
-  const { container: containerStyle, content: contentStyle } = getVariantStyle(
+  const { container: containerStyle, content: contentStyle } = useVariantStyle(
     variant,
   );
 

@@ -56,7 +56,7 @@ const VariantStyles: {
   },
 };
 
-export const getVariantStyle = (variant: ModalVariantType): ModalStyle => {
+export const useVariantStyle = (variant: ModalVariantType): ModalStyle => {
   if (!variant) return null;
 
   return VariantStyles[variant] || VariantStyles.default;

@@ -82,7 +82,6 @@ export const Default = (): React.ReactNode => (
             onClick={() => {}}
             margin={10}
             width="100%"
-            background="red"
           >
             Button with props
           </Button>

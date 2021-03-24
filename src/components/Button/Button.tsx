@@ -7,7 +7,7 @@ import {
   ButtonVariantType,
   ButtonIntentionType,
   ButtonSizeType,
-  getVariantStyle,
+  useVariantStyle,
 } from "./buttonVariants";
 
 type Props = {
@@ -29,7 +29,7 @@ const Button: React.FC<Props> = ({
   size,
   ...rest
 }) => {
-  const variantStyle = getVariantStyle(variant, intention, size);
+  const variantStyle = useVariantStyle(variant, intention, size);
 
   return (
     <StyledButtonView

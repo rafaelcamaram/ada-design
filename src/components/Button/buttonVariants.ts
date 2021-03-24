@@ -1,4 +1,5 @@
-import colors from "theme/colors";
+import Color from "color";
+import useTheme from "theme/useTheme";
 import { Json } from "types/global";
 
 export type ButtonVariantType = "primary" | "secondary" | "default";
@@ -15,86 +16,78 @@ const defaultButtonProps = {
   borderRadius: "16px",
 };
 
-const VariantStyles = {
-  default: {
-    ...defaultButtonProps,
-    color: "rgb(66, 90, 112)",
-    backgroundColor: "white",
-    backgroundImage: "linear-gradient(rgb(255, 255, 255), rgb(244, 245, 247))",
-    intentionStyle: {
-      default: {
-        color: "rgb(66, 90, 112)",
-      },
-      success: {
-        color: "rgb(0, 120, 63)",
-      },
-      warning: {
-        color: "rgb(149, 89, 31)",
-      },
-      danger: {
-        color: "rgb(191, 14, 9)",
-      },
-    },
-  },
-  primary: {
-    ...defaultButtonProps,
-    color: "white",
-    borderRadius: 15,
-    border: `2px solid #00000030`,
-    intentionStyle: {
-      default: {
-        background: "linear-gradient(rgb(7, 136, 222), rgb(17, 106, 184))",
-        color: "white",
-      },
-      success: {
-        background: "linear-gradient(rgb(35, 194, 119), rgb(57, 157, 108))",
-        color: "white",
-      },
-      warning: {
-        background: "linear-gradient(rgb(238, 153, 19), rgb(217, 130, 43))",
-        color: "white",
-      },
-      danger: {
-        background: "linear-gradient(rgb(236, 76, 71), rgb(214, 69, 64))",
-        color: "white",
-      },
-    },
-  },
-  simple: {
-    ...defaultButtonProps,
-    backgroundColor: "white",
-    transition: "all 0.1s linear",
-    intentionStyle: {
-      default: {
-        color: "rgb(66, 90, 112)",
-      },
-      success: {
-        color: "rgb(0, 120, 63)",
-      },
-      warning: {
-        color: "rgb(149, 89, 31)",
-      },
-      danger: {
-        color: "rgb(191, 14, 9)",
-      },
-    },
-  },
-} as const;
+const getLinearGradient = (color, factor) => {
+  return `linear-gradient(${color}, ${Color(color).darken(factor)})`;
+};
 
-const IntentionStyle = {
-  default: {
-    color: "rgb(66, 90, 112)",
-  },
-  success: {
-    color: "rgb(0, 120, 63)",
-  },
-  warning: {
-    color: "rgb(149, 89, 31)",
-  },
-  danger: {
-    color: "rgb(191, 14, 9)",
-  },
-} as const;
+const VariantStyles = () => {
+  const { colors, buttons } = useTheme();
+  const { intentions } = buttons;
+  const { palette } = colors;
+  return {
+    default: {
+      ...defaultButtonProps,
+      backgroundColor: palette.white,
+      backgroundImage: getLinearGradient(palette.white, 0.05),
+      intentionStyle: {
+        default: {
+          color: intentions.textDefault,
+        },
+        success: {
+          color: intentions.textSuccess,
+        },
+        warning: {
+          color: intentions.textWarning,
+        },
+        danger: {
+          color: intentions.textDanger,
+        },
+      },
+    },
+    primary: {
+      ...defaultButtonProps,
+      borderRadius: 15,
+      border: `2px solid ${palette.black}30`,
+      intentionStyle: {
+        default: {
+          background: getLinearGradient(intentions.backgroundDefault, 0.2),
+          color: palette.white,
+        },
+        success: {
+          background: getLinearGradient(intentions.backgroundSuccess, 0.2),
+          color: palette.white,
+        },
+        warning: {
+          background: getLinearGradient(intentions.backgroundWarning, 0.2),
+          color: palette.white,
+        },
+        danger: {
+          background: getLinearGradient(intentions.backgroundDanger, 0.2),
+          color: palette.white,
+        },
+      },
+    },
+    simple: {
+      ...defaultButtonProps,
+      backgroundColor: palette.white,
+      transition: "all 0.1s linear",
+      intentionStyle: {
+        default: {
+          color: intentions.backgroundDefault,
+        },
+        success: {
+          color: intentions.backgroundSuccess,
+        },
+        warning: {
+          color: intentions.backgroundWarning,
+        },
+        danger: {
+          color: intentions.backgroundDanger,
+        },
+      },
+    },
+  };
+};
 
 const smallPadding = {
   paddingX: 16,
@@ -134,7 +127,7 @@ const FontSizeBySize = {
   56: "16px",
 } as const;
 
-const getTextStyleAndSpacing = (size: ButtonSizeType) => {
+const useTextStyleAndSpacing = (size: ButtonSizeType) => {
   const fontSize = FontSizeBySize[size] || FontSizeBySize.default;
   const paddingStyle = PaddingBySize[size] || PaddingBySize.default;
   return {
@@ -143,22 +136,18 @@ const getTextStyleAndSpacing = (size: ButtonSizeType) => {
     ...paddingStyle,
   };
 };
-export const getVariantStyle = (
+export const useVariantStyle = (
   variant: ButtonVariantType,
   intention: ButtonIntentionType,
   size: ButtonSizeType,
 ): Json => {
+  const variantStyles = VariantStyles();
   const { intentionStyle: variantIntentionStyle, ...styleProperties } =
-    VariantStyles[variant] || VariantStyles.default;
-
-  const selectedIntentionStyle =
-    variantIntentionStyle[intention] ||
-    variantIntentionStyle.default ||
-    IntentionStyle.default;
+    variantStyles[variant] || variantStyles.default;
 
   return {
     ...styleProperties,
-    ...selectedIntentionStyle,
-    ...getTextStyleAndSpacing(size),
+    ...(variantIntentionStyle[intention] || variantIntentionStyle.default),
+    ...useTextStyleAndSpacing(size),
   };
 };
