@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Text from "components/Typography/Text";
 import { Props as ViewProps } from "types/View";
 
-type Props = {
+export type Props = {
   onClick?: () => void;
   href?: string;
 } & ViewProps;

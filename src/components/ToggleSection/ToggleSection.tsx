@@ -5,7 +5,7 @@ import Flex from "components/Flex";
 import Text from "components/Typography/Text";
 import { Props as ViewProps } from "types/View";
 
-type Props = {
+export type Props = {
   headerComponent?: (
     isCollapsed: boolean,
     isToggleDisabled: boolean,

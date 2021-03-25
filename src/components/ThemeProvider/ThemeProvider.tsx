@@ -3,10 +3,10 @@ import React, { useMemo } from "react";
 import { defaultTheme } from "theme";
 import View from "components/View";
 import { ThemeProviderContext } from "hoc/withThemeProvider/withThemeProvider";
-import { ThemeType } from "theme/theme";
+import { ThemeType } from "theme/themeTypes";
 import { mergeDeep } from "utils/deepMerge";
 
-type Props = {
+export type Props = {
   value: Partial<ThemeType>;
 };
 

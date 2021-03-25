@@ -2,7 +2,7 @@ import View from "components/View";
 import React from "react";
 import { Props as ViewProps } from "types/View";
 
-type Props = {
+export type Props = {
   color?: string;
   height?: number;
 } & ViewProps;

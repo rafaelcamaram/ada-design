@@ -5,7 +5,7 @@ import { reset, configure, run, AxeResults } from "axe-core";
 import { A11yContext } from "hoc/withAccessibilityErrors/withAccessibilityErrors";
 import View from "components/View";
 
-type Props = {
+export type Props = {
   isEnabled: boolean;
   shouldShowSuccess?: boolean;
   shouldShowIncomplete?: boolean;

@@ -3,7 +3,7 @@ import { getHeadingStyle } from "theme";
 import { Props as ViewProps } from "types/View";
 import View from "components/View";
 
-type Props = {
+export type Props = {
   size: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 } & ViewProps;
 

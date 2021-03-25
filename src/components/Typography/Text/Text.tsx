@@ -3,7 +3,7 @@ import View from "components/View";
 import { getFontFamilyStyle } from "theme";
 import { Props as ViewProps } from "types/View";
 
-type Props = {
+export type Props = {
   onClick?: () => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;

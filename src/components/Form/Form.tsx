@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import Button from "components/Button";
 import TextInput from "components/TextInput";
 
-type Field = {
+export type Field = {
   id: string;
   label?: string;
   type?: string;
@@ -15,7 +15,7 @@ type Field = {
   labelledBy?: string;
 };
 
-type Props = {
+export type Props = {
   schema: FormSchema;
   onSubmit: any;
   validationSchema?: Yup.AnySchema;

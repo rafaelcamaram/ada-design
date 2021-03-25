@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 
 import { useVariantStyle, ModalStyle, ModalVariantType } from "./modalVariants";
 
+export { ModalVariantType, ModalStyle } from "./modalVariants";
+
 const ModalPortal = ({ children }) => {
   const [modalRoot, setModalRoot] = useState(null);
 
@@ -24,7 +26,7 @@ const ModalPortal = ({ children }) => {
   return ReactDOM.createPortal(children, modalRoot);
 };
 
-type Props = {
+export type Props = {
   isOpen?: boolean;
   closeModal?: () => void;
   variant?: ModalVariantType;

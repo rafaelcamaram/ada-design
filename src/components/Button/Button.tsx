@@ -10,7 +10,7 @@ import {
   useVariantStyle,
 } from "./buttonVariants";
 
-type Props = {
+export type Props = {
   size?: ButtonSizeType;
   isFullWidth?: boolean;
   onClick?: MouseEventHandler;

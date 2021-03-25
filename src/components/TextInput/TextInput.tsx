@@ -45,7 +45,6 @@ const TextInput: React.FC<Props> = ({
       flexDirection="column"
       alignItems="flex-start"
       marginY="8px"
-      backgroundColor="red"
       {...rest}
     >
       {!hiddingLabel && (

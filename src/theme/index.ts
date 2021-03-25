@@ -1,6 +1,6 @@
 import headings, { HeadingObject } from "./typography/headings";
 import fontFamilies from "./typography/fontFamilies";
-import { ThemeType } from "./theme";
+import { ThemeType } from "./themeTypes";
 
 const getThemeProperty = (dataset, key) => {
   if (Object.prototype.hasOwnProperty.call(dataset, key)) {

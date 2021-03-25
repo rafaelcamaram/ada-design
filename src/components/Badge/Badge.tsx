@@ -6,9 +6,9 @@ import { FontWeightValue } from "types/css";
 import Flex from "components/Flex";
 import { Props as ViewProps } from "types/View";
 
-type BadgeVariants = "default" | "circle";
+export type BadgeVariants = "default" | "circle";
 
-type Props = {
+export type Props = {
   variant?: BadgeVariants;
   text?: string;
   border?: string;

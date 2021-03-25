@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from "react";
 import { defaultTheme } from "theme";
 
-type ThemeProviderProps = {
+export type ThemeProviderProps = {
   shouldDisableA11y?: boolean;
 };
 

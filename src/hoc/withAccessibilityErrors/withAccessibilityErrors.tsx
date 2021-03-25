@@ -31,7 +31,7 @@ A11yContext.displayName = "A11yContext";
 
 export { A11yContext };
 
-type AccessibilityProps = {
+export type AccessibilityProps = {
   shouldDisableA11y?: boolean;
   shouldShowSuccess?: boolean;
   shouldShowIncomplete?: boolean;

@@ -4,7 +4,7 @@ import { Props as ViewProps } from "types/View";
 import Flex from "components/Flex";
 import Badge from "components/Badge";
 
-type Props = {
+export type Props = {
   data?: string[];
 } & ViewProps;
 
