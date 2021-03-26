@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { AxeResults } from "axe-core";
 
 import { v4 as getId } from "uuid";
@@ -36,28 +43,29 @@ const withAccessibilityErrors = <T,>(Component) => {
     shouldShowIncomplete: shouldShowIncompleteComponent,
     ...props
   }: T & AccessibilityProps) {
+    const componentId = useRef(getId());
+    const a11yContext = useContext(A11yContext);
     const [isDetailedModalVisible, setIsDetailedModalVisible] = useState(false);
     const [withAccessibilityResult, setWithAccessibilityResult] = useState<
       Pick<AxeResults, "violations" | "passes" | "incomplete">
     >();
-    const a11yContext = useContext(A11yContext);
     const {
       shouldShowIncomplete: shouldShowIncompleteContext,
       shouldShowSuccess: shouldShowSuccessContext,
     } = a11yContext;
 
-    const shouldShowSuccess =
-      shouldShowSuccessComponent ?? shouldShowSuccessContext;
-    const shouldShowIncomplete =
-      shouldShowIncompleteComponent ?? shouldShowIncompleteContext;
-
     const shouldEnableAccessibility =
       !shouldDisableA11yComponent && a11yContext.isEnabled && a11yContext.queue;
-    const componentId = getId();
+
+    const MemoizedComponent = useMemo(() => {
+      return <Component {...props} />;
+    }, [JSON.stringify(props)]);
 
     useEffect(() => {
+      // This useEffect should be called every time that Component receives different props
+      // TODO: Verify if it's running two time instead of 1 when updating in run time
       if (shouldEnableAccessibility) {
-        a11yContext.addTask(componentId, (result: AxeResults) => {
+        a11yContext.addTask(componentId.current, (result: AxeResults) => {
           setWithAccessibilityResult({
             violations: result.violations,
             passes: result.passes,
@@ -65,18 +73,14 @@ const withAccessibilityErrors = <T,>(Component) => {
           });
         });
       }
-    }, []);
+    }, [JSON.stringify(props)]);
 
     if (!shouldEnableAccessibility) {
-      return <Component {...props} />;
+      return MemoizedComponent;
     }
 
     if (!withAccessibilityResult) {
-      return (
-        <View id={componentId}>
-          <Component {...props} />
-        </View>
-      );
+      return <View id={componentId.current}>{MemoizedComponent}</View>;
     }
 
     const { violations, incomplete, passes } = withAccessibilityResult || {};
@@ -87,20 +91,19 @@ const withAccessibilityErrors = <T,>(Component) => {
       !firstViolation && !firstIncompleteIssue;
 
     if (
-      (hasNoViolationsOrIncomplete && !shouldShowSuccess) ||
-      (!firstViolation && firstIncompleteIssue && !shouldShowIncomplete)
+      (hasNoViolationsOrIncomplete &&
+        !(shouldShowSuccessComponent ?? shouldShowSuccessContext)) ||
+      (!firstViolation &&
+        firstIncompleteIssue &&
+        !(shouldShowIncompleteComponent ?? shouldShowIncompleteContext))
     ) {
-      return (
-        <View id={componentId}>
-          <Component {...props} />
-        </View>
-      );
+      return <View id={componentId.current}>{MemoizedComponent}</View>;
     }
 
     return (
       <A11yContent
         data={{
-          componentId,
+          componentId: componentId.current,
           passes,
           incomplete,
           violations,
@@ -109,7 +112,7 @@ const withAccessibilityErrors = <T,>(Component) => {
           hasNoViolationsOrIncomplete,
           firstIncompleteIssue,
           firstViolation,
-          Component,
+          Component: MemoizedComponent,
           props,
         }}
       />

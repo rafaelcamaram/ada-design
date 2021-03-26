@@ -29,7 +29,6 @@ const A11yContent = memo(
       firstIncompleteIssue,
       firstViolation,
       Component,
-      props,
     },
   }: {
     // TODO: Next line
@@ -73,7 +72,7 @@ const A11yContent = memo(
               setIsModalOpen={setIsDetailedModalVisible}
             />
           </AccessibilityPopoverError>
-          <Component {...props} />
+          {Component}
         </View>
       </View>
     );

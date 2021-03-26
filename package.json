@@ -1,6 +1,6 @@
 {
   "name": "ada-design",
-  "version": "0.1.35",
+  "version": "0.1.36",
   "private": false,
   "main": "./build/index.js",
   "module": "./build/index.es.js",

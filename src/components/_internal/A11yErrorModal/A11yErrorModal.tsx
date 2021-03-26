@@ -42,7 +42,7 @@ const A11yErrorModal: React.FC<Props> = ({
     };
 
     return dataByIndex[selectedIndex] || [];
-  }, [selectedIndex]);
+  }, [selectedIndex, violations, passes, incomplete]);
 
   return (
     <Modal
