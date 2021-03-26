@@ -1,4 +1,3 @@
-import Color from "color";
 import useTheme from "theme/useTheme";
 import { Json } from "types/global";
 

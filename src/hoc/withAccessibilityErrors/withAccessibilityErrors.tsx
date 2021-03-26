@@ -1,20 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { AxeResults } from "axe-core";
 
-import styled from "styled-components";
 import { v4 as getId } from "uuid";
 import View from "components/View";
-import Badge from "components/Badge";
-import A11yErrorModal from "components/_internal/A11yErrorModal";
-import A11yTooltipError, {
-  ErrorContent,
-} from "components/_internal/A11yTooltipError";
-import { getColorByImpact } from "utils/styles";
 
-const DEFAULT_ERROR_BORDER = "1px dashed #E30000";
-const DEFAULT_SUCCESS_BORDER = "1px dashed #65BF3B";
-const DEFAULT_INCOMPLETE_BORDER = "1px dashed rgb(238, 153, 19)";
-const DEFAULT_ERROR_POSITION = "relative";
+import A11yContent from "./A11yContent";
 
 const initialValue = {
   queue: undefined,
@@ -37,8 +27,8 @@ export type AccessibilityProps = {
   shouldShowIncomplete?: boolean;
 };
 
-// TODO: Add a way to ignore incomplete warnings?
 const withAccessibilityErrors = <T,>(Component) => {
+  // TODO: Next line
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   return function ComponentWithA11y({
     shouldDisableA11y: shouldDisableA11yComponent = false,
@@ -108,64 +98,23 @@ const withAccessibilityErrors = <T,>(Component) => {
     }
 
     return (
-      <>
-        <A11yErrorModal
-          passes={passes}
-          incomplete={incomplete}
-          violations={violations}
-          isOpen={isDetailedModalVisible}
-          setIsOpen={setIsDetailedModalVisible}
-        />
-
-        <View
-          id={componentId}
-          width="fit-content"
-          border={
-            hasNoViolationsOrIncomplete
-              ? DEFAULT_SUCCESS_BORDER
-              : !firstIncompleteIssue
-              ? DEFAULT_ERROR_BORDER
-              : DEFAULT_INCOMPLETE_BORDER
-          }
-          position={DEFAULT_ERROR_POSITION}
-          borderRadius="6px"
-        >
-          <AccessibilityPopoverError>
-            <Badge
-              variant="circle"
-              text="*"
-              color={getColorByImpact(
-                firstViolation?.impact || firstIncompleteIssue?.impact,
-              )}
-              onClick={() => setIsDetailedModalVisible(true)}
-            />
-            <A11yTooltipError
-              issue={violations?.[0]}
-              setIsModalOpen={setIsDetailedModalVisible}
-            />
-          </AccessibilityPopoverError>
-          <Component {...props} />
-        </View>
-      </>
+      <A11yContent
+        data={{
+          componentId,
+          passes,
+          incomplete,
+          violations,
+          isDetailedModalVisible,
+          setIsDetailedModalVisible,
+          hasNoViolationsOrIncomplete,
+          firstIncompleteIssue,
+          firstViolation,
+          Component,
+          props,
+        }}
+      />
     );
   };
 };
-
-const AccessibilityPopoverError = styled(View)`
-  position: absolute;
-  top: -7px;
-  right: -7px;
-  z-index: 1000;
-
-  ${ErrorContent} {
-    display: none;
-  }
-
-  &:hover {
-    ${ErrorContent} {
-      display: flex;
-    }
-  }
-`;
 
 export default withAccessibilityErrors;
