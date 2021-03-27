@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 
 import { useVariantStyle, ModalStyle, ModalVariantType } from "./modalVariants";
 
-export { ModalVariantType, ModalStyle } from "./modalVariants";
+export type { ModalVariantType, ModalStyle } from "./modalVariants";
 
 const ModalPortal = ({ children }) => {
   const [modalRoot, setModalRoot] = useState(null);

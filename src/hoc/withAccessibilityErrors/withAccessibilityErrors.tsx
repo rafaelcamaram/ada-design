@@ -34,8 +34,11 @@ export type AccessibilityProps = {
   shouldShowIncomplete?: boolean;
 };
 
+// TODO: Working on TextInputs variations in order to provide a better design and customizations;
+// TODO: Add all the colors inside ThemeProvider -- including text ones;
+// TODO: Maybe add button styles to ThemeProvider as well
 const withAccessibilityErrors = <T,>(Component) => {
-  // TODO: Next line
+  // TODO: ESLINT - Next line
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   return function ComponentWithA11y({
     shouldDisableA11y: shouldDisableA11yComponent = false,

@@ -23,7 +23,6 @@ export type Props = {
   icon?: keyof typeof Icons;
 } & ViewProps;
 
-// TODO: Add support for icons
 const Button: React.FC<Props> = ({
   type,
   variant,
