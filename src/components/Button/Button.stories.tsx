@@ -11,7 +11,7 @@ export default {
   component: Button,
 };
 
-const VARIANT_LIST = ["default", "primary", "simple"] as const;
+const VARIANT_LIST = ["default", "primary", "simple", "icon"] as const;
 const INTENT_LIST = ["default", "success", "warning", "danger"] as const;
 const SIZE_LIST = [20, 24, 28, 32, 36, 40, 44, 48, 52, 56] as const;
 
@@ -38,6 +38,7 @@ export const Default = (): React.ReactNode => (
                       variant={variant}
                       onClick={() => alert("Default Button Handler")}
                       textTransform="capitalize"
+                      icon={variant === "icon" ? "FiCornerLeftDown" : undefined}
                       {...props}
                     >
                       {`${props.intention} Button`}

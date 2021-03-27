@@ -73,6 +73,8 @@ const withAccessibilityErrors = <T,>(Component) => {
           });
         });
       }
+      // TODO: JSON.stringify should be a temporary solution since we can not be sure how deep the props will be
+      // Ref: https://twitter.com/dan_abramov/status/1104414469629898754?lang=en
     }, [JSON.stringify(props)]);
 
     if (!shouldEnableAccessibility) {
