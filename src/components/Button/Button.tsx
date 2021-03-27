@@ -19,6 +19,7 @@ export type Props = {
   type?: string;
   variant?: ButtonVariantType;
   intention?: ButtonIntentionType;
+  ariaLabel?: string;
   icon?: keyof typeof Icons;
 } & ViewProps;
 
@@ -29,6 +30,7 @@ const Button: React.FC<Props> = ({
   intention,
   onClick,
   children,
+  ariaLabel,
   size,
   icon,
   ...rest
@@ -43,11 +45,12 @@ const Button: React.FC<Props> = ({
       onClick={onClick}
       {...variantStyle}
       {...rest}
+      aria-label={!children && ariaLabel}
     >
       {children}
       {icon && (
         <>
-          <Spacer marginRight={children ? 10 : 0} />
+          {children && <Spacer marginRight={children ? 10 : 0} />}
           <Icon />
         </>
       )}
