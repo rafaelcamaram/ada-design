@@ -1,6 +1,6 @@
 import Button from "./Button";
 
-export { Props } from "./Button";
+export type { Props } from "./Button";
 
 export type {
   ButtonVariantType,

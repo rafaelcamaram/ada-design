@@ -68,17 +68,15 @@ const TextInput: React.FC<Props> = ({
         fontFamily={fontFamilyName}
         fontSize="14px"
         color="#060F19"
-        width="100%"
-        minWidth="200px"
         boxSizing="border-box"
         backgroundColor="white"
         borderColor="#F1F3F5"
         borderWidth="1px"
         borderRadius="15px"
         borderStyle="solid"
-        paddingX="19px"
-        paddingY="22px"
-        marginTop="8px"
+        paddingX={16}
+        paddingY={8}
+        marginTop={!hiddingLabel ? 8 : 0}
       />
     </Flex>
   );

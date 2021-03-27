@@ -79,14 +79,6 @@ const Form: React.FC<Props> = ({ schema, onSubmit, validationSchema }) => {
           Submit
         </Button>
       </form>
-      {/* <form id="myfORM">
-        <label>dsds</label>
-        <input value="123" />
-        <input value="456" />
-      </form>
-      <button style={{ backgroundColor: "white", color: "black" }}>
-        Herloooo
-      </button> */}
     </>
   );
 };

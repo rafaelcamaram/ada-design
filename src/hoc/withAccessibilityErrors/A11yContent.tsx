@@ -47,7 +47,7 @@ const A11yContent = memo(
 
         <View
           id={componentId}
-          width="fit-content"
+          width="auto"
           border={
             hasNoViolationsOrIncomplete
               ? DEFAULT_SUCCESS_BORDER
