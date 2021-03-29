@@ -4,6 +4,7 @@ import { getFontFamilyStyle } from "theme";
 import { Props as ViewProps } from "types/View";
 
 export type Props = {
+  disabled?: boolean;
   onClick?: () => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;

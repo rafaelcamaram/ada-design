@@ -12,15 +12,19 @@ export type IntentionsType = {
 export type PalletColors = {
   white: string;
   black: string;
+  red: string;
 };
 
 export type ColorsType = {
   palette: Partial<PalletColors>;
+  text: {
+    textDefault: string;
+  };
+  buttons: {
+    intentions: Partial<IntentionsType>;
+  };
 };
 
 export type ThemeType = {
   colors: Partial<ColorsType>;
-  buttons: {
-    intentions: Partial<IntentionsType>;
-  };
 };

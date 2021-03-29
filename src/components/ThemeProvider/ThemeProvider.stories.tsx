@@ -64,16 +64,16 @@ export const DefaultWithCustomTheme = (): React.ReactNode => (
     </Heading>
     <ThemeProvider
       value={{
-        buttons: {
-          intentions: {
-            backgroundDefault: "cyan",
-            textDefault: "gray",
-            textSuccess: "pink",
-            textWarning: "yellow",
-            textDanger: "purple",
-          },
-        },
         colors: {
+          buttons: {
+            intentions: {
+              backgroundDefault: "cyan",
+              textDefault: "gray",
+              textSuccess: "pink",
+              textWarning: "yellow",
+              textDanger: "purple",
+            },
+          },
           palette: {
             white: "#fff",
           },

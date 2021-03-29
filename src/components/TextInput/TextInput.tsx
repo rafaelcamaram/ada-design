@@ -2,29 +2,34 @@ import React from "react";
 import Text from "components/Typography/Text";
 import Label from "components/Typography/Label";
 import withAccessibilityErrors from "hoc/withAccessibilityErrors";
-import { getFontFamilyStyle } from "theme";
 import Flex from "components/Flex";
 import { Props as ViewProps } from "types/View";
+import { UnitValue } from "types/css";
+import { useVariantStyle } from "./textInputVariants";
 
 export type Props = {
   id: string;
-  isRequired?: boolean;
-  label?: string;
   placeholder?: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  isDisabled?: boolean;
+  isInvalid?: boolean;
+  isRequired?: boolean;
+  width?: UnitValue;
+  height?: UnitValue;
+  label?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   shouldHideLabel?: boolean;
   shouldVisuallyHideLabel?: boolean;
   labelledBy?: string;
 } & ViewProps;
 
-const fontFamilyName = getFontFamilyStyle("ui");
-
-// TODO: Add a way to customize styling from props
-// TODO: Add a pattern for spacing
-// TODO: Add a pattern for colors
+// TODO: Add to docs saying that you can customize the TextInput using nested selector (input and label)
 const TextInput: React.FC<Props> = ({
   id,
+  isDisabled,
+  isInvalid,
+  width,
+  height,
   isRequired,
   placeholder,
   value,
@@ -38,15 +43,19 @@ const TextInput: React.FC<Props> = ({
   const hiddingLabel = !label || shouldHideLabel;
   const shouldUseAriaLabel = hiddingLabel && !labelledBy;
   const shouldUseAriaLabelledBy = hiddingLabel && labelledBy;
+  const {
+    textInput: textInputStyle,
+    container: containerStyle,
+  } = useVariantStyle({
+    width,
+    height,
+    isDisabled,
+    isInvalid,
+    hiddingLabel,
+  });
 
   return (
-    <Flex
-      width="fit-content"
-      flexDirection="column"
-      alignItems="flex-start"
-      marginY="8px"
-      {...rest}
-    >
+    <Flex {...containerStyle} {...rest}>
       {!hiddingLabel && (
         <Label
           forwardedAs="label"
@@ -61,22 +70,12 @@ const TextInput: React.FC<Props> = ({
         as="input"
         placeholder={placeholder}
         value={value}
-        onChange={onChange}
+        disabled={isDisabled}
+        onChange={!isDisabled && onChange}
         aria-required={isRequired && true}
         aria-labelledby={shouldUseAriaLabelledBy ? labelledBy : undefined}
         aria-label={shouldUseAriaLabel ? label : undefined}
-        fontFamily={fontFamilyName}
-        fontSize="14px"
-        color="#060F19"
-        boxSizing="border-box"
-        backgroundColor="white"
-        borderColor="#F1F3F5"
-        borderWidth="1px"
-        borderRadius="15px"
-        borderStyle="solid"
-        paddingX={16}
-        paddingY={8}
-        marginTop={!hiddingLabel ? 8 : 0}
+        {...textInputStyle}
       />
     </Flex>
   );

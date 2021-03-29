@@ -22,9 +22,10 @@ const getLinearGradient = (color, factor) => {
 };
 
 const getVariantStyles = () => {
-  const { colors, buttons } = useTheme();
+  const {
+    colors: { buttons, palette },
+  } = useTheme();
   const { intentions } = buttons;
-  const { palette } = colors;
   return {
     default: {
       ...defaultButtonProps,

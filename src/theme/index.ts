@@ -20,23 +20,40 @@ export const getFontFamilyStyle = (variant: string): string => {
   return getThemeProperty(fontFamilies, variant);
 };
 
+export const COLORS = {
+  white: "#ffffff",
+  black: "#000000",
+  agitatedBlue: "rgb(66, 90, 112)",
+  lochmara: "#0679C6",
+  funGreen: "rgb(0, 120, 63)",
+  jewel: "#168350",
+  rope: "rgb(149, 89, 31)",
+  gamboge: "rgb(238, 153, 19)",
+  milanoRed: "rgb(191, 14, 9)",
+  alizarinCrimson: "#E71F18",
+};
+
 export const defaultTheme: ThemeType = {
-  buttons: {
-    intentions: {
-      textDefault: "rgb(66, 90, 112)",
-      backgroundDefault: "#0679C6",
-      textSuccess: "rgb(0, 120, 63)",
-      backgroundSuccess: "#168350",
-      textWarning: "rgb(149, 89, 31)",
-      backgroundWarning: "rgb(238, 153, 19)",
-      textDanger: "rgb(191, 14, 9)",
-      backgroundDanger: "#E71F18",
-    },
-  },
   colors: {
+    buttons: {
+      intentions: {
+        textDefault: COLORS.agitatedBlue,
+        backgroundDefault: COLORS.lochmara,
+        textSuccess: COLORS.funGreen,
+        backgroundSuccess: COLORS.jewel,
+        textWarning: COLORS.rope,
+        backgroundWarning: COLORS.gamboge,
+        textDanger: COLORS.milanoRed,
+        backgroundDanger: COLORS.alizarinCrimson,
+      },
+    },
+    text: {
+      textDefault: COLORS.agitatedBlue,
+    },
     palette: {
-      white: "#ffffff",
-      black: "#000000",
+      white: COLORS.white,
+      black: COLORS.black,
+      red: COLORS.milanoRed,
     },
   },
 };
