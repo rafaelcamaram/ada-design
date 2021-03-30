@@ -48,21 +48,15 @@ const renderContent = () => {
   });
 };
 export const DefaultWithCustomTheme = (): React.ReactNode => (
-  <ADADesignProvider isEnabled={true}>
-    <Heading size={800} textTransform="capitalize" marginBottom={8}>
-      With the default theme properties
-    </Heading>
-    {renderContent()}
-
-    <Heading
-      size={800}
-      textTransform="capitalize"
-      marginBottom={8}
-      marginTop={32}
-    >
-      With the custom theme properties set by user
-    </Heading>
-    <ThemeProvider
+  <>
+    <ADADesignProvider isEnabled={true}>
+      <Heading size={800} textTransform="capitalize" marginBottom={8}>
+        With the default theme properties
+      </Heading>
+      {renderContent()}
+    </ADADesignProvider>
+    <ADADesignProvider
+      isEnabled={true}
       value={{
         colors: {
           buttons: {
@@ -80,7 +74,16 @@ export const DefaultWithCustomTheme = (): React.ReactNode => (
         },
       }}
     >
+      <Heading
+        size={800}
+        textTransform="capitalize"
+        marginBottom={8}
+        marginTop={32}
+      >
+        With the custom theme properties set by user
+      </Heading>
+
       {renderContent()}
-    </ThemeProvider>
-  </ADADesignProvider>
+    </ADADesignProvider>
+  </>
 );

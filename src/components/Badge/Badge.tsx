@@ -5,7 +5,6 @@ import Text from "components/Typography/Text";
 import { ColorType, FontWeightValue } from "types/css";
 import Flex from "components/Flex";
 import { Props as ViewProps } from "types/View";
-import { getColor } from "utils/styles";
 
 export type BadgeVariants = "default" | "circle";
 
