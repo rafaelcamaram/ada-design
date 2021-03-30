@@ -29,6 +29,6 @@ declare module "styled-components" {
   };
 
   export interface DefaultTheme {
-    colors: Partial<ColorsType>;
+    colors?: Partial<ColorsType>;
   }
 }

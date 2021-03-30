@@ -8,6 +8,7 @@ export { default as Form } from "./components/Form";
 export { default as Modal } from "./components/Modal";
 export { default as ToggleSection } from "./components/ToggleSection";
 export { default as TextInput } from "./components/TextInput";
+export { default as SearchInput } from "./components/SearchInput";
 export { default as Heading } from "./components/Typography/Heading";
 export { default as Label } from "./components/Typography/Label";
 export { default as Link } from "./components/Typography/Link";

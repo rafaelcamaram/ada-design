@@ -12,9 +12,10 @@ export type Props = {
 const fontFamilyName = getFontFamilyStyle("ui");
 
 // TODO: Add a pattern for fontSize
+// TODO: Fix issue on storybook | Cannot read property 'text' of undefined
 const Label = styled(Text).attrs(({ theme }) => {
   return {
-    color: theme.colors.text.textDefault,
+    color: theme.colors?.text.textDefault,
     fontSize: 14,
     fontFamily: fontFamilyName,
   };
