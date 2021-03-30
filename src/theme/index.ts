@@ -55,6 +55,7 @@ export const defaultTheme: DefaultTheme = {
     },
     palette: {
       white: COLORS.white,
+      darkWhite: COLORS.darkWhite,
       black: COLORS.black,
       red: COLORS.milanoRed,
     },

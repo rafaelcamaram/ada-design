@@ -27,7 +27,7 @@ const A11yErrorModalItemContent: React.FC<Props> = ({ record }) => {
   return (
     <Flex
       flexDirection="row"
-      backgroundColor={Color(palette.white).darken(0.01)}
+      backgroundColor={palette.darkWhite}
       marginX={-32}
       marginTop={-6}
       marginBottom={6}

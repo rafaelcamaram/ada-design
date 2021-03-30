@@ -7,7 +7,6 @@ import {
   FlexDirectionValue,
   ViewElementProps,
 } from "types/css";
-import { Color } from "utils/styles";
 
 const fontFamilyName = getFontFamilyStyle("ui");
 
@@ -62,7 +61,7 @@ const getVariantStyles = ({
       ...(width && { width }),
       ...(height && { height }),
       ...(isDisabled && {
-        backgroundColor: Color(palette.white).darken(0.05),
+        backgroundColor: palette.darkWhite,
       }),
       ...(isInvalid && { border: `1px solid ${palette.red}` }),
       ...(!hiddingLabel && { marginTop: 8 }),

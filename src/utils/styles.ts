@@ -1,4 +1,3 @@
-import * as Color_ from "color";
 import useTheme from "theme/useTheme";
 import { ColorType } from "types/css";
 
@@ -34,5 +33,3 @@ export const getColor = (textColor: ColorType): string => {
     ? colors.all[textColor as string]
     : textColor || colors.text.textDefault;
 };
-
-export const Color = Color_;

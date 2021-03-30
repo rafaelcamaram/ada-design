@@ -1,6 +1,7 @@
 // TODO: DEV - Create a doc page to show all the possible colors
 export const COLORS = {
   white: "#ffffff",
+  darkWhite: "#F7F9FC",
   black: "#000000",
   blackWithoutOpacity30: "rgba(0, 0, 0, 0.3)",
   agitatedBlue: "rgb(66, 90, 112)",

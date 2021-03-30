@@ -16,6 +16,7 @@ declare module "styled-components" {
 
   export type PalletColors = {
     white: string;
+    darkWhite: string;
     black: string;
     red: string;
   };
