@@ -1,30 +1,10 @@
+import React from "react";
+
 import View from "components/View";
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import Portal from "components/Portal";
 
 import { useVariantStyle, ModalStyle, ModalVariantType } from "./modalVariants";
-
 export type { ModalVariantType, ModalStyle } from "./modalVariants";
-
-const ModalPortal = ({ children }) => {
-  const [modalRoot, setModalRoot] = useState(null);
-
-  useEffect(() => {
-    if (typeof document !== `undefined`) {
-      const rootContainer = document.getElementById("root");
-
-      if (rootContainer) {
-        setModalRoot(rootContainer);
-      } else {
-        setModalRoot(document.getElementsByTagName("body")[0]);
-      }
-    }
-  }, []);
-
-  if (!modalRoot) return null;
-
-  return ReactDOM.createPortal(children, modalRoot);
-};
 
 export type Props = {
   isOpen?: boolean;
@@ -33,6 +13,7 @@ export type Props = {
   customModalStyle?: Partial<ModalStyle>;
 };
 
+// TODO: Add it to docs
 const Modal: React.FC<Props> = ({
   isOpen = false,
   closeModal,
@@ -52,7 +33,7 @@ const Modal: React.FC<Props> = ({
   } = customModalStyle;
 
   return (
-    <ModalPortal>
+    <Portal>
       <View {...containerStyle} {...customContainerStyle} onClick={closeModal}>
         <View
           {...contentStyle}
@@ -62,7 +43,7 @@ const Modal: React.FC<Props> = ({
           {children}
         </View>
       </View>
-    </ModalPortal>
+    </Portal>
   );
 };
 export default Modal;

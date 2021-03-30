@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import SearchInput from "./SearchInput";
+import TextArea from "./TextArea";
 import Text from "components/Typography/Text";
 import ADADesignProvider from "components/ADADesignProvider";
 import Flex from "components/Flex";
 
 export default {
-  title: "Forms/SearchInput",
-  component: SearchInput,
+  title: "Forms/TextArea",
+  component: TextArea,
 };
 
 export const Default = (): React.ReactNode => {
   return (
     <ADADesignProvider isEnabled={true}>
-      <SearchInput
+      <TextArea
         id="WithControlledValue"
-        label="Search input label"
-        placeholder="Search input placeholder"
+        label="Text Area label"
+        placeholder="Text Area placeholder"
       />
     </ADADesignProvider>
   );
@@ -26,9 +26,9 @@ export const WithControlledValue = (): React.ReactNode => {
 
   return (
     <ADADesignProvider isEnabled={true}>
-      <SearchInput
+      <TextArea
         id="WithControlledValue"
-        label="Search input label"
+        label="Text Area label"
         value={value}
         onChange={(e) => {
           setValue(e.target.value);
@@ -42,7 +42,7 @@ export const WithControlledValue = (): React.ReactNode => {
 export const Disabled = (): React.ReactNode => {
   return (
     <ADADesignProvider isEnabled={true}>
-      <SearchInput id="Disabled" isDisabled label="Search input label" />
+      <TextArea id="Disabled" isDisabled label="Text Area label" />
     </ADADesignProvider>
   );
 };
@@ -50,7 +50,7 @@ export const Disabled = (): React.ReactNode => {
 export const Invalid = (): React.ReactNode => {
   return (
     <ADADesignProvider isEnabled={true}>
-      <SearchInput id="Invalid" isInvalid label="Search input label" />
+      <TextArea id="Invalid" isInvalid label="Text Area label" />
     </ADADesignProvider>
   );
 };
@@ -59,12 +59,8 @@ export const CustomHeight = (): React.ReactNode => {
   return (
     <ADADesignProvider isEnabled={true}>
       <Flex>
-        <SearchInput
-          id="DefaultHeight"
-          marginRight={12}
-          label="Search input label"
-        />
-        <SearchInput id="CustomHeight" height={50} label="Search input label" />
+        <TextArea id="DefaultHeight" marginRight={12} label="Text Area label" />
+        <TextArea id="CustomHeight" height={50} label="Text Area label" />
       </Flex>
     </ADADesignProvider>
   );
@@ -74,16 +70,8 @@ export const CustomWidth = (): React.ReactNode => {
   return (
     <ADADesignProvider isEnabled={true}>
       <Flex>
-        <SearchInput
-          id="DefaultWidth"
-          marginRight={12}
-          label="Search input label"
-        />
-        <SearchInput
-          id="CustomWidth"
-          width="500px"
-          label="Search input label"
-        />
+        <TextArea id="DefaultWidth" marginRight={12} label="Text Area label" />
+        <TextArea id="CustomWidth" width="500px" label="Text Area label" />
       </Flex>
     </ADADesignProvider>
   );
@@ -95,7 +83,7 @@ export const WithAriaLabel = (): React.ReactNode => {
   return (
     <ADADesignProvider isEnabled={true}>
       <Flex flexDirection="column" alignItems="flex-start">
-        <SearchInput
+        <TextArea
           id="WithControlledValue"
           shouldHideLabel
           label="First Name"
@@ -117,7 +105,7 @@ export const WithLabelledBy = (): React.ReactNode => {
   return (
     <ADADesignProvider isEnabled={true}>
       <Flex flexDirection="column" alignItems="flex-start">
-        <SearchInput
+        <TextArea
           id="WithControlledValue"
           shouldHideLabel
           labelledBy="mySubmitButton"
@@ -141,7 +129,7 @@ export const MissingADAFields = (): React.ReactNode => {
   return (
     <ADADesignProvider isEnabled={true}>
       <Flex flexDirection="column" alignItems="flex-start">
-        <SearchInput
+        <TextArea
           id="WithControlledValue"
           shouldHideLabel
           value={value}

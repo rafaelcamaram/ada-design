@@ -5,7 +5,7 @@ import withAccessibilityErrors from "hoc/withAccessibilityErrors";
 import Flex from "components/Flex";
 import { Props as ViewProps } from "types/View";
 import { UnitValue } from "types/css";
-import { useVariantStyle } from "./textInputVariants";
+import { useVariantStyle } from "./textAreaVariants";
 
 export type Props = {
   id: string;
@@ -23,9 +23,10 @@ export type Props = {
   labelledBy?: string;
 } & ViewProps;
 
-// TODO: Add to docs saying that you can customize the TextInput using nested selector (input and label)
+// TODO: Add to docs saying that you can customize the TextArea using nested selector (input and label)
+// TODO: Add it to docs
 // TODO: Add hint/error property
-const TextInput: React.FC<Props> = ({
+const TextArea: React.FC<Props> = ({
   id,
   isDisabled,
   isInvalid,
@@ -45,7 +46,7 @@ const TextInput: React.FC<Props> = ({
   const shouldUseAriaLabel = hiddingLabel && !labelledBy;
   const shouldUseAriaLabelledBy = hiddingLabel && labelledBy;
   const {
-    textInput: textInputStyle,
+    textArea: textAreaStyle,
     container: containerStyle,
   } = useVariantStyle({
     width,
@@ -66,9 +67,10 @@ const TextInput: React.FC<Props> = ({
           {label} {isRequired && label ? "*" : null}
         </Label>
       )}
+
       <Text
         id={id}
-        as="input"
+        as="textarea"
         placeholder={placeholder}
         value={value}
         disabled={isDisabled}
@@ -76,10 +78,10 @@ const TextInput: React.FC<Props> = ({
         aria-required={isRequired && true}
         aria-labelledby={shouldUseAriaLabelledBy ? labelledBy : undefined}
         aria-label={shouldUseAriaLabel ? label : undefined}
-        {...textInputStyle}
+        {...textAreaStyle}
       />
     </Flex>
   );
 };
 
-export default withAccessibilityErrors<Props>(TextInput);
+export default withAccessibilityErrors<Props>(TextArea);
