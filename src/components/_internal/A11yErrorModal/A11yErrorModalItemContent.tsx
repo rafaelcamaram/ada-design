@@ -1,5 +1,4 @@
 import React from "react";
-import * as Colors from "color";
 
 import Flex from "components/Flex";
 import Text from "components/Typography/Text";
@@ -8,7 +7,7 @@ import Badge from "components/Badge";
 import Link from "components/Typography/Link";
 import BadgeList from "components/BadgeList";
 
-import { getColorByImpact } from "utils/styles";
+import { Color, getColorByImpact } from "utils/styles";
 
 import StatusPill from "../StatusPill";
 import useTheme from "theme/useTheme";
@@ -28,7 +27,7 @@ const A11yErrorModalItemContent: React.FC<Props> = ({ record }) => {
   return (
     <Flex
       flexDirection="row"
-      backgroundColor={Colors(palette.white).darken(0.01)}
+      backgroundColor={Color(palette.white).darken(0.01)}
       marginX={-32}
       marginTop={-6}
       marginBottom={6}

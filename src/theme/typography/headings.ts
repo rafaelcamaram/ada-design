@@ -1,13 +1,13 @@
 import fontFamilies from "./fontFamilies";
-import { ViewElementProps } from "types/css";
+import { ColorType, ViewElementProps } from "types/css";
 import useTheme from "theme/useTheme";
 import { getColor } from "utils/styles";
+import { Json } from "types/global";
 
 export type HeadingObject = Partial<ViewElementProps>;
 
 // TODO: DEV - Fix return type
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export default function getHeadingDataset(textColor) {
+const getHeadingDataset = (textColor: ColorType): Json => {
   const { fontSize } = useTheme();
 
   return {
@@ -85,4 +85,6 @@ export default function getHeadingDataset(textColor) {
       color: getColor(textColor),
     },
   };
-}
+};
+
+export default getHeadingDataset;

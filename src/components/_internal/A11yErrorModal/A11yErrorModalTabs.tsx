@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
-import * as Colors from "color";
 
 import Flex from "components/Flex";
 import Text from "components/Typography/Text";
 import useTheme from "theme/useTheme";
+import { Color } from "utils/styles";
 
 type Props = {
   violations: any;
@@ -41,7 +41,7 @@ const A11yErrorModalTabs: React.FC<Props> = ({
 
   return (
     <Flex
-      backgroundColor={Colors(palette.white).darken(0.03)}
+      backgroundColor={Color(palette.white).darken(0.03)}
       alignItems="center"
       paddingX={32}
     >
