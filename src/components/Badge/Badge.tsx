@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import Text from "components/Typography/Text";
-import { FontWeightValue } from "types/css";
+import { ColorType, FontWeightValue } from "types/css";
 import Flex from "components/Flex";
 import { Props as ViewProps } from "types/View";
+import { getColor } from "utils/styles";
 
 export type BadgeVariants = "default" | "circle";
 
@@ -12,12 +13,13 @@ export type Props = {
   variant?: BadgeVariants;
   text?: string;
   border?: string;
-  color?: string;
-  textColor?: string;
+  color?: ColorType;
+  textColor?: ColorType;
   textWeight?: FontWeightValue;
   onClick?: () => void;
 } & ViewProps;
 
+// TODO: Update docs in order to show that's possible to use colors names
 const Badge: React.FC<Props> = ({
   variant = "default",
   text = "",

@@ -13,7 +13,6 @@ export type Props = {
   customModalStyle?: Partial<ModalStyle>;
 };
 
-// TODO: Add it to docs
 const Modal: React.FC<Props> = ({
   isOpen = false,
   closeModal,

@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import styled from "styled-components";
-import { cssValue } from "utils/styles";
+import { cssValue, getColor } from "utils/styles";
 import { Props } from "types/View";
 import { ViewElementProps } from "types/css";
 
@@ -10,6 +10,8 @@ const View: React.FC<Props> = ({
   children,
   onClick,
   className,
+  color,
+  backgroundColor,
   ...rest
 }) => {
   return (
@@ -18,6 +20,8 @@ const View: React.FC<Props> = ({
       as={as as never}
       className={className}
       onClick={onClick}
+      {...(color && { color: getColor(color) })}
+      {...(backgroundColor && { backgroundColor: getColor(backgroundColor) })}
       {...rest}
     >
       {children as never}

@@ -26,7 +26,7 @@ export const Default = (): React.ReactNode => (
     <ADADesignProvider isEnabled={false}>
       {VARIANT_LIST.map((variant, variantIndex) => {
         return (
-          <>
+          <View key={variantIndex}>
             <Heading size={500} textTransform="capitalize" marginBottom={8}>
               {`${variant} variant style`}
             </Heading>
@@ -47,7 +47,7 @@ export const Default = (): React.ReactNode => (
                 );
               })}
             </Flex>
-          </>
+          </View>
         );
       })}
 

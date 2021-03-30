@@ -27,8 +27,8 @@ const TEXT_STYLE_BY_SIZE = {
   },
 } as const;
 
-const getVariantStyles = ({ size }) => {
-  const { colors } = useTheme();
+const getVariantStyles = ({ size, color }) => {
+  const { colors, fontSize } = useTheme();
   const { text } = colors;
 
   const defaultTextVariants = useMemo(() => {
@@ -36,8 +36,11 @@ const getVariantStyles = ({ size }) => {
       text: {
         fontFamily: fontFamilyName,
         fontWeight: 400,
-        fontSize: 14,
-        color: text.textDefault,
+        fontSize: fontSize.regular,
+        color:
+          color && colors.all[color]
+            ? colors.all[color]
+            : color || text.textDefault,
       },
     };
   }, [colors]);
@@ -51,8 +54,8 @@ const getVariantStyles = ({ size }) => {
 };
 
 // TODO: Set correct type
-export const useVariantStyle: any = ({ size }) => {
-  const { text } = getVariantStyles({ size });
+export const useVariantStyle: any = ({ size, color }) => {
+  const { text } = getVariantStyles({ size, color });
 
   return {
     text,

@@ -12,7 +12,7 @@ export const Default = (): React.ReactNode => {
     <Flex flexDirection="column">
       <Divisor />
       <Divisor height={3} marginY={10} />
-      <Divisor color="blue" />
+      <Divisor color="jewel" />
     </Flex>
   );
 };

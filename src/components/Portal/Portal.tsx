@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
+// TODO: Add it to docs
 const Portal: React.FC = ({ children }) => {
   const [modalRoot, setModalRoot] = useState(null);
 

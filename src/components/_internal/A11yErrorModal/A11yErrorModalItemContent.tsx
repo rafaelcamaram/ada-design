@@ -1,4 +1,5 @@
 import React from "react";
+import * as Colors from "color";
 
 import Flex from "components/Flex";
 import Text from "components/Typography/Text";
@@ -10,23 +11,24 @@ import BadgeList from "components/BadgeList";
 import { getColorByImpact } from "utils/styles";
 
 import StatusPill from "../StatusPill";
+import useTheme from "theme/useTheme";
 
 type Props = {
   record: any;
   setIsCollapsed: (value: boolean) => void;
 };
 
-const A11yErrorModalItemContent: React.FC<Props> = ({
-  record,
-  setIsCollapsed,
-}) => {
+const A11yErrorModalItemContent: React.FC<Props> = ({ record }) => {
+  const {
+    colors: { palette },
+  } = useTheme();
   const { helpUrl, tags, nodes } = record;
   const { impact, any: anyList } = nodes[0];
 
   return (
     <Flex
       flexDirection="row"
-      backgroundColor="#F7F9FC"
+      backgroundColor={Colors(palette.white).darken(0.01)}
       marginX={-32}
       marginTop={-6}
       marginBottom={6}

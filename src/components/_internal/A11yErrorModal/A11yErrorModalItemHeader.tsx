@@ -21,9 +21,7 @@ const A11yErrorModalItemHeader: React.FC<Props> = ({ record }) => {
             {record.description}
           </Heading>
 
-          <Text color="#060F19" marginBottom={6}>
-            {record.help}
-          </Text>
+          <Text marginBottom={6}>{record.help}</Text>
         </Flex>
       </Flex>
 

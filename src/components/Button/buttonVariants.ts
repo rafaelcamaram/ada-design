@@ -144,21 +144,26 @@ const PaddingBySize = {
   56: largePadding,
 } as const;
 
-const FontSizeBySize = {
-  default: "14px",
-  20: "12px",
-  24: "12px",
-  28: "12px",
-  32: "12px",
-  40: "14px",
-  44: "14px",
-  48: "16px",
-  52: "16px",
-  56: "16px",
-} as const;
+const getFontSizeBySize = (size) => {
+  const { fontSize } = useTheme();
+  const dataset = {
+    default: fontSize.regular,
+    20: fontSize.small,
+    24: fontSize.small,
+    28: fontSize.small,
+    32: fontSize.small,
+    40: fontSize.regular,
+    44: fontSize.regular,
+    48: fontSize.medium,
+    52: fontSize.medium,
+    56: fontSize.medium,
+  };
+
+  return dataset[size] || dataset.default;
+};
 
 const useTextStyleAndSpacing = (size: ButtonSizeType) => {
-  const fontSize = FontSizeBySize[size] || FontSizeBySize.default;
+  const fontSize = getFontSizeBySize(size);
   const paddingStyle = PaddingBySize[size] || PaddingBySize.default;
   return {
     fontSize: fontSize,

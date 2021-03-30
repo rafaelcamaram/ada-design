@@ -1,5 +1,7 @@
 // import original module declarations
 import "styled-components";
+import COLORS from "theme/colors";
+import { ColorType, UnitValue } from "types/css";
 declare module "styled-components" {
   export type IntentionsType = {
     textDefault: string;
@@ -19,6 +21,7 @@ declare module "styled-components" {
   };
 
   export type ColorsType = {
+    all: ColorType;
     palette: Partial<PalletColors>;
     text: {
       textDefault: string;
@@ -28,7 +31,18 @@ declare module "styled-components" {
     };
   };
 
+  export type FontSizeType = {
+    xsmall: UnitValue;
+    small: UnitValue;
+    regular: UnitValue;
+    medium: UnitValue;
+    large: UnitValue;
+    xlarge: UnitValue;
+    xxlarge: UnitValue;
+    xxxlarge: UnitValue;
+  };
   export interface DefaultTheme {
+    fontSize?: FontSizeType;
     colors?: Partial<ColorsType>;
   }
 }

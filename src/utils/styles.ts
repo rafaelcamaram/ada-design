@@ -1,3 +1,6 @@
+import useTheme from "theme/useTheme";
+import { ColorType } from "types/css";
+
 type ValueType = string | number;
 
 export const cssValue = (value: ValueType): string => {
@@ -21,4 +24,12 @@ const COLOR_BY_IMPACT = {
 
 export const getColorByImpact = (impact) => {
   return COLOR_BY_IMPACT[impact] || COLOR_BY_IMPACT.success;
+};
+
+export const getColor = (textColor: ColorType): string => {
+  const { colors } = useTheme();
+
+  return textColor && colors.all[textColor as string]
+    ? colors.all[textColor as string]
+    : textColor || colors.text.textDefault;
 };

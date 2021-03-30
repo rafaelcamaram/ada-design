@@ -8,12 +8,11 @@ export default {
 
 export const Default = (): React.ReactNode => (
   <>
-    <Text as="span">Default (300)</Text>
     <Text as="p" size={300}>
       Text 300
     </Text>
     <Text as="p" size={400}>
-      Text 400
+      Text 400 (Default)
     </Text>
     <Text as="p" size={500}>
       Text 500

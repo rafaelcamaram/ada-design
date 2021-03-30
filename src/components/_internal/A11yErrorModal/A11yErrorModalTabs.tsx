@@ -1,8 +1,10 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
+import * as Colors from "color";
 
 import Flex from "components/Flex";
 import Text from "components/Typography/Text";
+import useTheme from "theme/useTheme";
 
 type Props = {
   violations: any;
@@ -25,6 +27,9 @@ const A11yErrorModalTabs: React.FC<Props> = ({
   selectedIndex,
   setSelectedIndex,
 }) => {
+  const {
+    colors: { palette, all },
+  } = useTheme();
   const getLengthByIndex = useCallback((index) => {
     const lengthByIndex = {
       0: violations.length,
@@ -35,7 +40,11 @@ const A11yErrorModalTabs: React.FC<Props> = ({
   }, []);
 
   return (
-    <Flex backgroundColor="#F7F9FC" alignItems="center" paddingX={32}>
+    <Flex
+      backgroundColor={Colors(palette.white).darken(0.03)}
+      alignItems="center"
+      paddingX={32}
+    >
       {TAB_CATEGORIES.map((category, index) => {
         const isSelected = selectedIndex === index;
 
@@ -51,7 +60,9 @@ const A11yErrorModalTabs: React.FC<Props> = ({
             paddingY={16}
             cursor="pointer"
             onClick={() => setSelectedIndex(index)}
-            borderBottom={`2px solid ${isSelected ? "#0D65C2" : "transparent"}`}
+            borderBottom={`2px solid ${
+              isSelected ? all["lochmara"] : "transparent"
+            }`}
           >
             {getLengthByIndex(index)} {category.label}
           </StyledTabItem>
@@ -66,8 +77,10 @@ const StyledTabItem = styled(Text)<{ isSelected: boolean }>`
 
   &:hover {
     background-color: "#F2F2F2";
-    border-bottom: ${({ isSelected }) =>
-      isSelected ? "2px solid #0D65C2" : "2px solid #DFDFDF"};
+    border-bottom: ${({ isSelected, theme }) =>
+      isSelected
+        ? `2px solid ${theme.colors.all["lochmara"]}`
+        : "2px solid #DFDFDF"};
   }
 `;
 export default A11yErrorModalTabs;

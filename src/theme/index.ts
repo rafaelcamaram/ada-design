@@ -1,7 +1,8 @@
 import { DefaultTheme } from "styled-components";
-import headings, { HeadingObject } from "./typography/headings";
+import getHeadingDataset, { HeadingObject } from "./typography/headings";
 import fontFamilies from "./typography/fontFamilies";
 import COLORS from "./colors";
+import { ColorType } from "types/css";
 
 const getThemeProperty = (dataset, key) => {
   if (Object.prototype.hasOwnProperty.call(dataset, key)) {
@@ -9,8 +10,12 @@ const getThemeProperty = (dataset, key) => {
   }
 };
 
-export const getHeadingStyle = (size: number): HeadingObject => {
+export const getHeadingStyle = (
+  size: number,
+  textColor: ColorType,
+): HeadingObject => {
   if (!size) return null;
+  const headings = getHeadingDataset(textColor);
 
   return getThemeProperty(headings, size);
 };
@@ -22,6 +27,16 @@ export const getFontFamilyStyle = (variant: string): string => {
 };
 
 export const defaultTheme: DefaultTheme = {
+  fontSize: {
+    xsmall: 11,
+    small: 12,
+    regular: 14,
+    medium: 16,
+    large: 20,
+    xlarge: 24,
+    xxlarge: 28,
+    xxxlarge: 36,
+  },
   colors: {
     buttons: {
       intentions: {
@@ -43,5 +58,6 @@ export const defaultTheme: DefaultTheme = {
       black: COLORS.black,
       red: COLORS.milanoRed,
     },
+    all: COLORS,
   },
 };

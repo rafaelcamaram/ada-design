@@ -30,7 +30,7 @@ export const CircleVariant = (): React.ReactNode => {
     <Flex flexDirection="column">
       <Heading size={600}>Circle Variant</Heading>
       <Badge text="1" variant="circle" color="rgba(255, 68, 0, 0.5)" />
-      <Badge text="10" variant="circle" color="#0D65C2" />
+      <Badge text="10" variant="circle" textColor="lochmara" />
       <Badge text="100" variant="circle" color="#0FA530" />
       <Badge
         text="1000"

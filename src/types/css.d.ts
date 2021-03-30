@@ -1,4 +1,6 @@
-import { ReactNode } from "react";
+import COLORS from "theme/colors";
+
+export type ColorType = { [day in keyof typeof COLORS]: string } | string;
 
 export type MainAxisFlexDefaultValue =
   | "flex-start"
@@ -258,7 +260,7 @@ export type ViewElementProps = {
   textOverflow?: TextOverflowValue;
   textShadow?: string;
   textTransform?: TextTransformValue;
-  color?: string;
+  color?: ColorType;
   letterSpacing?: LetterSpacingValue;
   lineHeight?: LineHeightValue;
   wordWrap?: WordWrapValue;
