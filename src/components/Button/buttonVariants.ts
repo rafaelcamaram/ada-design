@@ -16,7 +16,7 @@ const defaultButtonProps = {
 };
 
 const getLinearGradient = (color, factor) => {
-  // TODO: Figure out a way to use gradients without messing with ADA analysis
+  // TODO: DEV - Figure out a way to use gradients without messing with ADA analysis
   return color;
   // return `linear-gradient(${color}, ${Color(color).darken(factor)})`;
 };
@@ -82,7 +82,7 @@ const getVariantStyles = () => {
         success: {
           color: intentions.backgroundSuccess,
         },
-        // TODO: Simple Warning variation with A11y contrast issue with white background (Default)
+        // TODO: DEV - Simple Warning variation with A11y contrast issue with white background (Default)
         warning: {
           color: intentions.backgroundWarning,
         },

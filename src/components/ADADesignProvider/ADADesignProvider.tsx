@@ -14,8 +14,8 @@ export type Props = {
   shouldShowIncomplete?: boolean;
 };
 
-// TODO: Add to the docs saying that we MUST wrap all the application with it; otherwise we're going to face issues
-// TODO: Rename this component in the docs to be ADADesignProvider
+// TODO: DOC - Add to the docs saying that we MUST wrap all the application with it; otherwise we're going to face issues
+// TODO: DOC - Rename this component in the docs to be ADADesignProvider
 const ADADesignProvider: React.FC<Props> = ({
   children,
   value,

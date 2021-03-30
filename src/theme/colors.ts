@@ -1,4 +1,4 @@
-// TODO: Create a doc page to show all the possible colors
+// TODO: DEV - Create a doc page to show all the possible colors
 export const COLORS = {
   white: "#ffffff",
   black: "#000000",

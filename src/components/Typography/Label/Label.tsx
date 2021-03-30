@@ -8,8 +8,6 @@ export type Props = {
   htmlFor?: string;
 } & ViewElementProps;
 
-// TODO: Add a pattern for fontSize
-// TODO: Fix issue on storybook | Cannot read property 'text' of undefined
 const Label = styled(Text)<Props>`
   ${({ shouldVisuallyHideLabel }) =>
     shouldVisuallyHideLabel &&

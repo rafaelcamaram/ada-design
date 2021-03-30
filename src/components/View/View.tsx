@@ -29,7 +29,7 @@ const View: React.FC<Props> = ({
   );
 };
 
-// TODO: align-items doesnt contain auto
+// TODO: DEV - align-items doesnt contain auto
 const ViewElement = styled.div<ViewElementProps>`
   width: ${({ width }) => cssValue(width)};
   height: ${({ height }) => cssValue(height)};

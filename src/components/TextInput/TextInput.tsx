@@ -23,8 +23,8 @@ export type Props = {
   labelledBy?: string;
 } & ViewProps;
 
-// TODO: Add to docs saying that you can customize the TextInput using nested selector (input and label)
-// TODO: Add hint/error property
+// TODO: DOC - Add to docs saying that you can customize the TextInput using nested selector (input and label)
+// TODO: DEV - Add hint/error property
 const TextInput: React.FC<Props> = ({
   id,
   isDisabled,

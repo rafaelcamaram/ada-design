@@ -12,12 +12,12 @@ export type Props = {
   placeholder?: string;
   value?: string;
   size?: 300 | 400 | 500 | 600;
-  color?: ColorType; // TODO: Add color preset here
+  color?: ColorType;
 } & ViewProps;
 
 const fontFamilyName = getFontFamilyStyle("ui");
 
-// TODO: Update docs with new size props, color and etc
+// TODO: DOC - Update docs with new size props, color and etc
 const Text: React.FC<Props> = ({
   as = "span",
   onClick,

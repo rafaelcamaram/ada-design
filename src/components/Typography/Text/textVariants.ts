@@ -53,7 +53,7 @@ const getVariantStyles = ({ size, color }) => {
   };
 };
 
-// TODO: Set correct type
+// TODO: DEV - Set correct type
 export const useVariantStyle: any = ({ size, color }) => {
   const { text } = getVariantStyles({ size, color });
 

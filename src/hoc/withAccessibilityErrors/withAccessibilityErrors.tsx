@@ -34,11 +34,9 @@ export type AccessibilityProps = {
   shouldShowIncomplete?: boolean;
 };
 
-// TODO: Working on TextInputs variations in order to provide a better design and customizations;
-// TODO: Add all the colors inside ThemeProvider -- including text ones;
-// TODO: Maybe add button styles to ThemeProvider as well
+// TODO: DEV - Maybe add button styles to ThemeProvider as well
 const withAccessibilityErrors = <T,>(Component) => {
-  // TODO: ESLINT - Next line
+  // TODO: DEV - ESLINT - Next line
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   return function ComponentWithA11y({
     shouldDisableA11y: shouldDisableA11yComponent = false,
@@ -66,7 +64,7 @@ const withAccessibilityErrors = <T,>(Component) => {
 
     useEffect(() => {
       // This useEffect should be called every time that Component receives different props
-      // TODO: Verify if it's running two time instead of 1 when updating in run time
+      // TODO: DEV - Verify if it's running two time instead of 1 when updating in run time
       if (shouldEnableAccessibility) {
         a11yContext.addTask(componentId.current, (result: AxeResults) => {
           setWithAccessibilityResult({
@@ -76,7 +74,7 @@ const withAccessibilityErrors = <T,>(Component) => {
           });
         });
       }
-      // TODO: JSON.stringify should be a temporary solution since we can not be sure how deep the props will be
+      // TODO: DEV - JSON.stringify should be a temporary solution since we can not be sure how deep the props will be
       // Ref: https://twitter.com/dan_abramov/status/1104414469629898754?lang=en
     }, [JSON.stringify(props)]);
 

@@ -12,7 +12,6 @@ export type Props = {
   value?: Partial<DefaultTheme>;
 };
 
-// TODO: Add a already defined color palette -- reuse the COLORS file?
 const ThemeProvider: React.FC<Props> = ({ children, value = {} }) => {
   const currentValue = useMemo(() => {
     return mergeDeep(defaultTheme, value);

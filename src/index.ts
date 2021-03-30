@@ -20,7 +20,7 @@ export { default as Spacer } from "./components/Spacer";
 export { default as withAccessibilityErrors } from "./hoc/withAccessibilityErrors";
 
 // Types
-// TODO: Update the docs with the correct types -- I removed some of them
+// TODO: DOC - Update the docs with the correct types -- I removed some of them
 // Should I export it here as well?
 export type { AccessibilityProps } from "./hoc/withAccessibilityErrors";
 export type { BadgeVariants } from "./components/Badge";

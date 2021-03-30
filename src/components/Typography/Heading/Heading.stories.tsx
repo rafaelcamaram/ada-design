@@ -6,7 +6,7 @@ export default {
   component: Heading,
 };
 
-// TODO: Add support for a11y to Heading and Texts
+// TODO: DEV - Add support for a11y to Heading and Texts
 export const Default = (): React.ReactNode => (
   <>
     <Heading size={100}>Heading Content</Heading>

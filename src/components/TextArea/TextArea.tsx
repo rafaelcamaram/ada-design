@@ -23,9 +23,9 @@ export type Props = {
   labelledBy?: string;
 } & ViewProps;
 
-// TODO: Add to docs saying that you can customize the TextArea using nested selector (input and label)
-// TODO: Add it to docs
-// TODO: Add hint/error property
+// TODO: DOC - Add to docs saying that you can customize the TextArea using nested selector (input and label)
+// TODO: DOC - Add it to docs
+// TODO: DEV - Add hint/error property
 const TextArea: React.FC<Props> = ({
   id,
   isDisabled,

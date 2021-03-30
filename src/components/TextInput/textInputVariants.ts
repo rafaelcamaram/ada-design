@@ -65,7 +65,7 @@ const getVariantStyles = ({
   };
 };
 
-// TODO: Set correct type
+// TODO: DEV - Set correct type
 export const useVariantStyle: any = ({
   width,
   height,

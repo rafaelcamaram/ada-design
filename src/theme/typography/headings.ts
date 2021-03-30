@@ -5,7 +5,7 @@ import { getColor } from "utils/styles";
 
 export type HeadingObject = Partial<ViewElementProps>;
 
-// TODO: Fix return type
+// TODO: DEV - Fix return type
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function getHeadingDataset(textColor) {
   const { fontSize } = useTheme();
