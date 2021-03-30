@@ -9,25 +9,21 @@ const TEXT_STYLE_BY_SIZE = {
     fontSize: 12,
     lineHeight: "16px",
     letterSpacing: 0,
-    marginTop: 12,
   },
   400: {
     fontSize: 14,
     lineHeight: "20px",
     letterSpacing: -0.05,
-    marginTop: 12,
   },
   500: {
     fontSize: 16,
     lineHeight: "20px",
     letterSpacing: -0.05,
-    marginTop: 16,
   },
   600: {
     fontSize: 20,
     lineHeight: "14px",
     letterSpacing: -0.07,
-    marginTop: 28,
   },
 } as const;
 
