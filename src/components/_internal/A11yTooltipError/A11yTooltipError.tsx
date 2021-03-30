@@ -35,10 +35,10 @@ const A11yTooltipError: React.FC<Props> = ({ issue, setIsModalOpen }) => {
         {issue.help}
       </Text>
       <Flex flexDirection="row" marginY={10}>
-        <Link target="_blank" href={issue.helpUrl} marginRight={10}>
+        <Link target="_blank" href={issue.helpUrl} marginRight={12}>
           More info
         </Link>
-        <Flex flexDirection="row">
+        <Flex flexDirection="row" alignItems="center">
           <Link
             onClick={() => {
               setIsModalOpen(true);
@@ -50,6 +50,7 @@ const A11yTooltipError: React.FC<Props> = ({ issue, setIsModalOpen }) => {
             variant="circle"
             text={`${issue.nodes[0].any.length}`}
             textColor="#738598"
+            marginLeft={8}
           />
         </Flex>
       </Flex>

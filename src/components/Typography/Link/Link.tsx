@@ -9,16 +9,19 @@ export type Props = {
   href?: string;
 } & ViewProps;
 
-const Link: React.FC<Props> = ({ onClick, href, children, ...rest }) => {
+const Link: React.FC<Props> = ({
+  onClick,
+  href,
+  children,
+  color = "#738598",
+  ...rest
+}) => {
   return (
     <StyledLink
       forwardedAs="a"
-      color="#738598"
-      marginRight={5}
-      fontSize={12}
-      textDecoration="none"
       onClick={onClick}
       href={href}
+      color={color}
       {...rest}
     >
       {children}
@@ -27,6 +30,7 @@ const Link: React.FC<Props> = ({ onClick, href, children, ...rest }) => {
 };
 
 const StyledLink = styled(Text)`
+  text-decoration: none;
   &:hover {
     text-decoration: underline;
   }

@@ -1,6 +1,6 @@
 import COLORS from "theme/colors";
 
-export type ColorType = { [day in keyof typeof COLORS]: string } | string;
+export type ColorType = { [property in keyof typeof COLORS]: string } | string;
 
 export type MainAxisFlexDefaultValue =
   | "flex-start"

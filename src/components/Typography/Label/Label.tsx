@@ -2,24 +2,15 @@ import styled, { css } from "styled-components";
 import { ViewElementProps } from "types/css";
 
 import Text from "components/Typography/Text";
-import { getFontFamilyStyle } from "theme";
 
 export type Props = {
   shouldVisuallyHideLabel?: boolean;
   htmlFor?: string;
 } & ViewElementProps;
 
-const fontFamilyName = getFontFamilyStyle("ui");
-
 // TODO: Add a pattern for fontSize
 // TODO: Fix issue on storybook | Cannot read property 'text' of undefined
-const Label = styled(Text).attrs(({ theme }) => {
-  return {
-    color: theme.colors?.text.textDefault,
-    fontSize: 14,
-    fontFamily: fontFamilyName,
-  };
-})<Props>`
+const Label = styled(Text)<Props>`
   ${({ shouldVisuallyHideLabel }) =>
     shouldVisuallyHideLabel &&
     css`
