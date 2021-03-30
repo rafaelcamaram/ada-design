@@ -23,17 +23,7 @@ const renderForAllIntents = (renderComponent) => {
 
 export const Default = (): React.ReactNode => (
   <>
-    <ADADesignProvider
-      isEnabled={false}
-      value={{
-        colors: {
-          buttons: {
-            intentions: { backgroundSuccess: "pink", textSuccess: "purple" },
-          },
-          text: { textDefault: "red" },
-        },
-      }}
-    >
+    <ADADesignProvider isEnabled={false}>
       {VARIANT_LIST.map((variant, variantIndex) => {
         return (
           <>
