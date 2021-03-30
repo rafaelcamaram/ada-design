@@ -1,18 +1,24 @@
 import React, { useRef } from "react";
+import { DefaultTheme } from "styled-components";
 import { Queue } from "async-fifo-queue";
 import { reset, configure, run, AxeResults } from "axe-core";
 
 import { A11yContext } from "hoc/withAccessibilityErrors/withAccessibilityErrors";
 import View from "components/View";
+import ThemeProvider from "components/ThemeProvider";
 
 export type Props = {
   isEnabled: boolean;
+  value?: Partial<DefaultTheme>;
   shouldShowSuccess?: boolean;
   shouldShowIncomplete?: boolean;
 };
 
-const A11yContextProvider: React.FC<Props> = ({
+// TODO: Add to the docs saying that we MUST wrap all the application with it; otherwise we're going to face issues
+// TODO: Rename this component in the docs to be ADADesignProvider
+const ADADesignProvider: React.FC<Props> = ({
   children,
+  value,
   isEnabled,
   shouldShowIncomplete = true,
   shouldShowSuccess = true,
@@ -78,19 +84,21 @@ const A11yContextProvider: React.FC<Props> = ({
   };
 
   return (
-    <A11yContext.Provider
-      value={{
-        queue: currentQueue.current,
-        addTask: addTask,
-        popNextTaskAndRun: popNextTaskAndRun,
-        isEnabled: isEnabled,
-        shouldShowSuccess: shouldShowSuccess,
-        shouldShowIncomplete: shouldShowIncomplete,
-      }}
-    >
-      <View>{children}</View>
-    </A11yContext.Provider>
+    <ThemeProvider value={value}>
+      <A11yContext.Provider
+        value={{
+          queue: currentQueue.current,
+          addTask: addTask,
+          popNextTaskAndRun: popNextTaskAndRun,
+          isEnabled: isEnabled,
+          shouldShowSuccess: shouldShowSuccess,
+          shouldShowIncomplete: shouldShowIncomplete,
+        }}
+      >
+        <View>{children}</View>
+      </A11yContext.Provider>
+    </ThemeProvider>
   );
 };
 
-export default A11yContextProvider;
+export default ADADesignProvider;

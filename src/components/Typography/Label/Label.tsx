@@ -11,12 +11,13 @@ export type Props = {
 
 const fontFamilyName = getFontFamilyStyle("ui");
 
-// TODO: Add a pattern for colors
 // TODO: Add a pattern for fontSize
-const Label = styled(Text).attrs({
-  color: "#596877",
-  fontSize: 14,
-  fontFamily: fontFamilyName,
+const Label = styled(Text).attrs(({ theme }) => {
+  return {
+    color: theme.colors.text.textDefault,
+    fontSize: 14,
+    fontFamily: fontFamilyName,
+  };
 })<Props>`
   ${({ shouldVisuallyHideLabel }) =>
     shouldVisuallyHideLabel &&

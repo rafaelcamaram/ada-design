@@ -23,6 +23,7 @@ export type Props = {
   icon?: keyof typeof Icons;
 } & ViewProps;
 
+// TODO: Update Button docs to represent new props (is it already done?)
 const Button: React.FC<Props> = ({
   type,
   variant,

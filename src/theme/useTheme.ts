@@ -1,9 +1,9 @@
-import { ThemeProviderContext } from "hoc/withThemeProvider/withThemeProvider";
 import { useContext } from "react";
+import { ThemeContext } from "styled-components";
+import { defaultTheme } from "theme";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const useTheme = () => {
-  return useContext(ThemeProviderContext);
-};
-
-export default useTheme;
+export default function useTheme() {
+  const theme = useContext(ThemeContext);
+  return theme || defaultTheme;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "components/Button";
 import View from "components/View";
-import A11yContextProvider from "components/A11yContextProvider";
+import ADADesignProvider from "components/ADADesignProvider";
 import Flex from "components/Flex";
 import Heading from "components/Typography/Heading";
 import ThemeProvider from "components/ThemeProvider";
@@ -48,7 +48,7 @@ const renderContent = () => {
   });
 };
 export const DefaultWithCustomTheme = (): React.ReactNode => (
-  <A11yContextProvider isEnabled={true}>
+  <ADADesignProvider isEnabled={true}>
     <Heading size={800} textTransform="capitalize" marginBottom={8}>
       With the default theme properties
     </Heading>
@@ -82,5 +82,5 @@ export const DefaultWithCustomTheme = (): React.ReactNode => (
     >
       {renderContent()}
     </ThemeProvider>
-  </A11yContextProvider>
+  </ADADesignProvider>
 );

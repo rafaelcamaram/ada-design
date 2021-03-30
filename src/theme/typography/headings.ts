@@ -1,4 +1,4 @@
-import colors from "theme/colors";
+import COLORS from "theme/colors";
 import fontFamilies from "./fontFamilies";
 import { ViewElementProps } from "types/css";
 
@@ -11,7 +11,7 @@ export default {
     lineHeight: "40px",
     letterSpacing: "-0.2px",
     fontFamily: fontFamilies.display,
-    color: colors.text.dark,
+    color: COLORS.agitatedBlue,
   },
   "800": {
     fontSize: "29px",
@@ -19,7 +19,7 @@ export default {
     lineHeight: "32px",
     letterSpacing: "-0.2px",
     fontFamily: fontFamilies.display,
-    color: colors.text.dark,
+    color: COLORS.agitatedBlue,
   },
   "700": {
     fontSize: "24px",
@@ -27,7 +27,7 @@ export default {
     lineHeight: "28px",
     letterSpacing: "-0.07px",
     fontFamily: fontFamilies.display,
-    color: colors.text.dark,
+    color: COLORS.agitatedBlue,
   },
   "600": {
     fontSize: "20px",
@@ -35,7 +35,7 @@ export default {
     lineHeight: "24px",
     letterSpacing: "-0.07px",
     fontFamily: fontFamilies.display,
-    color: colors.text.dark,
+    color: COLORS.agitatedBlue,
   },
   "500": {
     fontSize: "16px",
@@ -43,7 +43,7 @@ export default {
     lineHeight: "20px",
     letterSpacing: "-0.05px",
     fontFamily: fontFamilies.ui,
-    color: colors.text.dark,
+    color: COLORS.agitatedBlue,
   },
   "400": {
     fontSize: "14px",
@@ -51,7 +51,7 @@ export default {
     lineHeight: "20px",
     letterSpacing: "-0.05px",
     fontFamily: fontFamilies.ui,
-    color: colors.text.dark,
+    color: COLORS.agitatedBlue,
   },
   "300": {
     fontSize: "12px",
@@ -59,7 +59,7 @@ export default {
     lineHeight: "16px",
     letterSpacing: "0",
     fontFamily: fontFamilies.ui,
-    color: colors.text.dark,
+    color: COLORS.agitatedBlue,
   },
   "200": {
     fontSize: "12px",
@@ -67,7 +67,7 @@ export default {
     lineHeight: "16px",
     letterSpacing: "0",
     fontFamily: fontFamilies.ui,
-    color: colors.text.muted,
+    color: COLORS.agitatedBlue,
   },
   "100": {
     fontSize: "11px",
@@ -76,6 +76,6 @@ export default {
     lineHeight: "16px",
     letterSpacing: "0.6px",
     fontFamily: fontFamilies.ui,
-    color: colors.text.muted,
+    color: COLORS.agitatedBlue,
   },
 };

@@ -1,24 +1,27 @@
 import React, { useMemo } from "react";
+import {
+  ThemeProvider as StyledThemeProvider,
+  DefaultTheme,
+} from "styled-components";
 
 import { defaultTheme } from "theme";
 import View from "components/View";
-import { ThemeProviderContext } from "hoc/withThemeProvider/withThemeProvider";
-import { ThemeType } from "theme/themeTypes";
 import { mergeDeep } from "utils/deepMerge";
 
 export type Props = {
-  value: Partial<ThemeType>;
+  value?: Partial<DefaultTheme>;
 };
 
-const ThemeProvider: React.FC<Props> = ({ children, value }) => {
+const ThemeProvider: React.FC<Props> = ({ children, value = {} }) => {
   const currentValue = useMemo(() => {
     return mergeDeep(defaultTheme, value);
   }, [defaultTheme, value]);
 
+  console.log({ currentValue });
   return (
-    <ThemeProviderContext.Provider value={currentValue}>
+    <StyledThemeProvider theme={currentValue}>
       <View>{children}</View>
-    </ThemeProviderContext.Provider>
+    </StyledThemeProvider>
   );
 };
 

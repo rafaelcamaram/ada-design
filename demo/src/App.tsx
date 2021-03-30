@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  Button,
-  withAccessibilityErrors,
-  A11yContextProvider,
-} from "ada-design";
+import { Button, withAccessibilityErrors, ADADesignProvider } from "ada-design";
 
 const ImageWithA11y = withAccessibilityErrors(() => {
   return (
@@ -16,7 +12,7 @@ const ImageWithA11y = withAccessibilityErrors(() => {
 
 function App() {
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <div className="App" role="main">
         <h1>This is my awesome page</h1>
         <a href="#main-content">Skip to main content</a>
@@ -27,7 +23,7 @@ function App() {
           <Button>Test</Button>
         </main>
       </div>
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import * as Yup from "yup";
 import Form, { FormSchema } from "./";
-import A11yContextProvider from "components/A11yContextProvider";
+import ADADesignProvider from "components/ADADesignProvider";
 import Button from "components/Button";
 
 export default {
@@ -27,7 +27,7 @@ const schema: FormSchema = [
 
 export const Default = (): React.ReactNode => {
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <Form
         schema={schema}
         validationSchema={Yup.object().shape({
@@ -38,7 +38,7 @@ export const Default = (): React.ReactNode => {
           alert("Hello there");
         }}
       />
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 };
 
@@ -72,7 +72,7 @@ export const WithMoreFields = (): React.ReactNode => {
   ];
 
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <Form
         schema={schemass}
         validationSchema={Yup.object().shape({
@@ -84,7 +84,7 @@ export const WithMoreFields = (): React.ReactNode => {
         }}
       />
       <Button variant="default">Button</Button>
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 };
 
@@ -318,7 +318,7 @@ export const WithHugeNumberOfFields = (): React.ReactNode => {
   ];
 
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <Form
         schema={schemass}
         validationSchema={Yup.object().shape({
@@ -329,6 +329,6 @@ export const WithHugeNumberOfFields = (): React.ReactNode => {
           alert("Hello there");
         }}
       />
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 };

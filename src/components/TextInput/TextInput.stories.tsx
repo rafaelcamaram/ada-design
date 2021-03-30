@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TextInput from "./TextInput";
 import Text from "components/Typography/Text";
-import A11yContextProvider from "components/A11yContextProvider";
+import ADADesignProvider from "components/ADADesignProvider";
 import Flex from "components/Flex";
 
 export default {
@@ -11,13 +11,13 @@ export default {
 
 export const Default = (): React.ReactNode => {
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <TextInput
         id="WithControlledValue"
         label="Text input label"
         placeholder="Text input placeholder"
       />
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 };
 
@@ -25,7 +25,7 @@ export const WithControlledValue = (): React.ReactNode => {
   const [value, setValue] = useState("");
 
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <TextInput
         id="WithControlledValue"
         label="Text input label"
@@ -35,29 +35,29 @@ export const WithControlledValue = (): React.ReactNode => {
         }}
       />
       <Text marginTop={15}>The current value is: {value}</Text>
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 };
 
 export const Disabled = (): React.ReactNode => {
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <TextInput id="Disabled" isDisabled label="Text input label" />
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 };
 
 export const Invalid = (): React.ReactNode => {
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <TextInput id="Invalid" isInvalid label="Text input label" />
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 };
 
 export const CustomHeight = (): React.ReactNode => {
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <Flex>
         <TextInput
           id="DefaultHeight"
@@ -66,13 +66,13 @@ export const CustomHeight = (): React.ReactNode => {
         />
         <TextInput id="CustomHeight" height={50} label="Text input label" />
       </Flex>
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 };
 
 export const CustomWidth = (): React.ReactNode => {
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <Flex>
         <TextInput
           id="DefaultWidth"
@@ -81,7 +81,7 @@ export const CustomWidth = (): React.ReactNode => {
         />
         <TextInput id="CustomWidth" width="500px" label="Text input label" />
       </Flex>
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 };
 
@@ -89,7 +89,7 @@ export const WithAriaLabel = (): React.ReactNode => {
   const [value, setValue] = useState("");
 
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <Flex flexDirection="column" alignItems="flex-start">
         <TextInput
           id="WithControlledValue"
@@ -103,7 +103,7 @@ export const WithAriaLabel = (): React.ReactNode => {
         />
         <Text marginTop={15}>The current value is: {value}</Text>
       </Flex>
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 };
 
@@ -111,7 +111,7 @@ export const WithLabelledBy = (): React.ReactNode => {
   const [value, setValue] = useState("");
 
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <Flex flexDirection="column" alignItems="flex-start">
         <TextInput
           id="WithControlledValue"
@@ -127,7 +127,7 @@ export const WithLabelledBy = (): React.ReactNode => {
           Submit First Name
         </button>
       </Flex>
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 };
 
@@ -135,7 +135,7 @@ export const MissingADAFields = (): React.ReactNode => {
   const [value, setValue] = useState("");
 
   return (
-    <A11yContextProvider isEnabled={true}>
+    <ADADesignProvider isEnabled={true}>
       <Flex flexDirection="column" alignItems="flex-start">
         <TextInput
           id="WithControlledValue"
@@ -150,6 +150,6 @@ export const MissingADAFields = (): React.ReactNode => {
           Submit First Name
         </button>
       </Flex>
-    </A11yContextProvider>
+    </ADADesignProvider>
   );
 };

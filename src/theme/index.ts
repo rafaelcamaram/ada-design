@@ -1,6 +1,7 @@
+import { DefaultTheme } from "styled-components";
 import headings, { HeadingObject } from "./typography/headings";
 import fontFamilies from "./typography/fontFamilies";
-import { ThemeType } from "./themeTypes";
+import COLORS from "./colors";
 
 const getThemeProperty = (dataset, key) => {
   if (Object.prototype.hasOwnProperty.call(dataset, key)) {
@@ -20,20 +21,7 @@ export const getFontFamilyStyle = (variant: string): string => {
   return getThemeProperty(fontFamilies, variant);
 };
 
-export const COLORS = {
-  white: "#ffffff",
-  black: "#000000",
-  agitatedBlue: "rgb(66, 90, 112)",
-  lochmara: "#0679C6",
-  funGreen: "rgb(0, 120, 63)",
-  jewel: "#168350",
-  rope: "rgb(149, 89, 31)",
-  gamboge: "rgb(238, 153, 19)",
-  milanoRed: "rgb(191, 14, 9)",
-  alizarinCrimson: "#E71F18",
-};
-
-export const defaultTheme: ThemeType = {
+export const defaultTheme: DefaultTheme = {
   colors: {
     buttons: {
       intentions: {

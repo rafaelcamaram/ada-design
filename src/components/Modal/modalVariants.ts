@@ -1,4 +1,4 @@
-import colors from "theme/colors";
+import COLORS from "theme/colors";
 import { ViewElementProps } from "types/css";
 
 export type ModalVariantType = "default" | "trail";
@@ -14,13 +14,13 @@ const defaultModalContainerProps: Partial<ViewElementProps> = {
   position: "fixed",
   top: 0,
   left: 0,
-  backgroundColor: colors.blackWithoutOpacity30,
+  backgroundColor: COLORS.blackWithoutOpacity30,
   backdropFilter: "blur(2px)",
   zIndex: 2000,
 } as const;
 
 const defaultModalContentProps: Partial<ViewElementProps> = {
-  backgroundColor: colors.white,
+  backgroundColor: COLORS.white,
 };
 
 const VariantStyles: {

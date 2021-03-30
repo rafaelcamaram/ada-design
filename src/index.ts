@@ -1,4 +1,4 @@
-export { default as A11yContextProvider } from "./components/A11yContextProvider";
+export { default as ADADesignProvider } from "./components/ADADesignProvider";
 export { default as Badge } from "./components/Badge";
 export { default as BadgeList } from "./components/BadgeList";
 export { default as Button } from "./components/Button";
@@ -17,7 +17,8 @@ export { default as Spacer } from "./components/Spacer";
 export { default as withAccessibilityErrors } from "./hoc/withAccessibilityErrors";
 
 // Types
-export type { ThemeProviderProps } from "./hoc/withThemeProvider";
+// TODO: Update the docs with the correct types -- I removed some of them
+// Should I export it here as well?
 export type { AccessibilityProps } from "./hoc/withAccessibilityErrors";
 export type { BadgeVariants } from "./components/Badge";
 export type {
@@ -27,9 +28,3 @@ export type {
 } from "./components/Button";
 export type { FormSchema, Field } from "./components/Form";
 export type { ModalVariantType, ModalStyle } from "./components/Modal";
-export type {
-  IntentionsType,
-  PalletColors,
-  ColorsType,
-  ThemeType,
-} from "./theme/themeTypes";

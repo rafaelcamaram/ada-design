@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import View from "components/View";
-import A11yContextProvider from "components/A11yContextProvider";
+import ADADesignProvider from "components/ADADesignProvider";
 import Flex from "components/Flex";
 import Heading from "components/Typography/Heading";
 
@@ -23,7 +23,17 @@ const renderForAllIntents = (renderComponent) => {
 
 export const Default = (): React.ReactNode => (
   <>
-    <A11yContextProvider isEnabled={false}>
+    <ADADesignProvider
+      isEnabled={false}
+      value={{
+        colors: {
+          buttons: {
+            intentions: { backgroundSuccess: "pink", textSuccess: "purple" },
+          },
+          text: { textDefault: "red" },
+        },
+      }}
+    >
       {VARIANT_LIST.map((variant, variantIndex) => {
         return (
           <>
@@ -99,7 +109,7 @@ export const Default = (): React.ReactNode => (
           </StyledButton>
         </View>
       </Flex>
-    </A11yContextProvider>
+    </ADADesignProvider>
   </>
 );
 

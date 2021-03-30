@@ -25,6 +25,7 @@ const getVariantStyles = () => {
   const {
     colors: { buttons, palette },
   } = useTheme();
+
   const { intentions } = buttons;
   return {
     default: {
