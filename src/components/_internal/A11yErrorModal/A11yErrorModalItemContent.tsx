@@ -7,7 +7,7 @@ import Badge from "components/Badge";
 import Link from "components/Typography/Link";
 import BadgeList from "components/BadgeList";
 
-import { Color, getColorByImpact } from "utils/styles";
+import { getColorByImpact } from "utils/styles";
 
 import StatusPill from "../StatusPill";
 import useTheme from "theme/useTheme";
