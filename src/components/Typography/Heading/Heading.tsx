@@ -4,19 +4,18 @@ import { Props as ViewProps } from "types/View";
 import View from "components/View";
 import { ColorType } from "types/css";
 
-// TODO: DOC - Update docs with textColor
 export type Props = {
   size: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
-  textColor?: ColorType;
+  color?: ColorType;
 } & ViewProps;
 
 const Heading: React.FC<Props> = ({
   size = 500,
-  textColor,
+  color,
   children,
   ...restProps
 }) => {
-  const headingStyle = getHeadingStyle(size, textColor);
+  const headingStyle = getHeadingStyle(size, color);
 
   return (
     <View as="h2" marginBottom={0} {...headingStyle} {...restProps}>

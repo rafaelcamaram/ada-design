@@ -18,7 +18,6 @@ export type Props = {
   onClick?: () => void;
 } & ViewProps;
 
-// TODO: DOC - Update docs in order to show that's possible to use colors names
 const Badge: React.FC<Props> = ({
   variant = "default",
   text = "",

@@ -26,8 +26,6 @@ export type Props = {
   labelledBy?: string;
 } & ViewProps;
 
-// TODO: DOC - Add to docs saying that you can customize the SearchInput using nested selector (input and label)
-// TODO: DOC - Add it to docs
 // TODO: DEV - Add hint/error property
 const SearchInput: React.FC<Props> = ({
   id,

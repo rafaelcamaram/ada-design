@@ -17,7 +17,6 @@ export type Props = {
 
 const fontFamilyName = getFontFamilyStyle("ui");
 
-// TODO: DOC - Update docs with new size props, color and etc
 const Text: React.FC<Props> = ({
   as = "span",
   onClick,
