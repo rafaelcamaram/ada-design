@@ -29,6 +29,8 @@ export const getColorByImpact = (impact) => {
 export const getColor = (textColor: ColorType): string => {
   const { colors } = useTheme();
 
+  if (!colors) return;
+
   return textColor && colors.all[textColor as string]
     ? colors.all[textColor as string]
     : textColor || colors.text.textDefault;

@@ -81,6 +81,8 @@ const ADADesignProvider: React.FC<Props> = ({
     }
   };
 
+  if (!A11yContext) return null;
+
   return (
     <ThemeProvider value={value}>
       <A11yContext.Provider

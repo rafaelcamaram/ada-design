@@ -29,10 +29,9 @@ type InitialPropertiesType = {
 };
 
 const Form: React.FC<Props> = ({ schema, onSubmit, validationSchema }) => {
-  const {
-    initialValues,
-    computedValidationSchema,
-  } = useMemo<InitialPropertiesType>(() => {
+  const { initialValues, computedValidationSchema } = useMemo<
+    InitialPropertiesType
+  >(() => {
     return schema.reduce(
       (acc, field) => {
         const strType = field.type || "mixed";

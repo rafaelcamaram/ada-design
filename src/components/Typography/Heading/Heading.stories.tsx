@@ -1,3 +1,4 @@
+import ADADesignProvider from "components/ADADesignProvider";
 import React from "react";
 import Heading from "./Heading";
 
@@ -8,7 +9,7 @@ export default {
 
 // TODO: DEV - Add support for a11y to Heading and Texts
 export const Default = (): React.ReactNode => (
-  <>
+  <ADADesignProvider isEnabled={true}>
     <Heading size={100}>Heading Content</Heading>
     <Heading size={200}>Heading Content</Heading>
     <Heading size={300}>Heading Content</Heading>
@@ -18,5 +19,5 @@ export const Default = (): React.ReactNode => (
     <Heading size={700}>Heading Content</Heading>
     <Heading size={800}>Heading Content</Heading>
     <Heading size={900}>Heading Content</Heading>
-  </>
+  </ADADesignProvider>
 );

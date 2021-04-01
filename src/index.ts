@@ -11,7 +11,7 @@ export { default as ToggleSection } from "./components/ToggleSection";
 export { default as TextInput } from "./components/TextInput";
 export { default as SearchInput } from "./components/SearchInput";
 export { default as TextArea } from "./components/TextArea";
-export { default as Heading } from "./components/Typography/Heading";
+export { default as Heading } from "./components/Typography/Heading/Heading";
 export { default as Label } from "./components/Typography/Label";
 export { default as Link } from "./components/Typography/Link";
 export { default as Text } from "./components/Typography/Text";

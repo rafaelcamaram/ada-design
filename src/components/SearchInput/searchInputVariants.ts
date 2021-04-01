@@ -3,8 +3,10 @@ import { getFontFamilyStyle } from "theme";
 import useTheme from "theme/useTheme";
 import {
   BoxSizingValue,
+  ColorType,
   CrossAxisFlexDefaultValue,
   FlexDirectionValue,
+  UnitValue,
   ViewElementProps,
 } from "types/css";
 
@@ -69,15 +71,23 @@ const getVariantStyles = ({
   };
 };
 
-// TODO: DEV - Set correct type
-export const useVariantStyle: any = ({
+type UseVariantStyleParams = {
+  width: UnitValue;
+  height: UnitValue;
+  isDisabled: boolean;
+  isInvalid: boolean;
+  hiddingLabel: boolean;
+  iconColor: ColorType;
+};
+
+export const useVariantStyle = ({
   width,
   height,
   isDisabled,
   isInvalid,
   hiddingLabel,
   iconColor,
-}): {
+}: UseVariantStyleParams): {
   searchInput: Partial<ViewElementProps>;
   container: Partial<ViewElementProps>;
   icon: Partial<ViewElementProps>;

@@ -3,7 +3,6 @@ import React from "react";
 import Badge from "components/Badge";
 import Divisor from "components/Divisor";
 import Flex from "components/Flex";
-import Heading from "components/Typography/Heading";
 import Link from "components/Typography/Link";
 import Text from "components/Typography/Text";
 import View from "components/View";
@@ -28,11 +27,11 @@ const A11yTooltipError: React.FC<Props> = ({ issue, setIsModalOpen }) => {
         top={15}
         right={15}
       />
-      <Heading size={400} width={250} marginTop={0}>
-        {issue.description}
-      </Heading>
-      <Text color="#060F19" marginTop={5} marginBottom={10}>
+      <Text size={400} fontWeight={500} width={250} marginTop={0}>
         {issue.help}
+      </Text>
+      <Text color="#060F19" marginTop={5} marginBottom={10}>
+        {issue.description}
       </Text>
       <Flex flexDirection="row" marginY={10}>
         <Link target="_blank" href={issue.helpUrl} marginRight={12}>

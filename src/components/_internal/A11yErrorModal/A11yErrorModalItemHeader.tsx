@@ -1,7 +1,7 @@
 import React from "react";
 
 import Flex from "components/Flex";
-import Heading from "components/Typography/Heading";
+import Heading from "components/Typography/Heading/Heading";
 import Text from "components/Typography/Text";
 import View from "components/View";
 import StatusPill from "../StatusPill";
@@ -17,7 +17,7 @@ const A11yErrorModalItemHeader: React.FC<Props> = ({ record }) => {
       <Flex alignItems="center">
         <StatusPill impact={record.impact} />
         <Flex flexDirection="column" marginLeft={12}>
-          <Heading size={400} marginTop={0}>
+          <Heading shouldDisableA11y size={400} marginTop={0}>
             {record.description}
           </Heading>
 

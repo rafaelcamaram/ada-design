@@ -1,6 +1,5 @@
 // import original module declarations
 import "styled-components";
-import COLORS from "theme/colors";
 import { ColorType, UnitValue } from "types/css";
 declare module "styled-components" {
   export type IntentionsType = {

@@ -47,14 +47,17 @@ const renderContent = () => {
     );
   });
 };
-export const DefaultWithCustomTheme = (): React.ReactNode => (
-  <>
-    <ADADesignProvider isEnabled={true}>
-      <Heading size={800} textTransform="capitalize" marginBottom={8}>
-        With the default theme properties
-      </Heading>
-      {renderContent()}
-    </ADADesignProvider>
+export const DefaultTheme = (): React.ReactNode => (
+  <ADADesignProvider isEnabled={true}>
+    <Heading size={800} textTransform="capitalize" marginBottom={8}>
+      With the default theme properties
+    </Heading>
+    {renderContent()}
+  </ADADesignProvider>
+);
+
+export const CustomTheme = (): React.ReactNode => {
+  return (
     <ADADesignProvider
       isEnabled={true}
       value={{
@@ -85,5 +88,5 @@ export const DefaultWithCustomTheme = (): React.ReactNode => (
 
       {renderContent()}
     </ADADesignProvider>
-  </>
-);
+  );
+};
