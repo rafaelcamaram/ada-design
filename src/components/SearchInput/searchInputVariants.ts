@@ -9,6 +9,7 @@ import {
   UnitValue,
   ViewElementProps,
 } from "types/css";
+import { getColor } from "utils/styles";
 
 const fontFamilyName = getFontFamilyStyle("ui");
 
@@ -51,7 +52,7 @@ const getVariantStyles = ({
 
   return {
     icon: {
-      ...(iconColor && { color: iconColor }),
+      ...(iconColor && { color: getColor(iconColor) }),
       ...(isInvalid && { color: palette.red }),
     },
     container: {
@@ -90,7 +91,7 @@ export const useVariantStyle = ({
 }: UseVariantStyleParams): {
   searchInput: Partial<ViewElementProps>;
   container: Partial<ViewElementProps>;
-  icon: Partial<ViewElementProps>;
+  icon: Partial<ViewElementProps> & { color: string };
 } => {
   const { searchInput, container, icon } = getVariantStyles({
     width,

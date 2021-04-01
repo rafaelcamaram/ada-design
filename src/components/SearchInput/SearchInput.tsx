@@ -5,7 +5,7 @@ import Label from "components/Typography/Label";
 import withAccessibilityErrors from "hoc/withAccessibilityErrors";
 import Flex from "components/Flex";
 import { Props as ViewProps } from "types/View";
-import { UnitValue } from "types/css";
+import { ColorType, UnitValue } from "types/css";
 import { useVariantStyle } from "./searchInputVariants";
 import styled from "styled-components";
 
@@ -17,7 +17,7 @@ export type Props = {
   isRequired?: boolean;
   width?: UnitValue;
   height?: UnitValue;
-  iconColor?: string;
+  iconColor?: ColorType;
   label?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
