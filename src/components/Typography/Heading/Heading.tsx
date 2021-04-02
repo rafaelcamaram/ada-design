@@ -3,13 +3,13 @@ import { getHeadingStyle } from "theme";
 import { Props as ViewProps } from "types/View";
 import View from "components/View";
 import { ColorType } from "types/css";
-import withAccessibilityErrors from "hoc/withAccessibilityErrors";
 
 export type Props = {
   size: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
   color?: ColorType;
 } & ViewProps;
 
+// TODO: DEV - Adding A11y to Heading
 const Heading: React.FC<Props> = ({
   size = 500,
   color,
@@ -25,4 +25,4 @@ const Heading: React.FC<Props> = ({
   );
 };
 
-export default withAccessibilityErrors<Props>(Heading);
+export default Heading;
