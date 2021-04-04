@@ -34,6 +34,8 @@ export type AccessibilityProps = {
   shouldShowIncomplete?: boolean;
 };
 
+// TODO: DEV - Test if a11y tests are working fine with hot reloading (code sand box) - test with buttons
+// https://codesandbox.io/s/morning-brook-jmuij?file=/src/App.js
 // TODO: DEV - Maybe add button styles to ThemeProvider as well
 const withAccessibilityErrors = <T,>(Component) => {
   // TODO: DEV - ESLINT - Next line

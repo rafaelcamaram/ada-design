@@ -45,7 +45,7 @@ const A11yContent = memo(
           setIsOpen={setIsDetailedModalVisible}
         />
 
-        <View
+        <TooltipAndContentContainer
           id={componentId}
           width="auto"
           border={
@@ -62,29 +62,25 @@ const A11yContent = memo(
             <Badge
               variant="circle"
               text="*"
+              cursor="pointer"
               color={getColorByImpact(
                 firstViolation?.impact || firstIncompleteIssue?.impact,
               )}
               onClick={() => setIsDetailedModalVisible(true)}
             />
-            <A11yTooltipError
-              issue={violations?.[0]}
-              setIsModalOpen={setIsDetailedModalVisible}
-            />
           </AccessibilityPopoverError>
+          <A11yTooltipError
+            issue={violations?.[0]}
+            setIsModalOpen={setIsDetailedModalVisible}
+          />
           {Component}
-        </View>
+        </TooltipAndContentContainer>
       </View>
     );
   },
 );
 
-const AccessibilityPopoverError = styled(View)`
-  position: absolute;
-  top: -7px;
-  right: -7px;
-  z-index: 1000;
-
+const TooltipAndContentContainer = styled(View)`
   ${ErrorContent} {
     display: none;
   }
@@ -92,8 +88,17 @@ const AccessibilityPopoverError = styled(View)`
   &:hover {
     ${ErrorContent} {
       display: flex;
+      top: 15px;
+      z-index: 9999;
     }
   }
+`;
+
+const AccessibilityPopoverError = styled(View)`
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  z-index: 1000;
 `;
 
 export default A11yContent;

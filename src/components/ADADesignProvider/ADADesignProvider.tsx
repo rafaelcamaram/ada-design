@@ -95,7 +95,7 @@ const ADADesignProvider: React.FC<Props> = ({
           shouldShowIncomplete: shouldShowIncomplete,
         }}
       >
-        <View>{children}</View>
+        {children}
       </A11yContext.Provider>
     </ThemeProvider>
   );
