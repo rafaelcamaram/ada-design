@@ -39,7 +39,7 @@ const A11yContent = memo(
       !firstViolation?.impact && firstIncompleteIssue?.impact;
 
     return (
-      <View key={componentId}>
+      <View key={componentId} display="flex">
         <A11yErrorModal
           passes={passes}
           incomplete={incomplete}
@@ -50,7 +50,6 @@ const A11yContent = memo(
 
         <TooltipAndContentContainer
           id={componentId}
-          width="auto"
           border={
             hasNoViolationsOrIncomplete
               ? DEFAULT_SUCCESS_BORDER

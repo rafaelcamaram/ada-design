@@ -22,7 +22,7 @@ function App() {
         <a href="#main-content">Skip to main content</a>
 
         <ImageWithA11y />
-        <InputWithA11y/>
+        <InputWithA11y />
         <main id="main-content">
           <Button>Test</Button>
         </main>
