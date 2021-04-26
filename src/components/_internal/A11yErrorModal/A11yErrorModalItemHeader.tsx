@@ -17,7 +17,7 @@ const A11yErrorModalItemHeader: React.FC<Props> = ({ record }) => {
       <Flex alignItems="center">
         <StatusPill impact={record.impact} />
         <Flex flexDirection="column" marginLeft={12}>
-          <Heading shouldDisableA11y size={400} marginTop={0}>
+          <Heading size={400} marginTop={0}>
             {record.description}
           </Heading>
 

@@ -10,6 +10,10 @@ const ImageWithA11y = withAccessibilityErrors(() => {
   );
 });
 
+const InputWithA11y = withAccessibilityErrors(() => {
+    return <div><label htmlFor="cardDate">fsfds</label><div><input type="date" id="cardDate" value=""/></div></div>
+})
+
 function App() {
   return (
     <ADADesignProvider isEnabled={true}>
@@ -18,7 +22,7 @@ function App() {
         <a href="#main-content">Skip to main content</a>
 
         <ImageWithA11y />
-
+        <InputWithA11y/>
         <main id="main-content">
           <Button>Test</Button>
         </main>

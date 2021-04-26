@@ -17,8 +17,8 @@ const defaultButtonProps = {
 
 const getLinearGradient = (color, factor) => {
   // TODO: DEV - Figure out a way to use gradients without messing with ADA analysis
+  //   return `linear-gradient(${color}, ${color}30)`;
   return color;
-  // return `linear-gradient(${color}, ${Color(color).darken(factor)})`;
 };
 
 const getVariantStyles = () => {

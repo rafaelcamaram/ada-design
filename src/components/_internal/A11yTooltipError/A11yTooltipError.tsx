@@ -65,7 +65,7 @@ export const ErrorContent = styled(View)`
   flex-direction: column;
   position: absolute;
   top: calc(100% + 5px);
-  left: 100%;
+  left: 5px;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 1);
   border: 1px dashed #ff0000;

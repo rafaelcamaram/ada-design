@@ -15,14 +15,18 @@ export const cssValue = (value: ValueType): string => {
 
 const COLOR_BY_IMPACT = {
   minor: "rgba(255, 68, 0, 0.2)",
-  moderate: "rgba(255, 68, 0, 0.4)",
+  moderate: "rgba(255, 130, 0, 0.4)",
   serious: "rgba(255, 68, 0, 0.6)",
-  critical: "rgba(255, 68, 0, 0.8)",
+  critical: "rgba(255, 0, 0, 0.8)",
   success: "rgba(101, 191, 59, 0.5)",
-  incomplete: "rgb(238, 153, 19)",
+  incomplete: "rgb(238, 153, 19, 0.8)",
 } as const;
 
-export const getColorByImpact = (impact) => {
+export const getColorByImpact = (
+  impact: string,
+  isIncompleteIssue?: boolean,
+): string => {
+  if (isIncompleteIssue) return COLOR_BY_IMPACT.incomplete;
   return COLOR_BY_IMPACT[impact] || COLOR_BY_IMPACT.success;
 };
 

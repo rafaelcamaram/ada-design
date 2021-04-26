@@ -35,6 +35,9 @@ const A11yContent = memo(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data: any;
   }) => {
+    const isIncompleteIssue =
+      !firstViolation?.impact && firstIncompleteIssue?.impact;
+
     return (
       <View key={componentId}>
         <A11yErrorModal
@@ -65,6 +68,7 @@ const A11yContent = memo(
               cursor="pointer"
               color={getColorByImpact(
                 firstViolation?.impact || firstIncompleteIssue?.impact,
+                isIncompleteIssue,
               )}
               onClick={() => setIsDetailedModalVisible(true)}
             />
@@ -97,7 +101,7 @@ const TooltipAndContentContainer = styled(View)`
 const AccessibilityPopoverError = styled(View)`
   position: absolute;
   top: -7px;
-  right: -7px;
+  left: -7px;
   z-index: 1000;
 `;
 
