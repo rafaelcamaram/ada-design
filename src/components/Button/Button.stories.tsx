@@ -54,7 +54,7 @@ export const Default = (): React.ReactNode => (
       <Heading size={500} marginBottom={8}>
         Size Variations
       </Heading>
-      <Flex marginBottom={18}>
+      <Flex marginBottom={18} flexWrap="wrap">
         {SIZE_LIST.map((size, sizeIndex) => {
           return (
             <View key={sizeIndex} marginRight={10}>
@@ -63,6 +63,7 @@ export const Default = (): React.ReactNode => (
                 variant="primary"
                 onClick={() => alert("Default Button Handler")}
                 textTransform="capitalize"
+                marginBottom={6}
               >
                 {size} Size Button
               </Button>

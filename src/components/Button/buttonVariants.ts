@@ -11,13 +11,17 @@ const defaultButtonProps = {
   textDecoration: "none",
   border: "none",
   cursor: "pointer",
-  color: "rgb(66, 90, 112)",
-  borderRadius: "16px",
+  borderRadius: "3px",
+  fontSize: "16px",
+  fontWeight: 400,
+  textAlign: "center",
+  padding: "0 20px",
+  height: "36px",
+  linehHeight: "34px",
+  transition: "background .3s ease,transform .3s ease,color .2s ease",
 };
 
-const getLinearGradient = (color, factor) => {
-  // TODO: DEV - Figure out a way to use gradients without messing with ADA analysis
-  //   return `linear-gradient(${color}, ${color}30)`;
+const getLinearGradient = (color) => {
   return color;
 };
 
@@ -30,9 +34,6 @@ const getVariantStyles = () => {
   return {
     default: {
       ...defaultButtonProps,
-      backgroundColor: "transparent",
-      // backgroundImage: getLinearGradient(palette.white, 0.05),
-      border: `1px solid ${palette.black}30`,
       intentionStyle: {
         default: {
           color: intentions.textDefault,
@@ -50,23 +51,21 @@ const getVariantStyles = () => {
     },
     primary: {
       ...defaultButtonProps,
-      borderRadius: 15,
-      border: `2px solid ${palette.black}30`,
       intentionStyle: {
         default: {
-          background: getLinearGradient(intentions.backgroundDefault, 0.2),
+          background: getLinearGradient(intentions.backgroundDefault),
           color: palette.white,
         },
         success: {
-          background: getLinearGradient(intentions.backgroundSuccess, 0.2),
+          background: getLinearGradient(intentions.backgroundSuccess),
           color: palette.white,
         },
         warning: {
-          background: getLinearGradient(intentions.backgroundWarning, 0.2),
+          background: getLinearGradient(intentions.backgroundWarning),
           color: palette.white,
         },
         danger: {
-          background: getLinearGradient(intentions.backgroundDanger, 0.2),
+          background: getLinearGradient(intentions.backgroundDanger),
           color: palette.white,
         },
       },
@@ -82,7 +81,6 @@ const getVariantStyles = () => {
         success: {
           color: intentions.backgroundSuccess,
         },
-        // TODO: DEV - Simple Warning variation with A11y contrast issue with white background (Default)
         warning: {
           color: intentions.backgroundWarning,
         },
@@ -93,25 +91,21 @@ const getVariantStyles = () => {
     },
     icon: {
       ...defaultButtonProps,
-      borderRadius: "6px",
-      border: `2px solid ${palette.black}30`,
-      paddingX: 10,
-      paddingY: 0,
       intentionStyle: {
         default: {
-          background: getLinearGradient(intentions.backgroundDefault, 0.2),
+          background: getLinearGradient(intentions.backgroundDefault),
           color: palette.white,
         },
         success: {
-          background: getLinearGradient(intentions.backgroundSuccess, 0.2),
+          background: getLinearGradient(intentions.backgroundSuccess),
           color: palette.white,
         },
         warning: {
-          background: getLinearGradient(intentions.backgroundWarning, 0.2),
+          background: getLinearGradient(intentions.backgroundWarning),
           color: palette.white,
         },
         danger: {
-          background: getLinearGradient(intentions.backgroundDanger, 0.2),
+          background: getLinearGradient(intentions.backgroundDanger),
           color: palette.white,
         },
       },
@@ -124,11 +118,11 @@ const smallPadding = {
 } as const;
 
 const mediumPadding = {
-  paddingX: 16,
+  paddingX: 24,
 } as const;
 
 const largePadding = {
-  paddingX: 16,
+  paddingX: 28,
 } as const;
 
 const PaddingBySize = {

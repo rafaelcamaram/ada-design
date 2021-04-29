@@ -7,6 +7,7 @@ import {
 import { defaultTheme } from "theme";
 import View from "components/View";
 import { mergeDeep } from "utils/deepMerge";
+import GlobalStyle from "components/_internal/GlobalStyle";
 
 export type Props = {
   value?: Partial<DefaultTheme>;
@@ -19,6 +20,7 @@ const ThemeProvider: React.FC<Props> = ({ children, value = {} }) => {
 
   return (
     <StyledThemeProvider theme={currentValue}>
+      <GlobalStyle />
       <View>{children}</View>
     </StyledThemeProvider>
   );

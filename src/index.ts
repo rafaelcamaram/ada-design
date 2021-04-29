@@ -17,6 +17,7 @@ export { default as Link } from "./components/Typography/Link";
 export { default as Text } from "./components/Typography/Text";
 export { default as View } from "./components/View";
 export { default as Spacer } from "./components/Spacer";
+export { default as Card } from "./components/Card";
 export { default as withAccessibilityErrors } from "./hoc/withAccessibilityErrors";
 
 // Types

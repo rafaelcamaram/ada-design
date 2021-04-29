@@ -18,6 +18,7 @@ const getHeadingDataset = (textColor: ColorType): Json => {
       letterSpacing: "-0.2px",
       fontFamily: fontFamilies.display,
       color: getColor(textColor),
+      margin: 0,
     },
     "800": {
       fontSize: fontSize.xxlarge,
@@ -26,6 +27,7 @@ const getHeadingDataset = (textColor: ColorType): Json => {
       letterSpacing: "-0.2px",
       fontFamily: fontFamilies.display,
       color: getColor(textColor),
+      margin: 0,
     },
     "700": {
       fontSize: fontSize.xlarge,
@@ -34,6 +36,7 @@ const getHeadingDataset = (textColor: ColorType): Json => {
       letterSpacing: "-0.07px",
       fontFamily: fontFamilies.display,
       color: getColor(textColor),
+      margin: 0,
     },
     "600": {
       fontSize: fontSize.large,
@@ -42,6 +45,7 @@ const getHeadingDataset = (textColor: ColorType): Json => {
       letterSpacing: "-0.07px",
       fontFamily: fontFamilies.display,
       color: getColor(textColor),
+      margin: 0,
     },
     "500": {
       fontSize: fontSize.medium,
@@ -50,6 +54,7 @@ const getHeadingDataset = (textColor: ColorType): Json => {
       letterSpacing: "-0.05px",
       fontFamily: fontFamilies.ui,
       color: getColor(textColor),
+      margin: 0,
     },
     "400": {
       fontSize: fontSize.regular,
@@ -58,6 +63,7 @@ const getHeadingDataset = (textColor: ColorType): Json => {
       letterSpacing: "-0.05px",
       fontFamily: fontFamilies.ui,
       color: getColor(textColor),
+      margin: 0,
     },
     "300": {
       fontSize: fontSize.small,
@@ -66,6 +72,7 @@ const getHeadingDataset = (textColor: ColorType): Json => {
       letterSpacing: "0",
       fontFamily: fontFamilies.ui,
       color: getColor(textColor),
+      margin: 0,
     },
     "200": {
       fontSize: fontSize.small,
@@ -74,6 +81,7 @@ const getHeadingDataset = (textColor: ColorType): Json => {
       letterSpacing: "0",
       fontFamily: fontFamilies.ui,
       color: getColor(textColor),
+      margin: 0,
     },
     "100": {
       fontSize: fontSize.xsmall,
@@ -83,6 +91,7 @@ const getHeadingDataset = (textColor: ColorType): Json => {
       letterSpacing: "0.6px",
       fontFamily: fontFamilies.ui,
       color: getColor(textColor),
+      margin: 0,
     },
   };
 };

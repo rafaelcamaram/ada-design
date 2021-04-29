@@ -5,7 +5,7 @@ export const COLORS = {
   black: "#000000",
   blackWithoutOpacity30: "rgba(0, 0, 0, 0.3)",
   agitatedBlue: "rgb(66, 90, 112)",
-  lochmara: "#0679C6",
+  lochmara: "#445ccc",
   funGreen: "rgb(0, 120, 63)",
   jewel: "#168350",
   rope: "rgb(149, 89, 31)",
